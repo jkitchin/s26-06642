@@ -1,0 +1,28 @@
+# Editor files
+.projectile
+*~
+\#*\#
+.#*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+.python-version
+
+# Jupyter Book build
+_build/
+
+# OS files
+.DS_Store
+Thumbs.db

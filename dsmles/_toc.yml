@@ -12,14 +12,16 @@ parts:
       - file: 01-numpy/numpy
       - file: 02-pandas-intro/pandas-intro
       - file: 03-intermediate-pandas/intermediate-pandas
-      - file: 04-dimensionality-reduction/dimensionality-reduction
-      - file: 05-linear-regression/linear-regression
-      - file: 06-regularization-model-selection/regularization-model-selection
-      - file: 07-nonlinear-methods/nonlinear-methods
-      - file: 08-ensemble-methods/ensemble-methods
-      - file: 09-clustering/clustering
-      - file: 10-uncertainty-quantification/uncertainty-quantification
-      - file: 11-model-interpretability/model-interpretability
+      - file: 04-feature-engineering/feature-engineering
+      - file: 05-dimensionality-reduction/dimensionality-reduction
+      - file: 06-linear-regression/linear-regression
+      - file: 07-classification/classification
+      - file: 08-regularization-model-selection/regularization-model-selection
+      - file: 09-nonlinear-methods/nonlinear-methods
+      - file: 10-ensemble-methods/ensemble-methods
+      - file: 11-clustering/clustering
+      - file: 12-uncertainty-quantification/uncertainty-quantification
+      - file: 13-model-interpretability/model-interpretability
 
   - caption: Optional Lectures
     chapters:
