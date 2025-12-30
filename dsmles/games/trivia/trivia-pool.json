@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "course": "Data Science and Machine Learning for Engineers",
+    "version": "1.0",
+    "total_questions": 55,
+    "description": "Trivia questions organized by lecture, featuring course characters"
+  },
+  "config": {
+    "default_questions_per_round": 5,
+    "time_limit_seconds": 30,
+    "points_per_correct": 10,
+    "bonus_for_streak": 5
+  },
+  "questions": [
+    {
+      "id": "numpy-01",
+      "lecture": "01-numpy",
+      "difficulty": "easy",
+      "character": "Practice Panda",
+      "question": "What NumPy function creates an array of evenly spaced values?",
+      "options": ["np.linspace()", "np.arange()", "np.zeros()", "Both A and B"],
+      "correct": 3,
+      "explanation": "Both linspace() and arange() create evenly spaced arrays - linspace by number of points, arange by step size."
+    },
+    {
+      "id": "numpy-02",
+      "lecture": "01-numpy",
+      "difficulty": "medium",
+      "character": "Practice Panda",
+      "question": "What does broadcasting allow in NumPy?",
+      "options": ["Sending arrays over network", "Operations on arrays of different shapes", "Converting arrays to lists", "Plotting arrays"],
+      "correct": 1,
+      "explanation": "Broadcasting allows NumPy to perform operations on arrays of different shapes by expanding the smaller array."
+    },
+    {
+      "id": "numpy-03",
+      "lecture": "01-numpy",
+      "difficulty": "easy",
+      "character": "Practice Panda",
+      "question": "What attribute gives the dimensions of a NumPy array?",
+      "options": [".size", ".shape", ".ndim", ".dtype"],
+      "correct": 1,
+      "explanation": "The .shape attribute returns a tuple of dimension sizes. .ndim gives number of dimensions."
+    },
+    {
+      "id": "pandas-01",
+      "lecture": "02-pandas-intro",
+      "difficulty": "easy",
+      "character": "Practice Panda",
+      "question": "What pandas function reads a CSV file?",
+      "options": ["pd.load_csv()", "pd.read_csv()", "pd.open_csv()", "pd.import_csv()"],
+      "correct": 1,
+      "explanation": "pd.read_csv() is the standard function for reading CSV files into a DataFrame."
+    },
+    {
+      "id": "pandas-02",
+      "lecture": "02-pandas-intro",
+      "difficulty": "medium",
+      "character": "Nadia Null",
+      "question": "What method detects missing values in pandas?",
+      "options": [".missing()", ".isna()", ".empty()", ".null()"],
+      "correct": 1,
+      "explanation": "Nadia Null reminds you: .isna() and .isnull() both detect missing values!"
+    },
+    {
+      "id": "pandas-03",
+      "lecture": "02-pandas-intro",
+      "difficulty": "easy",
+      "character": "Practice Panda",
+      "question": "What's the difference between .loc and .iloc?",
+      "options": [".loc is faster", ".loc uses labels, .iloc uses integer position", "They are identical", ".iloc uses labels"],
+      "correct": 1,
+      "explanation": ".loc uses row/column labels, while .iloc uses integer-based indexing."
+    },
+    {
+      "id": "pandas-04",
+      "lecture": "03-intermediate-pandas",
+      "difficulty": "medium",
+      "character": "Nadia Null",
+      "question": "Which is NOT a valid strategy for handling missing data?",
+      "options": ["Drop rows with missing values", "Fill with mean", "Ignore completely", "Impute with model"],
+      "correct": 2,
+      "explanation": "Nadia Null says: Never ignore me! Ignoring missing data can lead to biased results."
+    },
+    {
+      "id": "pandas-05",
+      "lecture": "03-intermediate-pandas",
+      "difficulty": "medium",
+      "character": "Otto Outlier",
+      "question": "What does the IQR method use to detect outliers?",
+      "options": ["Mean ± 2 std", "Q1 - 1.5*IQR and Q3 + 1.5*IQR", "Median ± range", "Min and max values"],
+      "correct": 1,
+      "explanation": "Otto Outlier: The IQR method flags points outside Q1-1.5*IQR or Q3+1.5*IQR as potential outliers."
+    },
+    {
+      "id": "pandas-06",
+      "lecture": "03-intermediate-pandas",
+      "difficulty": "hard",
+      "character": "Cora Correlation",
+      "question": "A correlation of -0.95 indicates:",
+      "options": ["Weak relationship", "Strong positive relationship", "Strong negative relationship", "No relationship"],
+      "correct": 2,
+      "explanation": "Cora Correlation: A correlation near -1 means a strong negative linear relationship."
+    },
+    {
+      "id": "pandas-07",
+      "lecture": "03-intermediate-pandas",
+      "difficulty": "hard",
+      "character": "Cora Correlation",
+      "question": "Why doesn't correlation imply causation?",
+      "options": ["Correlation is always wrong", "Third variables may cause both", "Causation requires r > 0.9", "Statistics can't show causation"],
+      "correct": 1,
+      "explanation": "Cora says: Correlation can arise from confounding variables, reverse causation, or coincidence!"
+    },
+    {
+      "id": "dimred-01",
+      "lecture": "04-dimensionality-reduction",
+      "difficulty": "medium",
+      "character": "Dee Dimension",
+      "question": "What does PCA maximize?",
+      "options": ["Distance between points", "Variance explained", "Number of features", "Correlation"],
+      "correct": 1,
+      "explanation": "Dee Dimension: PCA finds directions that maximize variance in the data."
+    },
+    {
+      "id": "dimred-02",
+      "lecture": "04-dimensionality-reduction",
+      "difficulty": "medium",
+      "character": "Dee Dimension",
+      "question": "What should you do before applying PCA?",
+      "options": ["Remove outliers", "Scale/standardize features", "Remove correlated features", "Log transform"],
+      "correct": 1,
+      "explanation": "Features should be standardized so variables with larger scales don't dominate."
+    },
+    {
+      "id": "dimred-03",
+      "lecture": "04-dimensionality-reduction",
+      "difficulty": "hard",
+      "character": "Dee Dimension",
+      "question": "Why can't t-SNE be used to transform new data points?",
+      "options": ["It's too slow", "It's non-parametric and iterative", "It only works on small datasets", "It requires labels"],
+      "correct": 1,
+      "explanation": "t-SNE optimizes an objective for specific points - new points would change the entire embedding."
+    },
+    {
+      "id": "dimred-04",
+      "lecture": "04-dimensionality-reduction",
+      "difficulty": "easy",
+      "character": "Viz Vizzy",
+      "question": "What plot helps decide how many PCA components to keep?",
+      "options": ["Box plot", "Scree plot", "Scatter plot", "Bar chart"],
+      "correct": 1,
+      "explanation": "Viz Vizzy: A scree plot shows variance explained by each component - look for the elbow!"
+    },
+    {
+      "id": "linreg-01",
+      "lecture": "05-linear-regression",
+      "difficulty": "easy",
+      "character": "Reggie Regression",
+      "question": "What does OLS minimize?",
+      "options": ["Mean absolute error", "Sum of squared residuals", "Maximum error", "R-squared"],
+      "correct": 1,
+      "explanation": "Reggie Regression: Ordinary Least Squares minimizes the sum of squared differences between predictions and actual values."
+    },
+    {
+      "id": "linreg-02",
+      "lecture": "05-linear-regression",
+      "difficulty": "medium",
+      "character": "Reggie Regression",
+      "question": "What does R² = 0.85 mean?",
+      "options": ["85% prediction accuracy", "85% of variance is explained", "85% of points are on the line", "Correlation is 0.85"],
+      "correct": 1,
+      "explanation": "R² indicates the proportion of variance in the target explained by the model."
+    },
+    {
+      "id": "linreg-03",
+      "lecture": "05-linear-regression",
+      "difficulty": "hard",
+      "character": "Val Validation",
+      "question": "What is data leakage?",
+      "options": ["Missing data", "Using test data during training", "Overfitting", "Underfitting"],
+      "correct": 1,
+      "explanation": "Val Validation warns: Data leakage occurs when information from the test set influences training!"
+    },
+    {
+      "id": "linreg-04",
+      "lecture": "05-linear-regression",
+      "difficulty": "medium",
+      "character": "Otto Outlier",
+      "question": "How do outliers affect OLS regression?",
+      "options": ["No effect", "Disproportionately influence the fit", "Always improve R²", "Reduce variance"],
+      "correct": 1,
+      "explanation": "Otto Outlier: I can pull the regression line toward me significantly because errors are squared!"
+    },
+    {
+      "id": "regular-01",
+      "lecture": "06-regularization-model-selection",
+      "difficulty": "medium",
+      "character": "Ridge & Lasso",
+      "question": "What's the key difference between Ridge and Lasso?",
+      "options": ["Speed", "Ridge uses L2, Lasso uses L1 penalty", "Accuracy", "Ridge is always better"],
+      "correct": 1,
+      "explanation": "Ridge uses L2 (squared) penalty, Lasso uses L1 (absolute) penalty."
+    },
+    {
+      "id": "regular-02",
+      "lecture": "06-regularization-model-selection",
+      "difficulty": "hard",
+      "character": "Ridge & Lasso",
+      "question": "When would you prefer Lasso over Ridge?",
+      "options": ["When you need feature selection", "When features are correlated", "When you have few features", "Always"],
+      "correct": 0,
+      "explanation": "Lasso can drive coefficients to exactly zero, performing automatic feature selection."
+    },
+    {
+      "id": "regular-03",
+      "lecture": "06-regularization-model-selection",
+      "difficulty": "medium",
+      "character": "Barry Bias-Variance",
+      "question": "What happens as regularization strength increases?",
+      "options": ["Bias increases, variance decreases", "Both increase", "Both decrease", "Variance increases"],
+      "correct": 0,
+      "explanation": "Barry says: Stronger regularization → simpler model → higher bias but lower variance."
+    },
+    {
+      "id": "regular-04",
+      "lecture": "06-regularization-model-selection",
+      "difficulty": "medium",
+      "character": "Val Validation",
+      "question": "What is k-fold cross-validation?",
+      "options": ["Using k features", "Splitting data into k parts, training k times", "Training for k iterations", "Using k models"],
+      "correct": 1,
+      "explanation": "Val Validation: In k-fold CV, each fold serves as test set once while others train."
+    },
+    {
+      "id": "nonlinear-01",
+      "lecture": "07-nonlinear-methods",
+      "difficulty": "medium",
+      "character": "Professor Pipeline",
+      "question": "What does polynomial feature expansion do?",
+      "options": ["Reduces features", "Creates interaction and power terms", "Normalizes data", "Removes outliers"],
+      "correct": 1,
+      "explanation": "Polynomial expansion creates new features like x², xy, y² to capture nonlinear relationships."
+    },
+    {
+      "id": "nonlinear-02",
+      "lecture": "07-nonlinear-methods",
+      "difficulty": "hard",
+      "character": "Barry Bias-Variance",
+      "question": "High polynomial degree leads to:",
+      "options": ["Underfitting", "Overfitting", "Better generalization", "Reduced variance"],
+      "correct": 1,
+      "explanation": "Barry warns: High-degree polynomials fit training data perfectly but generalize poorly!"
+    },
+    {
+      "id": "ensemble-01",
+      "lecture": "08-ensemble-methods",
+      "difficulty": "medium",
+      "character": "Forrest Random",
+      "question": "What is bagging?",
+      "options": ["Feature selection", "Bootstrap aggregating", "Boosting", "Pruning trees"],
+      "correct": 1,
+      "explanation": "Forrest Random: Bagging trains models on bootstrap samples and aggregates predictions."
+    },
+    {
+      "id": "ensemble-02",
+      "lecture": "08-ensemble-methods",
+      "difficulty": "medium",
+      "character": "Forrest Random",
+      "question": "Why does Random Forest also randomize features?",
+      "options": ["Speed", "To reduce correlation between trees", "Memory savings", "Accuracy"],
+      "correct": 1,
+      "explanation": "If all trees used all features, they'd be correlated. Feature randomization creates diversity."
+    },
+    {
+      "id": "ensemble-03",
+      "lecture": "08-ensemble-methods",
+      "difficulty": "hard",
+      "character": "Greta Gradient-Boost",
+      "question": "How does boosting differ from bagging?",
+      "options": ["Boosting trains sequentially on errors", "Bagging is sequential", "They're identical", "Boosting uses more trees"],
+      "correct": 0,
+      "explanation": "Greta says: Boosting trains each model to correct errors of previous ones - sequential learning!"
+    },
+    {
+      "id": "ensemble-04",
+      "lecture": "08-ensemble-methods",
+      "difficulty": "medium",
+      "character": "Greta Gradient-Boost",
+      "question": "What does a low learning rate in XGBoost do?",
+      "options": ["Speeds training", "Requires more trees but often better generalization", "Reduces accuracy", "Increases overfitting"],
+      "correct": 1,
+      "explanation": "Lower learning rates make smaller updates, requiring more iterations but often generalizing better."
+    },
+    {
+      "id": "cluster-01",
+      "lecture": "09-clustering",
+      "difficulty": "easy",
+      "character": "Clara Cluster",
+      "question": "Is clustering supervised or unsupervised?",
+      "options": ["Supervised", "Unsupervised", "Semi-supervised", "Reinforcement"],
+      "correct": 1,
+      "explanation": "Clara Cluster: I find patterns without labels - that's unsupervised learning!"
+    },
+    {
+      "id": "cluster-02",
+      "lecture": "09-clustering",
+      "difficulty": "medium",
+      "character": "Clara Cluster",
+      "question": "What does k-means try to minimize?",
+      "options": ["Number of clusters", "Within-cluster variance", "Between-cluster distance", "Number of iterations"],
+      "correct": 1,
+      "explanation": "K-means minimizes the sum of squared distances from points to their cluster centers."
+    },
+    {
+      "id": "cluster-03",
+      "lecture": "09-clustering",
+      "difficulty": "medium",
+      "character": "Clara Cluster",
+      "question": "What method helps choose the optimal k for k-means?",
+      "options": ["Cross-validation", "Elbow method with inertia", "R-squared", "Feature importance"],
+      "correct": 1,
+      "explanation": "The elbow method plots inertia vs k - look for where adding clusters stops helping much."
+    },
+    {
+      "id": "cluster-04",
+      "lecture": "09-clustering",
+      "difficulty": "hard",
+      "character": "Clara Cluster",
+      "question": "When would you prefer DBSCAN over k-means?",
+      "options": ["When k is known", "For non-spherical clusters and outlier detection", "For high-dimensional data", "Always"],
+      "correct": 1,
+      "explanation": "DBSCAN finds arbitrary-shaped clusters and automatically identifies outliers as noise points."
+    },
+    {
+      "id": "cluster-05",
+      "lecture": "09-clustering",
+      "difficulty": "medium",
+      "character": "Viz Vizzy",
+      "question": "What visualization shows hierarchical clustering?",
+      "options": ["Scree plot", "Dendrogram", "Heat map", "Box plot"],
+      "correct": 1,
+      "explanation": "Viz Vizzy: A dendrogram shows the tree structure of hierarchical clustering merges!"
+    },
+    {
+      "id": "uq-01",
+      "lecture": "10-uncertainty-quantification",
+      "difficulty": "medium",
+      "character": "Quinn Quantify",
+      "question": "What's the difference between confidence and prediction intervals?",
+      "options": ["They're the same", "Confidence for mean, prediction for new points", "Prediction is always wider", "Confidence is always wider"],
+      "correct": 1,
+      "explanation": "Quinn Quantify: Confidence intervals are for the mean prediction; prediction intervals add noise variance for individual points."
+    },
+    {
+      "id": "uq-02",
+      "lecture": "10-uncertainty-quantification",
+      "difficulty": "hard",
+      "character": "Quinn Quantify",
+      "question": "Why are prediction intervals wider than confidence intervals?",
+      "options": ["They include measurement noise", "They use more data", "Calculation error", "They're not wider"],
+      "correct": 0,
+      "explanation": "Prediction intervals must account for irreducible noise in individual observations."
+    },
+    {
+      "id": "uq-03",
+      "lecture": "10-uncertainty-quantification",
+      "difficulty": "medium",
+      "character": "Quinn Quantify",
+      "question": "How can ensemble methods provide uncertainty estimates?",
+      "options": ["They can't", "Using variance across ensemble predictions", "Using feature importance", "Using learning rate"],
+      "correct": 1,
+      "explanation": "The spread of predictions across trees/models gives a measure of uncertainty."
+    },
+    {
+      "id": "uq-04",
+      "lecture": "10-uncertainty-quantification",
+      "difficulty": "hard",
+      "character": "Quinn Quantify",
+      "question": "What is epistemic uncertainty?",
+      "options": ["Measurement noise", "Uncertainty due to limited knowledge/data", "Random error", "Calculation error"],
+      "correct": 1,
+      "explanation": "Epistemic uncertainty comes from limited knowledge - it can be reduced with more data."
+    },
+    {
+      "id": "interp-01",
+      "lecture": "11-model-interpretability",
+      "difficulty": "medium",
+      "character": "SHAP Shapley",
+      "question": "What do SHAP values measure?",
+      "options": ["Model accuracy", "Feature contribution to prediction", "Data quality", "Training time"],
+      "correct": 1,
+      "explanation": "SHAP Shapley: I fairly distribute credit/blame for each prediction among features!"
+    },
+    {
+      "id": "interp-02",
+      "lecture": "11-model-interpretability",
+      "difficulty": "hard",
+      "character": "SHAP Shapley",
+      "question": "Why is SHAP based on game theory?",
+      "options": ["It involves games", "Fair allocation from cooperative game theory", "It's random", "Historical reasons"],
+      "correct": 1,
+      "explanation": "SHAP uses Shapley values from game theory to fairly allocate 'payoff' (prediction) among 'players' (features)."
+    },
+    {
+      "id": "interp-03",
+      "lecture": "11-model-interpretability",
+      "difficulty": "medium",
+      "character": "SHAP Shapley",
+      "question": "What's the difference between local and global interpretability?",
+      "options": ["Local explains one prediction, global explains overall model", "Local is faster", "Global is more accurate", "They're identical"],
+      "correct": 0,
+      "explanation": "Local interpretability explains individual predictions; global explains overall model behavior."
+    },
+    {
+      "id": "interp-04",
+      "lecture": "11-model-interpretability",
+      "difficulty": "medium",
+      "character": "Professor Pipeline",
+      "question": "Why is model interpretability important in chemical engineering?",
+      "options": ["It's not important", "To verify predictions make physical sense", "To increase accuracy", "For faster training"],
+      "correct": 1,
+      "explanation": "Professor Pipeline: In engineering, we must ensure models respect physical laws and domain knowledge."
+    },
+    {
+      "id": "general-01",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Val Validation",
+      "question": "Why split data into train/validation/test sets?",
+      "options": ["To use all data", "To evaluate generalization honestly", "To speed training", "It's not necessary"],
+      "correct": 1,
+      "explanation": "Val Validation: Test set must remain untouched until final evaluation to honestly assess generalization!"
+    },
+    {
+      "id": "general-02",
+      "lecture": "general",
+      "difficulty": "easy",
+      "character": "Val Validation",
+      "question": "What does overfitting mean?",
+      "options": ["Model is too simple", "Model memorizes training data but fails on new data", "Too much training data", "Too few features"],
+      "correct": 1,
+      "explanation": "An overfit model captures noise in training data, harming generalization to new data."
+    },
+    {
+      "id": "general-03",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Barry Bias-Variance",
+      "question": "A model with high bias tends to:",
+      "options": ["Overfit", "Underfit", "Be perfect", "Have high variance"],
+      "correct": 1,
+      "explanation": "Barry Bias-Variance: High bias = too simple model = underfitting!"
+    },
+    {
+      "id": "general-04",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Professor Pipeline",
+      "question": "What is the typical data science workflow order?",
+      "options": ["Model → Clean → Explore", "Clean → Explore → Model → Validate", "Validate → Model → Explore", "Explore → Validate → Clean"],
+      "correct": 1,
+      "explanation": "Professor Pipeline: First clean, then explore, then model, then validate!"
+    },
+    {
+      "id": "general-05",
+      "lecture": "general",
+      "difficulty": "hard",
+      "character": "Query Quinn",
+      "question": "What question should you always ask before modeling?",
+      "options": ["What algorithm to use?", "What would success look like?", "How to get more data?", "Which features to use?"],
+      "correct": 1,
+      "explanation": "Query Quinn: Before diving in, define what success means - accuracy needed, interpretability required, etc."
+    },
+    {
+      "id": "general-06",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Doc Douglas",
+      "question": "Why document your modeling choices?",
+      "options": ["For grades", "For reproducibility and future reference", "To slow down", "It's not important"],
+      "correct": 1,
+      "explanation": "Doc Douglas: Future you will thank present you for documenting why you made each choice!"
+    },
+    {
+      "id": "cheme-01",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Professor Pipeline",
+      "question": "In process data, what might cause autocorrelation in residuals?",
+      "options": ["Random noise", "Time-dependent dynamics not captured by model", "Good model fit", "Feature scaling"],
+      "correct": 1,
+      "explanation": "Process measurements are often time-correlated; ignoring dynamics can lead to autocorrelated errors."
+    },
+    {
+      "id": "cheme-02",
+      "lecture": "general",
+      "difficulty": "hard",
+      "character": "Otto Outlier",
+      "question": "In reactor data, an outlier might indicate:",
+      "options": ["Bad measurement only", "Unusual operating condition worth investigating", "Always delete it", "Model is wrong"],
+      "correct": 1,
+      "explanation": "Otto Outlier: In chemical engineering, I might represent a process upset, runaway, or important edge case!"
+    },
+    {
+      "id": "cheme-03",
+      "lecture": "general",
+      "difficulty": "medium",
+      "character": "Val Validation",
+      "question": "Why might random train/test splits be inappropriate for process data?",
+      "options": ["Too slow", "Time-series data requires temporal splits", "Not enough data", "Random is always best"],
+      "correct": 1,
+      "explanation": "Val Validation: For time-series, train on past data and test on future data to simulate real deployment."
+    }
+  ]
+}

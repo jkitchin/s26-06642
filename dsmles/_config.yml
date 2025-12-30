@@ -1,0 +1,57 @@
+# Book settings
+title: Data Science and Machine Learning in Chemical Engineering
+author: John Kitchin
+copyright: "2026"
+logo: logo.png
+
+# Force re-execution of notebooks on each build
+execute:
+  execute_notebooks: auto
+  timeout: 300
+  allow_errors: false
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/jkitchin/s26-06642
+  path_to_book: dsmles
+  branch: main
+
+# Add GitHub buttons to your book
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  home_page_in_navbar: true
+
+# Launch button settings
+launch_buttons:
+  notebook_interface: classic
+  binderhub_url: ""
+  colab_url: "https://colab.research.google.com"
+
+sphinx:
+  extra_extensions:
+    - sphinx.ext.intersphinx
+  config:
+    intersphinx_mapping:
+      python:
+        - "https://docs.python.org/3/"
+        - null
+      numpy:
+        - "https://numpy.org/doc/stable/"
+        - null
+      pandas:
+        - "https://pandas.pydata.org/docs/"
+        - null
+      sklearn:
+        - "https://scikit-learn.org/stable/"
+        - null

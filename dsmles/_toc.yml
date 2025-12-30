@@ -1,0 +1,41 @@
+# Table of contents
+format: jb-book
+root: intro
+parts:
+  - caption: Course Information
+    chapters:
+      - file: syllabus
+
+  - caption: Lectures
+    chapters:
+      - file: 00-introduction/introduction
+      - file: 01-numpy/numpy
+      - file: 02-pandas-intro/pandas-intro
+      - file: 03-intermediate-pandas/intermediate-pandas
+      - file: 04-dimensionality-reduction/dimensionality-reduction
+      - file: 05-linear-regression/linear-regression
+      - file: 06-regularization-model-selection/regularization-model-selection
+      - file: 07-nonlinear-methods/nonlinear-methods
+      - file: 08-ensemble-methods/ensemble-methods
+      - file: 09-clustering/clustering
+      - file: 10-uncertainty-quantification/uncertainty-quantification
+      - file: 11-model-interpretability/model-interpretability
+
+  - caption: Optional Lectures
+    chapters:
+      - file: optional/databases
+      - file: optional/deep-learning
+      - file: optional/symbolic-regression
+      - file: optional/llms-for-research
+
+  - caption: Assignments
+    chapters:
+      - file: assignments/index
+
+  - caption: Project
+    chapters:
+      - file: assignments/project
+
+  - caption: Reference
+    chapters:
+      - file: summary

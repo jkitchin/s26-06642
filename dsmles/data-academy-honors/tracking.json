@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0",
+  "program": "Data Academy Honors",
+  "description": "Progress tracking for badge and rank achievement",
+
+  "student": {
+    "id": "",
+    "name": "",
+    "start_date": "",
+    "current_rank": null
+  },
+
+  "badges": {
+    "data_wrangler": {
+      "name": "Data Wrangler",
+      "icon": "🔍",
+      "lectures": ["01-numpy", "02-pandas-intro", "03-intermediate-pandas"],
+      "status": "not_started",
+      "requirements": {
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "assignments": {
+          "required": ["assignment-01", "assignment-02", "assignment-03"],
+          "completed": [],
+          "met": false
+        },
+        "badge_activity": {
+          "chosen": null,
+          "options": ["eda_report", "data_cleaning_challenge", "missing_data_investigation"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "pattern_seeker": {
+      "name": "Pattern Seeker",
+      "icon": "🗜️",
+      "lectures": ["04-dimensionality-reduction"],
+      "status": "not_started",
+      "requirements": {
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "assignments": {
+          "required": ["assignment-04"],
+          "completed": [],
+          "met": false
+        },
+        "badge_activity": {
+          "chosen": null,
+          "options": ["spectra_analysis", "process_visualization", "feature_study"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "model_builder": {
+      "name": "Model Builder",
+      "icon": "🎯",
+      "lectures": ["05-linear-regression", "06-regularization-model-selection", "07-nonlinear-methods"],
+      "status": "not_started",
+      "requirements": {
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "assignments": {
+          "required": ["assignment-05", "assignment-06", "assignment-07"],
+          "completed": [],
+          "met": false
+        },
+        "badge_activity": {
+          "chosen": null,
+          "options": ["property_prediction", "regularization_study", "cross_validation_demo"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "ensemble_master": {
+      "name": "Ensemble Master",
+      "icon": "🌲",
+      "lectures": ["08-ensemble-methods", "09-clustering"],
+      "status": "not_started",
+      "requirements": {
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "assignments": {
+          "required": ["assignment-08", "assignment-09"],
+          "completed": [],
+          "met": false
+        },
+        "badge_activity": {
+          "chosen": null,
+          "options": ["ensemble_comparison", "molecule_clustering", "process_segmentation"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "uncertainty_expert": {
+      "name": "Uncertainty Expert",
+      "icon": "📏",
+      "lectures": ["10-uncertainty-quantification", "11-model-interpretability"],
+      "status": "not_started",
+      "requirements": {
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "assignments": {
+          "required": ["assignment-10", "assignment-11"],
+          "completed": [],
+          "met": false
+        },
+        "badge_activity": {
+          "chosen": null,
+          "options": ["uncertainty_report", "shap_analysis", "risk_communication"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    }
+  },
+
+  "ranks": {
+    "data_apprentice": {
+      "name": "Data Apprentice",
+      "icon": "🔍",
+      "status": "not_started",
+      "requirements": {
+        "badges_required": 1,
+        "badges_earned": 0,
+        "capstone": {
+          "type": "reflection_essay",
+          "title": "How Data Science Changed My View of Chemical Engineering Problems",
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "data_analyst": {
+      "name": "Data Analyst",
+      "icon": "📊",
+      "status": "locked",
+      "requirements": {
+        "badges_required": 2,
+        "badges_earned": 0,
+        "midterm": {
+          "required_score": 70,
+          "actual_score": null,
+          "met": false
+        },
+        "capstone": {
+          "type": null,
+          "options": ["analysis_presentation", "peer_teaching"],
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "data_scientist": {
+      "name": "Data Scientist",
+      "icon": "🎯",
+      "status": "locked",
+      "requirements": {
+        "badges_required": 4,
+        "badges_earned": 0,
+        "quiz_average": {
+          "required": 75,
+          "current": null,
+          "met": false
+        },
+        "field_experience": {
+          "type": null,
+          "options": ["research_collaboration", "industry_connection", "kaggle_competition", "professional_development"],
+          "submitted": false,
+          "approved": false
+        },
+        "capstone": {
+          "type": "modeling_project",
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    },
+    "senior_data_scientist": {
+      "name": "Senior Data Scientist",
+      "icon": "🏆",
+      "status": "locked",
+      "requirements": {
+        "badges_required": 5,
+        "badges_earned": 0,
+        "final_exam": {
+          "required_score": 70,
+          "actual_score": null,
+          "met": false
+        },
+        "project": {
+          "submitted": false,
+          "grade": null,
+          "meets_distinction": false
+        },
+        "capstone": {
+          "type": "uq_presentation",
+          "title": "Presentation with Full Uncertainty Quantification",
+          "submitted": false,
+          "approved": false
+        }
+      },
+      "earned_date": null
+    }
+  },
+
+  "quiz_scores": {
+    "01-numpy": null,
+    "02-pandas-intro": null,
+    "03-intermediate-pandas": null,
+    "04-dimensionality-reduction": null,
+    "05-linear-regression": null,
+    "06-regularization-model-selection": null,
+    "07-nonlinear-methods": null,
+    "08-ensemble-methods": null,
+    "09-clustering": null,
+    "10-uncertainty-quantification": null,
+    "11-model-interpretability": null
+  },
+
+  "exam_scores": {
+    "midterm": null,
+    "final": null
+  },
+
+  "history": []
+}

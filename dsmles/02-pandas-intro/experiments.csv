@@ -1,0 +1,11 @@
+experiment_id,temperature,pressure,catalyst,conversion,selectivity,notes
+EXP001,300,1.0,Pt/Al2O3,0.45,0.92,baseline
+EXP002,350,1.0,Pt/Al2O3,0.58,0.89,
+EXP003,400,1.0,Pt/Al2O3,0.72,0.85,
+EXP004,400,2.0,Pt/Al2O3,0.78,0.83,high pressure
+EXP005,400,1.0,Pd/Al2O3,0.65,0.91,different catalyst
+EXP006,450,1.0,Pt/Al2O3,0.81,0.79,
+EXP007,450,1.5,Pt/Al2O3,0.85,0.77,
+EXP008,500,1.0,Pt/Al2O3,0.89,0.71,high temp
+EXP009,500,1.0,Pd/Al2O3,,0.82,catalyst test - no conversion data
+EXP010,350,1.0,Pt/Al2O3,0.57,0.90,replicate of EXP002

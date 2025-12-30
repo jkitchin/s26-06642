@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "course": "Data Science and Machine Learning for Engineers",
+    "version": "1.0",
+    "description": "Scavenger hunts across web, literature, and codebase"
+  },
+  "hunt_types": {
+    "web": "Find resources and documentation online",
+    "literature": "Find and analyze scientific papers",
+    "codebase": "Explore course notebooks and code",
+    "dataset": "Find and evaluate datasets"
+  },
+  "hunts": [
+    {
+      "id": "hunt-datasets-01",
+      "name": "Dataset Discovery",
+      "type": "dataset",
+      "difficulty": "easy",
+      "lectures_required": ["02-pandas-intro"],
+      "description": "Find interesting chemical engineering datasets for practice",
+      "tasks": [
+        {
+          "task": "Find a dataset on Kaggle related to chemical processes or materials",
+          "deliverable": "Link to dataset with 1-sentence description of what it contains",
+          "points": 10
+        },
+        {
+          "task": "Find a dataset from UCI Machine Learning Repository related to chemistry or engineering",
+          "deliverable": "Link and brief description of prediction task it could support",
+          "points": 10
+        },
+        {
+          "task": "Find a government or research dataset with process measurements",
+          "deliverable": "Link and description of variables included",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Load one of your found datasets and show df.info() output",
+        "points": 10
+      },
+      "total_points": 45
+    },
+    {
+      "id": "hunt-sklearn-01",
+      "name": "scikit-learn Explorer",
+      "type": "web",
+      "difficulty": "easy",
+      "lectures_required": ["05-linear-regression"],
+      "description": "Navigate scikit-learn documentation to find key resources",
+      "tasks": [
+        {
+          "task": "Find the scikit-learn User Guide page for Linear Models",
+          "deliverable": "Link to page",
+          "points": 5
+        },
+        {
+          "task": "Find documentation for train_test_split function",
+          "deliverable": "Link and list 3 important parameters",
+          "points": 10
+        },
+        {
+          "task": "Find an example in scikit-learn gallery using Ridge or Lasso",
+          "deliverable": "Link to example and 1-sentence summary of what it demonstrates",
+          "points": 10
+        },
+        {
+          "task": "Find the API reference for Pipeline",
+          "deliverable": "Link and explain why Pipelines prevent data leakage",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Find the scikit-learn MOOC (online course) and report one insight from it",
+        "points": 10
+      },
+      "total_points": 50
+    },
+    {
+      "id": "hunt-visualization-01",
+      "name": "Visualization Gallery",
+      "type": "web",
+      "difficulty": "easy",
+      "lectures_required": ["02-pandas-intro", "03-intermediate-pandas"],
+      "description": "Viz Vizzy's hunt: Find inspiring data visualizations",
+      "tasks": [
+        {
+          "task": "Find the Matplotlib gallery of plot examples",
+          "deliverable": "Link to gallery",
+          "points": 5
+        },
+        {
+          "task": "Find a seaborn example that would work well for correlation analysis",
+          "deliverable": "Link and explain why it's good for correlations",
+          "points": 10
+        },
+        {
+          "task": "Find an example of a PCA visualization (scores plot or biplot)",
+          "deliverable": "Link or image with explanation of what it shows",
+          "points": 10
+        },
+        {
+          "task": "Find an example of a SHAP summary plot in the SHAP documentation",
+          "deliverable": "Link and explanation of how to read it",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Create one of the visualizations you found using course data",
+        "points": 15
+      },
+      "total_points": 55
+    },
+    {
+      "id": "hunt-papers-01",
+      "name": "Machine Learning in ChemE",
+      "type": "literature",
+      "difficulty": "medium",
+      "lectures_required": ["05-linear-regression", "08-ensemble-methods"],
+      "description": "Find papers applying ML to chemical engineering problems",
+      "tasks": [
+        {
+          "task": "Find a paper using machine learning for property prediction (viscosity, density, etc.)",
+          "deliverable": "Citation, what property was predicted, and what features were used",
+          "points": 15
+        },
+        {
+          "task": "Find a paper using ML for process optimization or control",
+          "deliverable": "Citation and 1-paragraph summary of the approach",
+          "points": 15
+        },
+        {
+          "task": "Find a paper that compares multiple ML algorithms on a ChemE problem",
+          "deliverable": "Citation and which algorithm performed best (and why they thought so)",
+          "points": 20
+        }
+      ],
+      "bonus": {
+        "task": "Find a paper that discusses uncertainty quantification in ML predictions",
+        "points": 15
+      },
+      "total_points": 65
+    },
+    {
+      "id": "hunt-papers-02",
+      "name": "The Overfitting Hunt",
+      "type": "literature",
+      "difficulty": "hard",
+      "lectures_required": ["06-regularization-model-selection"],
+      "description": "Barry Bias-Variance's challenge: Find cautionary tales about overfitting",
+      "tasks": [
+        {
+          "task": "Find a paper or article discussing ML failures due to overfitting or data leakage",
+          "deliverable": "Link/citation and description of what went wrong",
+          "points": 20
+        },
+        {
+          "task": "Find the paper 'Leakage in data mining' by Kaufman et al. or similar foundational paper",
+          "deliverable": "Citation and key recommendations from the paper",
+          "points": 15
+        },
+        {
+          "task": "Find an example where a published model couldn't be reproduced",
+          "deliverable": "Description of the case and what might have caused it",
+          "points": 20
+        }
+      ],
+      "bonus": {
+        "task": "Find a paper about best practices for ML reproducibility in science",
+        "points": 15
+      },
+      "total_points": 70
+    },
+    {
+      "id": "hunt-xgboost-01",
+      "name": "XGBoost Deep Dive",
+      "type": "web",
+      "difficulty": "medium",
+      "lectures_required": ["08-ensemble-methods"],
+      "description": "Greta Gradient-Boost's hunt: Master XGBoost documentation",
+      "tasks": [
+        {
+          "task": "Find the XGBoost documentation page on parameters",
+          "deliverable": "Link",
+          "points": 5
+        },
+        {
+          "task": "Find and explain 3 important hyperparameters and their effects",
+          "deliverable": "Parameter names, default values, and what tuning them does",
+          "points": 15
+        },
+        {
+          "task": "Find XGBoost's built-in feature importance methods",
+          "deliverable": "List the different importance types and what each measures",
+          "points": 15
+        },
+        {
+          "task": "Find how XGBoost handles missing values",
+          "deliverable": "Explanation of the approach and when it might fail",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Find the original XGBoost paper by Chen & Guestrin and identify one key innovation",
+        "points": 15
+      },
+      "total_points": 65
+    },
+    {
+      "id": "hunt-codebase-01",
+      "name": "Course Code Explorer",
+      "type": "codebase",
+      "difficulty": "easy",
+      "lectures_required": ["03-intermediate-pandas"],
+      "description": "Explore patterns in course notebooks",
+      "tasks": [
+        {
+          "task": "Find where .isna() is used in the course notebooks",
+          "deliverable": "Notebook and cell number, plus context of why it was used",
+          "points": 10
+        },
+        {
+          "task": "Find an example of train_test_split in the course code",
+          "deliverable": "Location and what test_size was used",
+          "points": 10
+        },
+        {
+          "task": "Find where cross-validation is used",
+          "deliverable": "Location, which CV strategy was used, and why",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Find the most complex Pipeline in the course notebooks",
+        "points": 10
+      },
+      "total_points": 45
+    },
+    {
+      "id": "hunt-codebase-02",
+      "name": "Pattern Finder",
+      "type": "codebase",
+      "difficulty": "medium",
+      "lectures_required": ["06-regularization-model-selection"],
+      "description": "Query Quinn's hunt: Find interesting patterns in course code",
+      "tasks": [
+        {
+          "task": "Find all places where StandardScaler is used",
+          "deliverable": "List of locations and whether it was used correctly (fit on train only)",
+          "points": 15
+        },
+        {
+          "task": "Find where feature importance is calculated",
+          "deliverable": "Location and which method was used",
+          "points": 15
+        },
+        {
+          "task": "Find examples of hyperparameter tuning",
+          "deliverable": "Location, method used (GridSearch, RandomSearch, etc.), and parameters tuned",
+          "points": 20
+        }
+      ],
+      "bonus": {
+        "task": "Find a potential data leakage bug in any course notebook (or confirm none exist)",
+        "points": 20
+      },
+      "total_points": 70
+    },
+    {
+      "id": "hunt-interpretability-01",
+      "name": "SHAP Investigation",
+      "type": "web",
+      "difficulty": "medium",
+      "lectures_required": ["11-model-interpretability"],
+      "description": "SHAP Shapley's hunt: Understand model interpretability tools",
+      "tasks": [
+        {
+          "task": "Find the SHAP library documentation",
+          "deliverable": "Link to main documentation page",
+          "points": 5
+        },
+        {
+          "task": "Find examples of 4 different SHAP plot types",
+          "deliverable": "Links/images with 1-sentence description of what each shows",
+          "points": 20
+        },
+        {
+          "task": "Find the original SHAP paper (Lundberg & Lee)",
+          "deliverable": "Citation and key claim from abstract",
+          "points": 10
+        },
+        {
+          "task": "Find documentation on SHAP's TreeExplainer vs KernelExplainer",
+          "deliverable": "When to use each and computational differences",
+          "points": 15
+        }
+      ],
+      "bonus": {
+        "task": "Find a paper comparing SHAP to other interpretability methods (LIME, etc.)",
+        "points": 15
+      },
+      "total_points": 65
+    },
+    {
+      "id": "hunt-uncertainty-01",
+      "name": "Uncertainty Quantification Quest",
+      "type": "literature",
+      "difficulty": "hard",
+      "lectures_required": ["10-uncertainty-quantification"],
+      "description": "Quinn Quantify's advanced hunt: Deep dive into UQ",
+      "tasks": [
+        {
+          "task": "Find a paper on Gaussian Processes for chemical engineering applications",
+          "deliverable": "Citation and what problem GPs were used for",
+          "points": 20
+        },
+        {
+          "task": "Find documentation on sklearn's GaussianProcessRegressor",
+          "deliverable": "Link and explanation of key kernel choices",
+          "points": 15
+        },
+        {
+          "task": "Find a paper or tutorial on conformal prediction",
+          "deliverable": "Link/citation and 1-paragraph explanation of the approach",
+          "points": 20
+        }
+      ],
+      "bonus": {
+        "task": "Find a comparison of UQ methods (bootstrap, ensemble, GP, conformal) with recommendations",
+        "points": 20
+      },
+      "total_points": 75
+    },
+    {
+      "id": "hunt-tools-01",
+      "name": "ML Tools Discovery",
+      "type": "web",
+      "difficulty": "medium",
+      "lectures_required": ["general"],
+      "description": "Professor Pipeline's tool hunt: Find the tools professionals use",
+      "tasks": [
+        {
+          "task": "Find documentation for MLflow (experiment tracking)",
+          "deliverable": "Link and 1-paragraph description of what it does",
+          "points": 10
+        },
+        {
+          "task": "Find documentation for DVC (Data Version Control)",
+          "deliverable": "Link and explanation of why data versioning matters",
+          "points": 10
+        },
+        {
+          "task": "Find a tutorial on using Jupyter notebooks effectively for data science",
+          "deliverable": "Link and 3 best practices from the tutorial",
+          "points": 10
+        },
+        {
+          "task": "Find Weights & Biases or similar tool for ML experiment tracking",
+          "deliverable": "Link and key features",
+          "points": 10
+        }
+      ],
+      "bonus": {
+        "task": "Set up one of these tools on a small example project",
+        "points": 20
+      },
+      "total_points": 60
+    }
+  ],
+  "leaderboard": {
+    "enabled": true,
+    "display_top": 10,
+    "categories": ["total_points", "hunts_completed", "bonus_points"]
+  }
+}

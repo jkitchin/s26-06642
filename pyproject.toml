@@ -1,0 +1,44 @@
+[project]
+name = "s26-06642"
+version = "0.1.0"
+description = "Course materials for 06-642"
+readme = "README.org"
+requires-python = ">=3.10"
+dependencies = [
+    # Core dependencies
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "scikit-learn",
+    # Uncertainty quantification
+    "pycse",
+    # Model interpretability
+    "shap",
+    # Gradient boosting
+    "xgboost",
+    # Dimensionality reduction
+    "umap-learn",
+    # Jupyter Book
+    "jupyter-book>=0.15.0",
+    # Development tools
+    "jupyterlab",
+    "jupyter_black",
+    # Deployment
+    "ghp-import",
+]
+
+[project.optional-dependencies]
+llm = [
+    "openai",
+    "anthropic",
+]
+deep-learning = [
+    "torch",
+]
+symbolic = [
+    "pysr",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

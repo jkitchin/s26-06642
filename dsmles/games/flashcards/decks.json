@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "course": "Data Science and Machine Learning for Engineers",
+    "version": "1.0",
+    "description": "Spaced repetition flashcards for data science concepts"
+  },
+  "config": {
+    "algorithm": "SM-2",
+    "default_ease": 2.5,
+    "minimum_ease": 1.3,
+    "intervals": {
+      "again": 1,
+      "hard": 3,
+      "good": 5,
+      "easy": 7
+    }
+  },
+  "decks": [
+    {
+      "id": "numpy-basics",
+      "name": "NumPy Essentials",
+      "lecture": "01-numpy",
+      "cards": [
+        {"front": "np.linspace(start, stop, num)", "back": "Creates num evenly spaced values from start to stop (inclusive)"},
+        {"front": "np.arange(start, stop, step)", "back": "Creates values from start to stop (exclusive) with given step"},
+        {"front": "Array broadcasting", "back": "NumPy's ability to perform operations on arrays of different shapes by virtually expanding the smaller array"},
+        {"front": "arr.shape", "back": "Tuple giving dimensions of array, e.g., (rows, cols)"},
+        {"front": "arr.reshape(new_shape)", "back": "Returns array with same data but new shape; total elements must match"},
+        {"front": "Vectorization", "back": "Replacing explicit loops with array operations for speed"}
+      ]
+    },
+    {
+      "id": "pandas-basics",
+      "name": "pandas Fundamentals",
+      "lecture": "02-pandas-intro",
+      "cards": [
+        {"front": "pd.read_csv(filepath)", "back": "Reads CSV file into DataFrame"},
+        {"front": "df.head(n)", "back": "Returns first n rows (default 5)"},
+        {"front": "df.info()", "back": "Shows DataFrame summary: dtypes, non-null counts, memory"},
+        {"front": "df.describe()", "back": "Statistical summary: count, mean, std, min, max, quartiles"},
+        {"front": "df.loc[row_label, col_label]", "back": "Select by labels (names)"},
+        {"front": "df.iloc[row_idx, col_idx]", "back": "Select by integer position"},
+        {"front": "df['column']", "back": "Select single column as Series"},
+        {"front": "df[['col1', 'col2']]", "back": "Select multiple columns as DataFrame"}
+      ]
+    },
+    {
+      "id": "missing-data",
+      "name": "Missing Data (Nadia Null)",
+      "lecture": "03-intermediate-pandas",
+      "cards": [
+        {"front": "df.isna() / df.isnull()", "back": "Returns boolean DataFrame: True where values are missing"},
+        {"front": "df.dropna()", "back": "Remove rows with any missing values"},
+        {"front": "df.fillna(value)", "back": "Replace missing values with specified value"},
+        {"front": "df.fillna(method='ffill')", "back": "Forward fill: propagate last valid value forward"},
+        {"front": "MCAR", "back": "Missing Completely At Random: missingness unrelated to data"},
+        {"front": "MAR", "back": "Missing At Random: missingness depends on observed data"},
+        {"front": "MNAR", "back": "Missing Not At Random: missingness depends on the missing value itself"}
+      ]
+    },
+    {
+      "id": "outliers",
+      "name": "Outliers (Otto Outlier)",
+      "lecture": "03-intermediate-pandas",
+      "cards": [
+        {"front": "IQR method for outliers", "back": "Outliers are points < Q1 - 1.5*IQR or > Q3 + 1.5*IQR"},
+        {"front": "Z-score method", "back": "Outliers have |z| > 3 (more than 3 std from mean)"},
+        {"front": "When to remove outliers", "back": "Only if they're clearly errors; investigate unusual values first"},
+        {"front": "Robust statistics", "back": "Methods resistant to outliers (median, IQR vs mean, std)"}
+      ]
+    },
+    {
+      "id": "correlation",
+      "name": "Correlation (Cora Correlation)",
+      "lecture": "03-intermediate-pandas",
+      "cards": [
+        {"front": "Pearson correlation range", "back": "-1 (perfect negative) to +1 (perfect positive), 0 = no linear relationship"},
+        {"front": "Correlation ≠ Causation because:", "back": "Confounding variables, reverse causation, or pure coincidence"},
+        {"front": "Spurious correlation", "back": "Statistical association with no causal relationship"},
+        {"front": "df.corr()", "back": "Correlation matrix between all numeric columns"}
+      ]
+    },
+    {
+      "id": "pca",
+      "name": "PCA (Dee Dimension)",
+      "lecture": "04-dimensionality-reduction",
+      "cards": [
+        {"front": "PCA purpose", "back": "Find orthogonal directions of maximum variance; reduce dimensions"},
+        {"front": "Principal components", "back": "Linear combinations of original features that capture variance"},
+        {"front": "Loadings", "back": "Coefficients showing how original features contribute to each PC"},
+        {"front": "Explained variance ratio", "back": "Fraction of total variance captured by each component"},
+        {"front": "Scree plot", "back": "Plot of variance explained vs component number; look for elbow"},
+        {"front": "Why standardize before PCA?", "back": "So features with large scales don't dominate variance"}
+      ]
+    },
+    {
+      "id": "tsne",
+      "name": "t-SNE & UMAP",
+      "lecture": "04-dimensionality-reduction",
+      "cards": [
+        {"front": "t-SNE purpose", "back": "Nonlinear dimensionality reduction for visualization; preserves local structure"},
+        {"front": "Perplexity in t-SNE", "back": "Roughly number of neighbors considered; affects cluster tightness"},
+        {"front": "t-SNE limitation", "back": "Non-parametric: can't transform new points; stochastic results"},
+        {"front": "UMAP advantage", "back": "Faster than t-SNE; can transform new points; preserves more global structure"}
+      ]
+    },
+    {
+      "id": "linear-regression",
+      "name": "Linear Regression (Reggie Regression)",
+      "lecture": "05-linear-regression",
+      "cards": [
+        {"front": "OLS objective", "back": "Minimize sum of squared residuals: Σ(y - ŷ)²"},
+        {"front": "R² interpretation", "back": "Fraction of variance in y explained by the model (0 to 1)"},
+        {"front": "Adjusted R²", "back": "R² penalized for number of features; better for comparing models"},
+        {"front": "Residual", "back": "Difference between actual and predicted: y - ŷ"},
+        {"front": "Feature scaling importance", "back": "Coefficients interpretable; prevents numerical issues; needed for regularization"}
+      ]
+    },
+    {
+      "id": "regularization",
+      "name": "Regularization (Ridge & Lasso)",
+      "lecture": "06-regularization-model-selection",
+      "cards": [
+        {"front": "Ridge regression penalty", "back": "L2: α × Σβ² (shrinks coefficients toward zero)"},
+        {"front": "Lasso regression penalty", "back": "L1: α × Σ|β| (can zero out coefficients = feature selection)"},
+        {"front": "ElasticNet", "back": "Combines L1 + L2 penalties; good when features are correlated"},
+        {"front": "Regularization parameter α", "back": "Higher α = more penalty = simpler model = more bias, less variance"},
+        {"front": "When to use Lasso", "back": "When you suspect many features are irrelevant (want sparsity)"},
+        {"front": "When to use Ridge", "back": "When features are correlated; want all to contribute a little"}
+      ]
+    },
+    {
+      "id": "cross-validation",
+      "name": "Cross-Validation (Val Validation)",
+      "lecture": "06-regularization-model-selection",
+      "cards": [
+        {"front": "k-fold CV process", "back": "Split into k folds; train on k-1, test on 1; rotate k times; average scores"},
+        {"front": "Leave-one-out CV", "back": "k = n; each point is test set once; high variance, expensive"},
+        {"front": "Data leakage", "back": "When test set information influences training; causes over-optimistic evaluation"},
+        {"front": "Nested CV", "back": "Outer loop for evaluation, inner loop for hyperparameter tuning"},
+        {"front": "Why hold out a final test set?", "back": "CV can still overfit through hyperparameter selection; test set is untouched"}
+      ]
+    },
+    {
+      "id": "bias-variance",
+      "name": "Bias-Variance (Barry Bias-Variance)",
+      "lecture": "06-regularization-model-selection",
+      "cards": [
+        {"front": "Bias definition", "back": "Error from overly simplistic model assumptions; inability to capture true pattern"},
+        {"front": "Variance definition", "back": "Model sensitivity to training data fluctuations; instability"},
+        {"front": "High bias → ", "back": "Underfitting; poor on both train and test"},
+        {"front": "High variance → ", "back": "Overfitting; great on train, poor on test"},
+        {"front": "Bias-variance tradeoff", "back": "Increasing model complexity decreases bias but increases variance"}
+      ]
+    },
+    {
+      "id": "random-forest",
+      "name": "Random Forest (Forrest Random)",
+      "lecture": "08-ensemble-methods",
+      "cards": [
+        {"front": "Bagging", "back": "Bootstrap Aggregating: train models on bootstrap samples, aggregate predictions"},
+        {"front": "Random Forest innovation", "back": "Bagging + random feature subsets at each split → decorrelated trees"},
+        {"front": "OOB error", "back": "Out-of-bag: evaluate on samples not in bootstrap; free validation"},
+        {"front": "Feature importance (RF)", "back": "Based on how much splits on feature decrease impurity across trees"},
+        {"front": "Why many trees help", "back": "Averaging reduces variance while bias stays same; smoother predictions"}
+      ]
+    },
+    {
+      "id": "gradient-boosting",
+      "name": "Gradient Boosting (Greta Gradient-Boost)",
+      "lecture": "08-ensemble-methods",
+      "cards": [
+        {"front": "Boosting key idea", "back": "Train sequentially; each model corrects errors of previous ones"},
+        {"front": "Learning rate (η)", "back": "Shrinks contribution of each tree; lower = more trees needed but better generalization"},
+        {"front": "XGBoost advantages", "back": "Regularization built-in; handles missing values; parallel tree building"},
+        {"front": "Early stopping", "back": "Stop adding trees when validation error stops improving"},
+        {"front": "Boosting vs Bagging", "back": "Boosting: sequential error correction; Bagging: parallel variance reduction"}
+      ]
+    },
+    {
+      "id": "clustering",
+      "name": "Clustering (Clara Cluster)",
+      "lecture": "09-clustering",
+      "cards": [
+        {"front": "K-means objective", "back": "Minimize within-cluster sum of squares (inertia)"},
+        {"front": "K-means algorithm", "back": "1. Initialize centroids 2. Assign points to nearest 3. Update centroids 4. Repeat"},
+        {"front": "Elbow method", "back": "Plot inertia vs k; choose k where decrease slows (elbow)"},
+        {"front": "Silhouette score", "back": "Measures cluster cohesion and separation; -1 to 1 (higher better)"},
+        {"front": "K-means limitation", "back": "Assumes spherical clusters; sensitive to initialization and outliers"},
+        {"front": "DBSCAN", "back": "Density-based: finds arbitrary shapes; identifies noise/outliers automatically"}
+      ]
+    },
+    {
+      "id": "hierarchical",
+      "name": "Hierarchical Clustering",
+      "lecture": "09-clustering",
+      "cards": [
+        {"front": "Agglomerative clustering", "back": "Bottom-up: start with points as clusters; merge closest pairs"},
+        {"front": "Dendrogram", "back": "Tree diagram showing cluster merges; height = distance at merge"},
+        {"front": "Linkage types", "back": "Single (nearest), complete (farthest), average, Ward (minimize variance)"},
+        {"front": "Ward's method", "back": "Merge clusters that minimize increase in total within-cluster variance"}
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "name": "Uncertainty (Quinn Quantify)",
+      "lecture": "10-uncertainty-quantification",
+      "cards": [
+        {"front": "Aleatoric uncertainty", "back": "Inherent randomness in data; irreducible"},
+        {"front": "Epistemic uncertainty", "back": "Uncertainty from limited knowledge/data; reducible with more data"},
+        {"front": "Confidence interval", "back": "Interval for the expected value (mean prediction)"},
+        {"front": "Prediction interval", "back": "Interval for individual new observations; wider than CI (includes noise)"},
+        {"front": "Bootstrap uncertainty", "back": "Retrain on bootstrap samples; spread of predictions gives uncertainty"},
+        {"front": "Ensemble uncertainty", "back": "Variance across ensemble member predictions"}
+      ]
+    },
+    {
+      "id": "shap",
+      "name": "SHAP (SHAP Shapley)",
+      "lecture": "11-model-interpretability",
+      "cards": [
+        {"front": "SHAP values", "back": "Feature contributions to prediction based on Shapley values from game theory"},
+        {"front": "Shapley value property: efficiency", "back": "SHAP values sum to (prediction - expected value)"},
+        {"front": "Local interpretation", "back": "Explain why model made a specific prediction"},
+        {"front": "Global interpretation", "back": "Overall feature importance across all predictions"},
+        {"front": "SHAP summary plot", "back": "Shows feature importance and direction of effect across dataset"},
+        {"front": "SHAP dependence plot", "back": "Shows how one feature's effect varies with its value"}
+      ]
+    },
+    {
+      "id": "evaluation-metrics",
+      "name": "Evaluation Metrics",
+      "lecture": "general",
+      "cards": [
+        {"front": "MSE", "back": "Mean Squared Error: average of (y - ŷ)²; penalizes large errors"},
+        {"front": "RMSE", "back": "Root MSE: √MSE; same units as target"},
+        {"front": "MAE", "back": "Mean Absolute Error: average of |y - ŷ|; more robust to outliers"},
+        {"front": "R²", "back": "1 - (SS_res / SS_tot); proportion of variance explained"},
+        {"front": "Precision", "back": "TP / (TP + FP); of predicted positives, how many are correct?"},
+        {"front": "Recall / Sensitivity", "back": "TP / (TP + FN); of actual positives, how many did we catch?"},
+        {"front": "F1 score", "back": "Harmonic mean of precision and recall: 2 × (P × R) / (P + R)"},
+        {"front": "AUC-ROC", "back": "Area under ROC curve; probability that random positive ranks higher than random negative"}
+      ]
+    },
+    {
+      "id": "sklearn-patterns",
+      "name": "scikit-learn Patterns",
+      "lecture": "general",
+      "cards": [
+        {"front": "fit() method", "back": "Learn parameters from training data"},
+        {"front": "transform() method", "back": "Apply learned transformation to data"},
+        {"front": "fit_transform()", "back": "fit() then transform() in one step; use on training data only"},
+        {"front": "predict() method", "back": "Make predictions using fitted model"},
+        {"front": "Pipeline purpose", "back": "Chain preprocessing and model; prevents data leakage; cleaner code"},
+        {"front": "train_test_split()", "back": "Randomly split data into train and test sets"}
+      ]
+    }
+  ]
+}

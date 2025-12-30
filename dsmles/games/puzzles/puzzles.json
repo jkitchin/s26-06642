@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "course": "Data Science and Machine Learning for Engineers",
+    "version": "1.0",
+    "description": "Interactive puzzles for data science concepts"
+  },
+  "puzzle_types": [
+    {
+      "type": "metric_match",
+      "name": "Metric Match",
+      "description": "Match the metric to its appropriate use case",
+      "difficulty_levels": ["easy", "medium", "hard"]
+    },
+    {
+      "type": "code_completion",
+      "name": "Code Completion",
+      "description": "Fill in missing pandas/sklearn code",
+      "difficulty_levels": ["easy", "medium", "hard"]
+    },
+    {
+      "type": "confusion_matrix",
+      "name": "Confusion Matrix Analysis",
+      "description": "Calculate metrics from confusion matrices",
+      "difficulty_levels": ["easy", "medium", "hard"]
+    },
+    {
+      "type": "algorithm_detective",
+      "name": "Algorithm Detective",
+      "description": "Identify the algorithm from its behavior or output",
+      "difficulty_levels": ["medium", "hard"]
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "metric-match-01",
+      "type": "metric_match",
+      "difficulty": "easy",
+      "lectures": ["05-linear-regression", "general"],
+      "instruction": "Match each metric to its best use case:",
+      "items": [
+        {"metric": "R²", "description": "Comparing regression model explanatory power"},
+        {"metric": "MSE", "description": "When large errors are especially bad"},
+        {"metric": "MAE", "description": "When you want errors in original units, robust to outliers"},
+        {"metric": "RMSE", "description": "When you want errors in original units, penalize large errors"}
+      ],
+      "points": 20
+    },
+    {
+      "id": "metric-match-02",
+      "type": "metric_match",
+      "difficulty": "medium",
+      "lectures": ["08-ensemble-methods", "general"],
+      "instruction": "Match each classification metric to its use case:",
+      "items": [
+        {"metric": "Precision", "description": "Medical screening: minimize false positives"},
+        {"metric": "Recall", "description": "Fraud detection: don't miss actual fraud"},
+        {"metric": "F1 Score", "description": "When both false positives and negatives matter equally"},
+        {"metric": "AUC-ROC", "description": "Overall ranking ability regardless of threshold"}
+      ],
+      "points": 25
+    },
+    {
+      "id": "metric-match-03",
+      "type": "metric_match",
+      "difficulty": "hard",
+      "lectures": ["09-clustering"],
+      "instruction": "Match clustering metric to what it measures:",
+      "items": [
+        {"metric": "Inertia", "description": "Within-cluster sum of squares (lower better)"},
+        {"metric": "Silhouette score", "description": "Cohesion vs separation (-1 to 1, higher better)"},
+        {"metric": "Davies-Bouldin Index", "description": "Ratio of within to between cluster distances (lower better)"},
+        {"metric": "Calinski-Harabasz", "description": "Between-cluster to within-cluster variance ratio (higher better)"}
+      ],
+      "points": 30
+    },
+    {
+      "id": "code-complete-01",
+      "type": "code_completion",
+      "difficulty": "easy",
+      "lectures": ["02-pandas-intro"],
+      "instruction": "Complete the code to read a CSV and show basic info:",
+      "code_template": "import pandas as pd\ndf = pd.____('data.csv')\nprint(df.____())\nprint(df.____())",
+      "blanks": ["read_csv", "head", "info"],
+      "hint": "Think about: loading data, viewing first rows, getting summary",
+      "points": 15
+    },
+    {
+      "id": "code-complete-02",
+      "type": "code_completion",
+      "difficulty": "medium",
+      "lectures": ["03-intermediate-pandas"],
+      "instruction": "Complete the code to handle missing values:",
+      "code_template": "# Check for missing values\nmissing = df.____().sum()\n\n# Fill numeric columns with median\ndf['temp'] = df['temp'].______(df['temp'].median())\n\n# Drop rows where 'id' is missing\ndf = df.______(subset=['id'])",
+      "blanks": ["isna", "fillna", "dropna"],
+      "hint": "Methods for detecting, filling, and dropping missing values",
+      "points": 20
+    },
+    {
+      "id": "code-complete-03",
+      "type": "code_completion",
+      "difficulty": "medium",
+      "lectures": ["05-linear-regression", "06-regularization-model-selection"],
+      "instruction": "Complete the train-test split and model fitting:",
+      "code_template": "from sklearn.model_selection import ______\nfrom sklearn.linear_model import LinearRegression\n\nX_train, X_test, y_train, y_test = ______(X, y, test_size=0.2)\n\nmodel = LinearRegression()\nmodel.______(X_train, y_train)\ny_pred = model.______(X_test)",
+      "blanks": ["train_test_split", "train_test_split", "fit", "predict"],
+      "hint": "Import, split, fit, predict - the scikit-learn workflow",
+      "points": 25
+    },
+    {
+      "id": "code-complete-04",
+      "type": "code_completion",
+      "difficulty": "hard",
+      "lectures": ["06-regularization-model-selection"],
+      "instruction": "Complete the cross-validation pipeline:",
+      "code_template": "from sklearn.pipeline import ______\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import Ridge\nfrom sklearn.model_selection import ______\n\npipe = ______([\n    ('scaler', StandardScaler()),\n    ('model', Ridge(alpha=1.0))\n])\n\nscores = ______(pipe, X, y, cv=5, scoring='r2')",
+      "blanks": ["Pipeline", "cross_val_score", "Pipeline", "cross_val_score"],
+      "hint": "Build a pipeline with scaling, then cross-validate",
+      "points": 30
+    },
+    {
+      "id": "confusion-01",
+      "type": "confusion_matrix",
+      "difficulty": "easy",
+      "lectures": ["general"],
+      "instruction": "Given this confusion matrix, calculate accuracy:",
+      "matrix": {
+        "description": "Predicted vs Actual for binary classification",
+        "values": [[45, 5], [10, 40]],
+        "labels": ["Negative", "Positive"]
+      },
+      "question": "What is the accuracy?",
+      "answer": 0.85,
+      "explanation": "Accuracy = (TN + TP) / Total = (45 + 40) / 100 = 0.85 or 85%",
+      "points": 15
+    },
+    {
+      "id": "confusion-02",
+      "type": "confusion_matrix",
+      "difficulty": "medium",
+      "lectures": ["general"],
+      "instruction": "Given this confusion matrix for a fraud detector:",
+      "matrix": {
+        "description": "Fraud Detection Results",
+        "values": [[950, 30], [15, 5]],
+        "labels": ["Not Fraud", "Fraud"]
+      },
+      "question": "Calculate: a) Precision for fraud class, b) Recall for fraud class",
+      "answers": {"precision": 0.143, "recall": 0.25},
+      "explanation": "Precision = TP/(TP+FP) = 5/(5+30) = 0.143. Recall = TP/(TP+FN) = 5/(5+15) = 0.25. Despite 96% accuracy, this detector misses 75% of frauds!",
+      "points": 25
+    },
+    {
+      "id": "confusion-03",
+      "type": "confusion_matrix",
+      "difficulty": "hard",
+      "lectures": ["general"],
+      "instruction": "A reactor fault detector has this confusion matrix:",
+      "matrix": {
+        "description": "Fault Detection (Safe Operation vs Fault)",
+        "values": [[180, 10], [5, 5]],
+        "labels": ["Safe", "Fault"]
+      },
+      "questions": [
+        "What is the F1 score for detecting faults?",
+        "Is this detector suitable for safety-critical use? Why or why not?"
+      ],
+      "answers": {
+        "precision": 0.333,
+        "recall": 0.5,
+        "f1": 0.4
+      },
+      "explanation": "Precision = 5/15 = 0.333, Recall = 5/10 = 0.5, F1 = 2×0.333×0.5/(0.333+0.5) = 0.4. This detector misses 50% of faults - dangerous for safety-critical applications!",
+      "points": 35
+    },
+    {
+      "id": "algorithm-detective-01",
+      "type": "algorithm_detective",
+      "difficulty": "medium",
+      "lectures": ["05-linear-regression", "06-regularization-model-selection"],
+      "instruction": "You observe: Model has 100 features. After fitting, 85 coefficients are exactly zero. What algorithm was likely used?",
+      "options": ["Linear Regression", "Ridge Regression", "Lasso Regression", "Random Forest"],
+      "correct": 2,
+      "explanation": "Lasso (L1 regularization) drives coefficients to exactly zero, performing automatic feature selection. Ridge shrinks but rarely zeros out.",
+      "points": 20
+    },
+    {
+      "id": "algorithm-detective-02",
+      "type": "algorithm_detective",
+      "difficulty": "medium",
+      "lectures": ["08-ensemble-methods"],
+      "instruction": "Training shows: Multiple models trained in parallel on different data subsets. Final prediction is average of all models. Which method?",
+      "options": ["Gradient Boosting", "Bagging/Random Forest", "K-Nearest Neighbors", "Logistic Regression"],
+      "correct": 1,
+      "explanation": "Bagging (and Random Forest) trains models in parallel on bootstrap samples and averages. Boosting is sequential.",
+      "points": 20
+    },
+    {
+      "id": "algorithm-detective-03",
+      "type": "algorithm_detective",
+      "difficulty": "hard",
+      "lectures": ["08-ensemble-methods"],
+      "instruction": "Training log shows: Model 1 trained → errors calculated → Model 2 trained on errors → combined → Model 3 trained on new errors... What method?",
+      "options": ["Random Forest", "Gradient Boosting", "AdaBoost", "B or C"],
+      "correct": 3,
+      "explanation": "Both Gradient Boosting and AdaBoost train sequentially on errors. Gradient Boosting fits to residuals; AdaBoost reweights samples. Both are valid answers.",
+      "points": 30
+    },
+    {
+      "id": "algorithm-detective-04",
+      "type": "algorithm_detective",
+      "difficulty": "hard",
+      "lectures": ["09-clustering"],
+      "instruction": "Clustering results show: Algorithm found clusters of arbitrary shapes. Some points labeled as 'noise' and not assigned to any cluster. What algorithm?",
+      "options": ["K-means", "Hierarchical Clustering", "DBSCAN", "Gaussian Mixture Model"],
+      "correct": 2,
+      "explanation": "DBSCAN is density-based: finds arbitrary shapes, labels low-density points as noise. K-means assumes spherical clusters and assigns all points.",
+      "points": 25
+    },
+    {
+      "id": "algorithm-detective-05",
+      "type": "algorithm_detective",
+      "difficulty": "hard",
+      "lectures": ["04-dimensionality-reduction"],
+      "instruction": "You reduced 1000 features to 50. The transformation can be expressed as X_reduced = X @ W where W is learned. Every run gives the same result. What method?",
+      "options": ["t-SNE", "PCA", "UMAP", "Autoencoder"],
+      "correct": 1,
+      "explanation": "PCA is linear (matrix multiplication), deterministic (same result each time). t-SNE/UMAP are nonlinear and stochastic.",
+      "points": 25
+    },
+    {
+      "id": "data-detective-01",
+      "type": "algorithm_detective",
+      "difficulty": "medium",
+      "lectures": ["03-intermediate-pandas"],
+      "instruction": "Dataset has 10,000 rows. After df.dropna(), only 2,000 remain. What should you investigate?",
+      "options": [
+        "Nothing, just proceed with 2,000 rows",
+        "Pattern of missingness - is it random or systematic?",
+        "Add more features",
+        "Use a more complex model"
+      ],
+      "correct": 1,
+      "explanation": "Nadia Null warns: Losing 80% of data suggests systematic missingness. Investigate why - it could bias your results if certain groups are excluded.",
+      "points": 20
+    },
+    {
+      "id": "data-detective-02",
+      "type": "algorithm_detective",
+      "difficulty": "hard",
+      "lectures": ["general"],
+      "instruction": "Your model shows R² = 0.99 on training data but R² = 0.45 on test data. What's the diagnosis?",
+      "options": [
+        "Model is underfitting",
+        "Model is overfitting",
+        "Test data is corrupted",
+        "R² is wrong metric"
+      ],
+      "correct": 1,
+      "explanation": "Barry Bias-Variance: Large gap between train and test performance = overfitting! The model memorized training data but doesn't generalize.",
+      "points": 20
+    },
+    {
+      "id": "pipeline-order-01",
+      "type": "algorithm_detective",
+      "difficulty": "medium",
+      "lectures": ["general"],
+      "instruction": "Which order is CORRECT for a machine learning pipeline?",
+      "options": [
+        "Split → Scale → Fit → Evaluate",
+        "Scale → Split → Fit → Evaluate",
+        "Fit → Split → Scale → Evaluate",
+        "Split → Fit → Scale → Evaluate"
+      ],
+      "correct": 0,
+      "explanation": "Val Validation says: Always split FIRST, then scale using only training data. Scaling before splitting causes data leakage!",
+      "points": 25
+    },
+    {
+      "id": "feature-interpretation-01",
+      "type": "algorithm_detective",
+      "difficulty": "hard",
+      "lectures": ["05-linear-regression", "11-model-interpretability"],
+      "instruction": "Linear model coefficient for 'temperature' is 2.5. Features were standardized. What does this mean?",
+      "options": [
+        "Increasing temp by 1°C increases output by 2.5",
+        "Increasing temp by 1 std dev increases output by 2.5 units",
+        "Temperature is 2.5x more important than other features",
+        "The model needs more data"
+      ],
+      "correct": 1,
+      "explanation": "With standardized features, coefficients show effect of 1 standard deviation change. The original units are normalized away.",
+      "points": 30
+    }
+  ]
+}

@@ -1,0 +1,667 @@
+{
+  "metadata": {
+    "title": "The Data Detective Agency",
+    "subtitle": "A Chemical Engineering Mystery",
+    "description": "Solve cases using data science while uncovering the Phantom Pattern",
+    "version": "1.0",
+    "reading_time": "3-5 min per chapter"
+  },
+  "story_info": {
+    "setting": "The Data Detective Agency - an elite consulting firm solving industrial mysteries",
+    "protagonist": "You - a new data detective with a chemical engineering background",
+    "antagonist": "The Phantom Pattern - mysterious data corruption plaguing clients",
+    "theme": "The real enemy is overconfidence in our assumptions"
+  },
+  "chapters": {
+    "1": {
+      "id": "ch1",
+      "title": "The Case of the Missing Readings",
+      "unlock_after": 2,
+      "reading_time": "4 min",
+      "scenes": [
+        {
+          "id": "1-1",
+          "text": "The office smells like coffee and old datasets. Professor Pipeline, director of the Data Detective Agency, slides a folder across the desk.\n\n'Your first case, detective. Acme Chemicals has a reactor that's been acting up. Temperature readings from their sensor network—but there's a problem.'\n\nYou open the file. A pandas DataFrame with 10,000 rows. Your eye catches it immediately: NaN values scattered through the temperature column like holes in Swiss cheese.\n\nNadia Null materializes beside you. 'Ah, my handiwork. Well, not mine exactly—I'm just what happens when sensors fail, operators forget to log, or data pipelines hiccup.'\n\nProfessor Pipeline leans forward. 'The client wants to predict reactor yield, but they can't with gaps in the data. What's your first move?'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Check if the missing values are random or follow a pattern",
+              "correct": true,
+              "next": "1-2a",
+              "feedback": "Smart. Nadia nods approvingly. 'Not all missingness is created equal. MCAR, MAR, MNAR—these letters could save your analysis.'"
+            },
+            {
+              "id": "b",
+              "text": "Drop all rows with missing values",
+              "correct": false,
+              "next": "1-2b",
+              "feedback": "You delete 3,000 rows. Nadia winces. 'You just threw away 30% of the data. What if the missing readings happen during high-temperature excursions—exactly when things get interesting?'"
+            },
+            {
+              "id": "c",
+              "text": "Fill all missing values with the mean temperature",
+              "correct": false,
+              "next": "1-2c",
+              "feedback": "Nadia sighs. 'Mean imputation? You just reduced the variance and potentially masked real patterns. This reactor doesn't run at a constant temperature.'"
+            }
+          ],
+          "concept_tested": "Missing data patterns"
+        },
+        {
+          "id": "1-2a",
+          "text": "You run `df['temperature'].isna().groupby(df['shift']).sum()`. The pattern emerges: 90% of missing values occur during the night shift.\n\nNadia grins. 'Not random. The night operator sometimes forgets to check the manual backup log when the sensor drops out.'\n\nThis changes everything. The missingness is related to *when* the data was collected, not the temperature itself. You can use other columns—pressure, flow rate, time—to impute reasonably.\n\nBut wait. You notice something else: rows where temperature is missing also tend to have lower yield values recorded the next day.\n\nWhat do you conclude?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "The sensor failures might indicate process upsets that affect yield",
+              "correct": true,
+              "next": "1-3",
+              "feedback": "Exactly! The missing data isn't just a nuisance—it's a *clue*. Sensor dropout correlates with process instability. This is valuable information the client didn't even know they had."
+            },
+            {
+              "id": "b",
+              "text": "It's just a coincidence—impute and move on",
+              "correct": false,
+              "next": "1-3",
+              "feedback": "You impute, but Professor Pipeline frowns. 'You might be right, but a good detective investigates coincidences. What if missingness itself is predictive?'"
+            }
+          ],
+          "concept_tested": "Missingness as information"
+        },
+        {
+          "id": "1-3",
+          "text": "You present your findings to Acme Chemicals: the missing temperature data isn't random—it signals sensor failures during process upsets that precede yield drops.\n\nThe plant manager's eyes widen. 'We've been trying to predict bad batches for months. You're telling me the *gaps* in our data were the warning sign all along?'\n\nProfessor Pipeline shakes your hand as you leave. 'Well done, detective. You didn't just clean the data—you listened to what it was trying to tell you.'\n\nAs you file the case, a sticky note falls from the folder. Handwritten: *'Not all patterns are visible. Some hide in what's missing. —P.P.'*\n\nThe Phantom Pattern. Your first hint that something larger is at play.\n\n[CHAPTER 1 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Missing Data Detective",
+          "points": 100
+        }
+      ]
+    },
+    "2": {
+      "id": "ch2",
+      "title": "The Outlier's Alibi",
+      "unlock_after": 3,
+      "reading_time": "4 min",
+      "scenes": [
+        {
+          "id": "2-1",
+          "text": "A frantic call from PetroChem Industries. Their distillation column optimization model has gone haywire—predictions are suddenly 40% off.\n\nYou pull up their dataset: operating conditions and product purity for 500 batches. A scatter plot reveals the culprit immediately. One point sits far from the others: a batch with impossibly high reflux ratio and unusually pure product.\n\nOtto Outlier appears, grinning. 'That's me! Well, a batch like me. Question is—am I a mistake, or am I the most important point in this dataset?'\n\nThe plant engineer is on the call: 'That batch was during the night of the thunderstorm. Probably a sensor glitch. Can you just delete it?'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Investigate the batch records before deleting anything",
+              "correct": true,
+              "next": "2-2a",
+              "feedback": "Otto beams. 'A detective who doesn't shoot first! Let's see what really happened that night.'"
+            },
+            {
+              "id": "b",
+              "text": "Remove the outlier—it's clearly corrupting the model",
+              "correct": false,
+              "next": "2-2b",
+              "feedback": "You delete it. The model improves... but Otto frowns. 'You just erased evidence without examining it. What if I was real?'"
+            },
+            {
+              "id": "c",
+              "text": "Use robust regression that's less sensitive to outliers",
+              "correct": false,
+              "next": "2-2c",
+              "feedback": "A reasonable approach, but Otto shakes his head. 'You're treating the symptom, not diagnosing the disease. What actually happened?'"
+            }
+          ],
+          "concept_tested": "Outlier investigation"
+        },
+        {
+          "id": "2-2a",
+          "text": "You dig into the batch records. That stormy night, a lightning strike knocked out the main power. The backup generator kicked in, but it took 3 minutes.\n\nDuring those 3 minutes, the reflux pump ran on battery backup at a *higher* rate than normal—an unintended experiment. The result: the purest product the column had ever produced.\n\nOtto whistles. 'I'm not an error. I'm a discovery. Someone should write a paper about this.'\n\nYou call the engineer back. 'That outlier isn't a glitch. Your backup system accidentally found a better operating point. Have you considered running at higher reflux ratios deliberately?'\n\nSilence. Then: 'We never thought to try...'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend a designed experiment at higher reflux ratios",
+              "correct": true,
+              "next": "2-3",
+              "feedback": "The engineer agrees. Three weeks later, they've optimized the column to run 15% more efficiently—all because you didn't delete an 'outlier.'"
+            },
+            {
+              "id": "b",
+              "text": "Add the outlier back to the model as a valid point",
+              "correct": false,
+              "next": "2-3",
+              "feedback": "Better than deleting it, but one point isn't enough. Val Validation appears: 'One observation doesn't make a trend. Recommend they test it properly.'"
+            }
+          ],
+          "concept_tested": "Outliers as discoveries"
+        },
+        {
+          "id": "2-3",
+          "text": "Case closed. PetroChem's distillation column now runs at the 'outlier' conditions—verified by three more batches at the new setpoint.\n\nOtto claps you on the back. 'Most people see someone like me and reach for the delete key. You saw a clue.'\n\nAs you update your case file, another note appears. Same handwriting: *'Patterns hide in plain sight. Sometimes they look like errors. —P.P.'*\n\nThe Phantom Pattern again. But this time, the message feels almost... helpful?\n\nProfessor Pipeline catches you staring at the note. 'The Phantom has been leaving these for years. No one knows who it is. But every note has been right.'\n\n[CHAPTER 2 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Outlier Investigator",
+          "points": 150
+        }
+      ]
+    },
+    "3": {
+      "id": "ch3",
+      "title": "The Hidden Dimensions",
+      "unlock_after": 5,
+      "reading_time": "4 min",
+      "scenes": [
+        {
+          "id": "3-1",
+          "text": "BioPharm Inc. has a mystery. Their fermentation process produces inconsistent yields, and nobody knows why. They've thrown sensors at the problem—200 measurements per batch, from pH to dissolved oxygen to trace metals.\n\nThe dataset lands on your desk: 200 columns, 50 batches. The client's data scientist tried regression but got nowhere—too many features, not enough data.\n\nDee Dimension appears, looking serene. 'Two hundred features. But I'll bet the real story lives in far fewer dimensions. Shall we look?'\n\nWhat's your approach?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Apply PCA to find the principal components driving variation",
+              "correct": true,
+              "next": "3-2a",
+              "feedback": "Dee smiles. 'Let's compress this haystack and find the needles.'"
+            },
+            {
+              "id": "b",
+              "text": "Use correlation filtering to remove redundant features",
+              "correct": false,
+              "next": "3-2b",
+              "feedback": "You remove 150 correlated features. Dee nods. 'A start, but correlation doesn't capture nonlinear relationships. PCA would find structure you're missing.'"
+            },
+            {
+              "id": "c",
+              "text": "Build a model with all 200 features using regularization",
+              "correct": false,
+              "next": "3-2c",
+              "feedback": "Ridge & Lasso appear. 'We can help, but with 50 samples and 200 features, you're in dangerous territory. Dimension reduction first might be wiser.'"
+            }
+          ],
+          "concept_tested": "Dimensionality reduction"
+        },
+        {
+          "id": "3-2a",
+          "text": "PCA reveals that 85% of the variance lives in just 5 principal components. You plot the loadings and something jumps out: PC1 is dominated by temperature-related variables, PC2 by nutrient concentrations.\n\nDee traces the pattern. 'Five dimensions. Not two hundred. The fermentation is driven by thermal management and feeding strategy—everything else is noise.'\n\nYou plot yield against PC1 and PC2. The low-yield batches cluster in one corner: high temperature, low nutrients.\n\nBut wait—Cora Correlation taps your shoulder. 'Before you conclude anything, remember: these are correlations. Can you prove causation?'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend a designed experiment varying temperature and nutrients",
+              "correct": true,
+              "next": "3-3",
+              "feedback": "Cora approves. 'Correlation found the hypothesis. Now let's test it properly.'"
+            },
+            {
+              "id": "b",
+              "text": "Tell the client to lower temperature and increase nutrients",
+              "correct": false,
+              "next": "3-3",
+              "feedback": "Cora sighs. 'You're recommending action based on correlation alone. What if temperature is confounded with something else—like time of year?'"
+            }
+          ],
+          "concept_tested": "Correlation vs causation"
+        },
+        {
+          "id": "3-3",
+          "text": "BioPharm runs your designed experiment. You were right: lower temperature and optimized feeding improves yield by 22%. The 200-sensor mystery had a 2-factor solution.\n\nDee Dimension files the case with satisfaction. 'Most problems look complex because we measure everything. The art is finding what matters.'\n\nAs you leave, you find another note stuck to your desk lamp: *'The simplest explanation is usually correct. But only if you check. —P.P.'*\n\nYou're starting to look forward to these notes. The Phantom seems less like an adversary and more like... a mentor?\n\nProfessor Pipeline watches you pocket the note. 'Getting attached to the Phantom? Be careful. Not all patterns that guide you have your best interests at heart.'\n\n[CHAPTER 3 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Dimension Detective",
+          "points": 200
+        }
+      ]
+    },
+    "4": {
+      "id": "ch4",
+      "title": "The Overfitting Trap",
+      "unlock_after": 7,
+      "reading_time": "5 min",
+      "scenes": [
+        {
+          "id": "4-1",
+          "text": "PolymerTech's lead data scientist calls in a panic. 'We built a model to predict polymer viscosity from process conditions. It was perfect—R² of 0.99 on our data. We deployed it last month. Now it's useless. Predictions are garbage.'\n\nYou arrive to find a graveyard of failed predictions. The model they're so proud of: a neural network with 5 hidden layers, trained on 100 samples.\n\nBarry Bias-Variance appears, shaking his head. 'Let me guess. They never touched a test set until production. Classic.'\n\nVal Validation pulls up their training code. No train/test split. No cross-validation. They evaluated on the same data they trained on.\n\n'The model didn't learn physics,' Val says grimly. 'It memorized noise.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Show them the gap between training and test performance",
+              "correct": true,
+              "next": "4-2a",
+              "feedback": "You split the historical data 80/20. Training R²: 0.99. Test R²: 0.35. The room goes silent."
+            },
+            {
+              "id": "b",
+              "text": "Recommend collecting more data to improve the model",
+              "correct": false,
+              "next": "4-2b",
+              "feedback": "Barry sighs. 'More data won't fix a model that's fundamentally too complex. You're feeding a monster that memorizes instead of learns.'"
+            },
+            {
+              "id": "c",
+              "text": "Suggest tuning the neural network hyperparameters",
+              "correct": false,
+              "next": "4-2c",
+              "feedback": "Val crosses her arms. 'Tuning won't help if your validation strategy is broken. You'll just overfit to the test set too.'"
+            }
+          ],
+          "concept_tested": "Overfitting detection"
+        },
+        {
+          "id": "4-2a",
+          "text": "The data scientist stares at the 0.35 test R². 'But... it fit so well. How is this possible?'\n\nBarry draws on the whiteboard. 'Your model has thousands of parameters. Your dataset has 100 samples. The model didn't learn the relationship between process conditions and viscosity—it memorized each individual batch, noise and all.'\n\nYou rebuild the model: simple linear regression with Ridge regularization. Test R²: 0.72. Not as flashy, but actually predictive.\n\nReggie Regression appears, looking vindicated. 'Sometimes a line is all you need.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend the simpler model with proper cross-validation",
+              "correct": true,
+              "next": "4-3",
+              "feedback": "The data scientist is humbled but grateful. 'We spent months on that neural network. You fixed it in an hour with linear regression.'"
+            },
+            {
+              "id": "b",
+              "text": "Try a random forest as a compromise between simple and complex",
+              "correct": false,
+              "next": "4-3",
+              "feedback": "Forrest Random appears. 'I can help, but with only 100 samples, even I might overfit. Start simple, then add complexity only if needed.'"
+            }
+          ],
+          "concept_tested": "Model complexity vs data size"
+        },
+        {
+          "id": "4-3",
+          "text": "PolymerTech deploys the Ridge model. It's not perfect, but it's *consistent*. Predictions actually work in production.\n\nBarry Bias-Variance walks you out. 'The best model isn't the one that fits training data best. It's the one that generalizes. Everyone forgets that at least once.'\n\nIn your car, you find another note under the wiper: *'A model that knows everything has learned nothing. —P.P.'*\n\nYou're certain now: the Phantom Pattern isn't sabotaging data. It's trying to teach something. But who would go to such lengths—and why hide?\n\n[CHAPTER 4 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Overfitting Hunter",
+          "points": 250
+        }
+      ]
+    },
+    "5": {
+      "id": "ch5",
+      "title": "The Forest of Predictions",
+      "unlock_after": 8,
+      "reading_time": "4 min",
+      "scenes": [
+        {
+          "id": "5-1",
+          "text": "Catalyst Corp's quality control is failing. They've tried five models to predict batch quality from process data—all unreliable. Linear regression, polynomial regression, SVMs... nothing sticks.\n\n'The process is just too complex,' their engineer sighs. 'The relationship between inputs and quality isn't linear, isn't polynomial, isn't anything we can figure out.'\n\nForrest Random appears, cracking his knuckles. 'Complex, nonlinear, interacting features? Sounds like a job for an ensemble.'\n\nGreta Gradient-Boost nods beside him. 'One tree falls down. A thousand trees stand strong.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Try a Random Forest model",
+              "correct": true,
+              "next": "5-2a",
+              "feedback": "Forrest grins. 'Let's plant a forest and see what grows.'"
+            },
+            {
+              "id": "b",
+              "text": "Try XGBoost for maximum predictive power",
+              "correct": true,
+              "next": "5-2b",
+              "feedback": "Greta smiles. 'Boosting learns from mistakes. Let's see what this data is hiding.'"
+            },
+            {
+              "id": "c",
+              "text": "The data must be bad—request cleaner data first",
+              "correct": false,
+              "next": "5-2c",
+              "feedback": "Professor Pipeline frowns. 'Blaming the data is a last resort. Have you tried methods that handle complexity well?'"
+            }
+          ],
+          "concept_tested": "Ensemble methods for complex problems"
+        },
+        {
+          "id": "5-2a",
+          "text": "You train a Random Forest with 500 trees. Cross-validated R²: 0.83. The engineer's jaw drops.\n\n'How? We tried everything!'\n\nForrest explains: 'Each tree sees a random subset of features. They vote on the prediction. Individual trees might be wrong, but the crowd is wise.'\n\nYou extract feature importances. Three variables dominate: catalyst age, feed purity, and reactor pressure. The engineer slaps his forehead.\n\n'Catalyst age! We never tracked how long the catalyst had been in service. It degrades over time—that explains everything!'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend monitoring catalyst age and replacing proactively",
+              "correct": true,
+              "next": "5-3",
+              "feedback": "The engineer immediately calls maintenance. 'We've been running on dead catalysts and blaming the data.'"
+            },
+            {
+              "id": "b",
+              "text": "Build the model into their quality control system",
+              "correct": false,
+              "next": "5-3",
+              "feedback": "Val Validation cautions: 'Good idea, but also tell them *why* quality drops. A model is better when it leads to understanding.'"
+            }
+          ],
+          "concept_tested": "Feature importance for insight"
+        },
+        {
+          "id": "5-3",
+          "text": "Catalyst Corp implements proactive catalyst replacement. Quality issues drop by 60% in three months.\n\nForrest and Greta share a high-five. 'Ensembles don't just predict—they reveal what matters.'\n\nBut as you file the case, a thought nags you. The Phantom Pattern's notes have guided you toward good practices. Missing data is informative. Outliers can be discoveries. Simple models often beat complex ones.\n\nAnother note arrives, this time in your email inbox: *'The model is not the goal. Understanding is. —P.P.'*\n\nWhoever the Phantom is, they're watching. And they approve of how you're learning.\n\n[CHAPTER 5 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Ensemble Expert",
+          "points": 300
+        },
+        {
+          "id": "5-2b",
+          "text": "XGBoost crushes it: R² of 0.86, even better than Random Forest. Greta looks satisfied.\n\n'Boosting builds trees sequentially. Each new tree focuses on what the previous trees got wrong. It's like studying your mistakes.'\n\nThe feature importance ranking shows catalyst age as the top predictor. The engineer goes pale.\n\n'We've been ignoring catalyst degradation. No one thought to log how long each batch of catalyst had been in service.'\n\nMystery solved. Not by better sensors, but by better modeling.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend tracking catalyst age going forward",
+              "correct": true,
+              "next": "5-3",
+              "feedback": "The engineer nods vigorously. 'We'll start immediately. This model just paid for a year of consulting fees.'"
+            }
+          ],
+          "concept_tested": "Gradient boosting insights"
+        },
+        {
+          "id": "5-2c",
+          "text": "You request cleaner data. A month later, the engineer sends a 'cleaned' dataset—with outliers removed and missing values filled with means.\n\nOtto Outlier and Nadia Null appear, looking offended. 'They just deleted all the interesting parts,' Otto mutters.\n\nThe models still fail. Professor Pipeline sighs. 'The data wasn't the problem. Your assumptions about model complexity were. Try an ensemble.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Go back and try Random Forest on the original data",
+              "next": "5-2a",
+              "correct": true,
+              "feedback": "Forrest Random nods. 'The 'messy' data had the signal. Let's find it.'"
+            }
+          ],
+          "concept_tested": "Don't over-clean data"
+        }
+      ]
+    },
+    "6": {
+      "id": "ch6",
+      "title": "The Cluster Conspiracy",
+      "unlock_after": 9,
+      "reading_time": "4 min",
+      "scenes": [
+        {
+          "id": "6-1",
+          "text": "ChemFlow Processing has a baffling problem. Same reactor, same recipe, same raw materials—yet batches fall into 'good' and 'bad' categories with no apparent pattern. No labels, no obvious cause.\n\n'We've been calling it random variation,' the process manager admits. 'But 30% bad batches is killing our margins.'\n\nClara Cluster examines the dataset: 50 process variables, 200 batches, no labels.\n\n'If the answer isn't in the labels,' she says, 'maybe it's in the structure. Let's see if the data clusters naturally.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Apply k-means clustering to find natural groupings",
+              "correct": true,
+              "next": "6-2a",
+              "feedback": "Clara nods. 'Let's see what the data wants to tell us.'"
+            },
+            {
+              "id": "b",
+              "text": "Use hierarchical clustering to see relationships",
+              "correct": true,
+              "next": "6-2b",
+              "feedback": "Clara approves. 'Dendrograms reveal structure that k-means might miss.'"
+            },
+            {
+              "id": "c",
+              "text": "Ask operators to label the batches as good or bad first",
+              "correct": false,
+              "next": "6-2c",
+              "feedback": "Clara frowns. 'Operator labels will be biased by what they *think* matters. Let the data speak first.'"
+            }
+          ],
+          "concept_tested": "Clustering for discovery"
+        },
+        {
+          "id": "6-2a",
+          "text": "K-means with k=3 reveals three distinct clusters. When you overlay quality data, the pattern is stark:\n\n- Cluster 1: 95% good batches\n- Cluster 2: 60% good batches  \n- Cluster 3: 10% good batches\n\nClara traces the cluster centers. 'Look at the differences. Cluster 3 has higher feed temperature and lower stirring speed. The clusters found your failure mode.'\n\nThe process manager squints. 'But we don't run at high temperature and low stirring intentionally. How are batches ending up there?'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Investigate what causes batches to fall into Cluster 3",
+              "correct": true,
+              "next": "6-3",
+              "feedback": "You dig into the timestamps. Cluster 3 batches are all from the night shift. An operator has been running 'their own settings.'"
+            },
+            {
+              "id": "b",
+              "text": "Recommend avoiding Cluster 3 operating conditions",
+              "correct": false,
+              "next": "6-3",
+              "feedback": "The manager agrees, but Clara cautions: 'You've described the symptom, not the cause. *Why* are batches ending up there?'"
+            }
+          ],
+          "concept_tested": "Interpreting clusters"
+        },
+        {
+          "id": "6-2b",
+          "text": "The dendrogram shows a clear split: one branch with tight, consistent batches, another branch with scattered, variable ones.\n\nYou cut the tree at 3 clusters and map to quality. The pattern emerges: 'bad' batches cluster together, sharing unusual process conditions.\n\nClara traces the connections. 'These aren't random failures. They're systematic—something in the process creates this branch.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Investigate what the 'bad' cluster batches have in common",
+              "correct": true,
+              "next": "6-3",
+              "feedback": "Common factor: all from second and third shift. An operator has been deviating from the recipe."
+            }
+          ],
+          "concept_tested": "Hierarchical clustering interpretation"
+        },
+        {
+          "id": "6-2c",
+          "text": "Operators label batches based on gut feel. The labels are inconsistent—what one calls 'borderline good,' another calls 'bad.'\n\nClara shakes her head. 'Human labels are noisy. If there's real structure, the data will show it. Trust the algorithms.'\n\nYou run k-means anyway. The clusters don't match operator labels—but they *do* match actual quality metrics. The data saw what humans couldn't.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Trust the data-driven clusters over operator labels",
+              "correct": true,
+              "next": "6-3",
+              "feedback": "The clusters reveal a night-shift operator running unauthorized settings. Human labels never caught it."
+            }
+          ],
+          "concept_tested": "Data vs human labels"
+        },
+        {
+          "id": "6-3",
+          "text": "Mystery solved. A night-shift operator had been running personal 'optimizations'—higher temperature, lower stirring—thinking they knew better than the recipe. The clusters exposed a human pattern no one thought to look for.\n\nClara closes the case. 'Clustering finds structure when you don't know what you're looking for. The data knew there were three types of batches. We just had to ask.'\n\nA note appears on the windshield of your car: *'Patterns exist whether we name them or not. The detective's job is to find them. —P.P.'*\n\nYou're close to something. The Phantom's notes are leading somewhere.\n\n[CHAPTER 6 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Cluster Detective",
+          "points": 350
+        }
+      ]
+    },
+    "7": {
+      "id": "ch7",
+      "title": "The Uncertain Truth",
+      "unlock_after": 10,
+      "reading_time": "5 min",
+      "scenes": [
+        {
+          "id": "7-1",
+          "text": "SynthChem is about to invest $2 million in a new reactor—if your model says it's worth it. Their model predicts a 40% improvement in yield. But when you ask for confidence intervals, the room goes quiet.\n\n'We don't... have those,' the project lead admits. 'The model just gives a number.'\n\nQuinn Quantify appears, arms crossed. 'A prediction without uncertainty is just a guess dressed up as science.'\n\nThe stakes are enormous. If the model is right, the reactor pays for itself in six months. If it's wrong, $2 million vanishes. What do you need to know?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Quantify the uncertainty in the model's predictions",
+              "correct": true,
+              "next": "7-2a",
+              "feedback": "Quinn nods approvingly. 'Now we're doing real engineering.'"
+            },
+            {
+              "id": "b",
+              "text": "The model was cross-validated—that should be enough",
+              "correct": false,
+              "next": "7-2b",
+              "feedback": "Quinn sighs. 'Cross-validation tells you average accuracy, not prediction uncertainty. For a $2M decision, we need more.'"
+            },
+            {
+              "id": "c",
+              "text": "Add a safety factor—design for 30% improvement instead of 40%",
+              "correct": false,
+              "next": "7-2c",
+              "feedback": "Quinn frowns. 'Safety factors are better than nothing, but they're arbitrary. Proper uncertainty quantification tells you what factor is actually needed.'"
+            }
+          ],
+          "concept_tested": "Uncertainty quantification importance"
+        },
+        {
+          "id": "7-2a",
+          "text": "You rebuild their model using Gaussian Processes, which naturally provide uncertainty estimates. The result is sobering:\n\n- Predicted improvement: 40%\n- 95% confidence interval: 15% to 65%\n\nThe project lead goes pale. 'So we could get 15%? That barely breaks even.'\n\nQuinn examines the uncertainty plot. 'The model is confident in some regions but not others. Look—uncertainty spikes at high temperatures. They have no data there.'\n\nThis is the real insight: the model is guessing in exactly the region where the new reactor would operate.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Recommend pilot experiments at high temperature before investing",
+              "correct": true,
+              "next": "7-3",
+              "feedback": "A $50,000 pilot study could save $2M. The uncertainty plot shows exactly where to experiment."
+            },
+            {
+              "id": "b",
+              "text": "Present the confidence intervals and let them decide",
+              "correct": false,
+              "next": "7-3",
+              "feedback": "You share the results, but Quinn pushes back. 'Don't just present uncertainty—help them reduce it. Where should they collect more data?'"
+            }
+          ],
+          "concept_tested": "Using uncertainty to guide decisions"
+        },
+        {
+          "id": "7-2b",
+          "text": "You rely on cross-validation R² of 0.85. Good, right?\n\nQuinn pulls out a simulation. 'Watch this.' She runs the model 100 times with bootstrapped samples. The prediction varies from 25% to 55% improvement.\n\n'R² tells you the model explains variance *on average*. It doesn't tell you how much any single prediction could be wrong. For decisions this big, you need prediction intervals.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Rebuild with proper uncertainty quantification",
+              "correct": true,
+              "next": "7-2a",
+              "feedback": "Quinn leads you through Gaussian Processes. 'This model knows what it doesn't know.'"
+            }
+          ],
+          "concept_tested": "Limitations of cross-validation"
+        },
+        {
+          "id": "7-2c",
+          "text": "You suggest designing for 30% improvement. The CFO likes the conservatism.\n\nBut Quinn pushes back. 'Why 30%? Why not 25% or 35%? A safety factor should be based on actual uncertainty, not gut feel.'\n\nShe's right. Without quantifying uncertainty, your safety factor is just another guess.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Quantify uncertainty properly to set an informed margin",
+              "correct": true,
+              "next": "7-2a",
+              "feedback": "With proper intervals, you can set a margin that reflects real risk—not arbitrary caution."
+            }
+          ],
+          "concept_tested": "Safety factors need justification"
+        },
+        {
+          "id": "7-3",
+          "text": "SynthChem runs pilot experiments at high temperature. The data tightens the uncertainty:\n\n- New predicted improvement: 38%\n- New 95% confidence interval: 32% to 44%\n\nThe investment is approved. Six months later, actual improvement: 36%. Right in the predicted range.\n\nQuinn files the case with satisfaction. 'The model wasn't wrong before—it just didn't know what it didn't know. Uncertainty is information.'\n\nA note appears in your briefcase: *'Confidence without calibration is arrogance. The wise detective knows the limits of their knowledge. —P.P.'*\n\nYou're starting to suspect the Phantom's identity. But you need one more clue.\n\n[CHAPTER 7 COMPLETE]",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Uncertainty Quantifier",
+          "points": 400
+        }
+      ]
+    },
+    "8": {
+      "id": "ch8",
+      "title": "The Phantom Revealed",
+      "unlock_after": 11,
+      "reading_time": "5 min",
+      "scenes": [
+        {
+          "id": "8-1",
+          "text": "The biggest case of your career. Unified Chemical has deployed an ML model across all 12 plants—predicting maintenance needs, optimizing yields, scheduling production. It saves them $50 million a year.\n\nBut now it's making inexplicable recommendations. One plant was told to reduce temperature, another to increase it, for the same product. Operators are losing trust.\n\n'The model's gone rogue,' the CTO declares. 'It used to make sense. Now it's a black box making contradictory decisions.'\n\nSHAP Shapley appears, studying the model architecture. 'The model hasn't changed. But do they understand *why* it makes each recommendation?'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Use SHAP values to explain individual predictions",
+              "correct": true,
+              "next": "8-2a",
+              "feedback": "SHAP Shapley smiles. 'Let's open the black box and see who's inside.'"
+            },
+            {
+              "id": "b",
+              "text": "Retrain the model with simpler, interpretable methods",
+              "correct": false,
+              "next": "8-2b",
+              "feedback": "SHAP Shapley hesitates. 'You could—but you might lose accuracy. Let's first understand *what* the model learned before discarding it.'"
+            },
+            {
+              "id": "c",
+              "text": "Check if the input data has drifted since deployment",
+              "correct": true,
+              "next": "8-2c",
+              "feedback": "Val Validation appears. 'Data drift could explain changes in behavior. Good instinct.'"
+            }
+          ],
+          "concept_tested": "Model interpretability"
+        },
+        {
+          "id": "8-2a",
+          "text": "SHAP analysis reveals the truth. The contradictory recommendations aren't bugs—they're correct responses to different local conditions.\n\nPlant A should reduce temperature because their feedstock has changed since summer. Plant B should increase temperature because their catalyst is older. Same product, different contexts, different optimal conditions.\n\n'The model isn't confused,' SHAP Shapley explains. 'It learned the real interactions. The operators are confused because they expected one-size-fits-all.'\n\nThe CTO stares at the SHAP plots. 'So the model was right all along. We just couldn't see why.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Build a dashboard showing SHAP explanations with each recommendation",
+              "correct": true,
+              "next": "8-3",
+              "feedback": "Now operators can see *why* the model suggests each action. Trust is restored."
+            }
+          ],
+          "concept_tested": "SHAP for trust"
+        },
+        {
+          "id": "8-2b",
+          "text": "You rebuild with linear regression. It's interpretable, but R² drops from 0.90 to 0.65. $15 million in annual savings evaporates.\n\nSHAP Shapley shakes his head. 'Interpretability doesn't require simplicity. We can explain complex models too. Put the ensemble back and let me show you.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Restore the complex model and use SHAP to explain it",
+              "correct": true,
+              "next": "8-2a",
+              "feedback": "Best of both worlds: accuracy of ensemble, interpretability of SHAP."
+            }
+          ],
+          "concept_tested": "Interpretable doesn't mean simple"
+        },
+        {
+          "id": "8-2c",
+          "text": "You check for data drift. Sure enough, several plants have shifted feedstock suppliers since the model was trained. The model is adapting to new conditions—correctly—but operators don't realize the context changed.\n\nVal Validation nods. 'The model isn't broken. The world changed, and the model followed. Operators are comparing new recommendations to old intuitions.'",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Add SHAP explanations to show what's driving the new recommendations",
+              "correct": true,
+              "next": "8-3",
+              "feedback": "Now operators understand: different feedstock means different optimal conditions. The model was ahead of their intuition."
+            }
+          ],
+          "concept_tested": "Data drift awareness"
+        },
+        {
+          "id": "8-3",
+          "text": "Case closed. Unified Chemical's model is exonerated. A new dashboard shows SHAP values alongside each recommendation. Operators finally understand the 'why.'\n\nAs you wrap up, you find one final note—this time, hand-delivered by Professor Pipeline himself.\n\n*'You've solved all my cases. Every note I left was a lesson I wished I'd learned earlier. The Phantom Pattern was never an enemy—it was the patterns we assume instead of verify. The real corruption is overconfidence. The real saboteur is bias we don't question.'*\n\n*'Now you understand. The model isn't the answer. Understanding is.'*\n\n*'—P.P.'*\n\nProfessor Pipeline. The Phantom Pattern. The same initials. He'd been testing you all along.\n\n'Data science is powerful,' he says. 'But it's dangerous when we trust our models more than our understanding. Every case taught you to question, verify, and explain. That's the real skill.'\n\n[THE DATA DETECTIVE AGENCY: COMPLETE]\n\n🎓 You've completed all 8 chapters and earned the title: **Master Data Detective**",
+          "choices": [],
+          "ending": true,
+          "badge_earned": "Master Data Detective",
+          "points": 500
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_chapters": 8,
+    "total_points": 2350,
+    "badges": [
+      "Missing Data Detective",
+      "Outlier Investigator",
+      "Dimension Detective",
+      "Overfitting Hunter",
+      "Ensemble Expert",
+      "Cluster Detective",
+      "Uncertainty Quantifier",
+      "Master Data Detective"
+    ],
+    "themes": [
+      "Missing data is informative, not just inconvenient",
+      "Outliers can be discoveries, not errors",
+      "Simple models often beat complex ones",
+      "Correlation is not causation—verify with experiments",
+      "Ensemble methods find what single models miss",
+      "Clusters reveal structure we don't name",
+      "Predictions need uncertainty quantification",
+      "Models need explanation to build trust"
+    ],
+    "final_message": "The real Phantom Pattern is our own assumptions and biases. The best data scientist questions everything—including their models."
+  }
+}
