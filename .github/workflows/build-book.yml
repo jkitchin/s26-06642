@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -e .
+          pip install numpy pandas matplotlib scikit-learn pycse shap xgboost umap-learn "jupyter-book>=0.15.0,<2"
 
       - name: Build the book
         run: |
