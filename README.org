@@ -1,8 +1,91 @@
+:PROPERTIES:
+:ID:       05AB72A2-213A-4232-A6C7-237FB6A42FFF
+:END:
 #+title: Data Science and Machine Learning in Chemical Engineering
 
-Course materials for 06-642.
+Course materials for 06-642 · Spring 2026 · Carnegie Mellon University
 
 Read the book at https://jkitchin.github.io/s26-06642/
 
-* TODO review DSMLES
-DEADLINE: <2026-01-05 Mon>
+* Course Overview
+
+This half-semester course covers practical applications of data science and machine learning techniques to problems in chemical engineering and related sciences.
+
+** Topics Covered
+- NumPy and Pandas for data manipulation
+- Dimensionality reduction (PCA, t-SNE, UMAP)
+- Linear and nonlinear regression
+- Classification and clustering
+- Ensemble methods (Random Forests, Gradient Boosting)
+- Uncertainty quantification
+- Model interpretability (SHAP)
+
+* Using Claude in This Course
+
+This course encourages the use of Claude (and other AI assistants) as learning tools. Here's how to use them effectively:
+
+** Recommended Uses
+- *Explaining concepts*: Ask Claude to explain confusing topics in different ways
+- *Debugging help*: Share error messages and ask for explanations
+- *Code review*: Have Claude review your code and suggest improvements
+- *Exploring alternatives*: Ask "What are other ways to solve this problem?"
+- *Understanding documentation*: Get help interpreting scikit-learn or pandas docs
+
+** Best Practices
+1. *Try first*: Attempt problems yourself before asking for help
+2. *Ask "why"*: Don't just copy code—ask Claude to explain the reasoning
+3. *Verify*: Always test AI-generated code; it can have bugs
+4. *Cite*: Acknowledge when AI assisted with your work
+5. *Learn*: Use AI to accelerate learning, not replace it
+
+** What to Avoid
+- Submitting AI-generated work without understanding it
+- Using AI during closed-book assessments
+- Letting AI do all the thinking—you're here to learn!
+
+* Interactive Learning
+
+** Data Academy Honors
+
+Earn badges and ranks as you demonstrate mastery:
+
+| Badge | Focus |
+|-------|-------|
+| Data Wrangler | Data manipulation & exploration |
+| Pattern Seeker | Dimensionality reduction & visualization |
+| Model Builder | Regression & model selection |
+| Ensemble Master | Ensemble methods & clustering |
+| Uncertainty Expert | UQ & interpretability |
+
+Progress through ranks: Data Apprentice → Data Analyst → Data Scientist → Senior Data Scientist
+
+** Games & Activities
+
+Reinforce your learning through interactive games:
+
+- *Trivia*: Test your knowledge with character-hosted questions
+- *Adventure*: "The Data Detective Agency" - solve ChemE data mysteries
+- *Flashcards*: Spaced repetition for key concepts
+- *Puzzles*: Metric matching, confusion matrices, code completion
+- *Scavenger Hunts*: Explore datasets, documentation, and papers
+
+* Getting Started
+
+#+begin_src bash
+# Clone and set up
+git clone https://github.com/jkitchin/s26-06642.git
+cd s26-06642
+
+# Using uv (recommended)
+uv sync
+source .venv/bin/activate
+jupyter lab
+
+# Or using pip
+pip install -e .
+jupyter lab
+#+end_src
+
+* License
+
+MIT
