@@ -2,7 +2,7 @@
 name = "s26-06642"
 version = "0.1.0"
 description = "Course materials for 06-642"
-readme = "README.org"
+readme = {file = "README.org", content-type = "text/plain"}
 requires-python = ">=3.10"
 dependencies = [
     # Core dependencies
@@ -19,7 +19,7 @@ dependencies = [
     # Dimensionality reduction
     "umap-learn",
     # Jupyter Book
-    "jupyter-book>=0.15.0",
+    "jupyter-book>=0.15.0,<2",
     # Development tools
     "jupyterlab",
     "jupyter_black",
