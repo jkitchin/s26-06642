@@ -3,6 +3,10 @@
 *~
 \#*\#
 .#*
+*.swp
+*.swo
+.idea/
+.vscode/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -10,14 +14,23 @@
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+*.egg
 *.egg-info/
 .eggs/
 dist/
 build/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 
 # Virtual environments
 .venv/
 venv/
+env/
 .python-version
 
 # Jupyter Book build
@@ -26,3 +39,6 @@ _build/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Claude
+.claude/
