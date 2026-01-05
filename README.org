@@ -1,4 +1,8 @@
-#+title: S26 data science mini
+#+title: Data Science and Machine Learning in Chemical Engineering
+
+Course materials for 06-642.
+
+Read the book at https://jkitchin.github.io/s26-06642/
 
 * TODO review DSMLES
-DEADLINE: <2025-12-31 Wed>
+DEADLINE: <2026-01-05 Mon>
