@@ -1,0 +1,73 @@
+title: Introduction to Data Science in Chemical Engineering
+questions:
+  - question: "Which of the following is NOT a typical source of data in chemical engineering?"
+    options:
+      - "Sensor readings from process control systems"
+      - "Results from catalyst testing experiments"
+      - "Social media sentiment analysis"
+      - "Molecular dynamics simulation outputs"
+    answer: 2
+    explanation: "Chemical engineers work with process data (sensors), experimental data (lab results), simulation data (CFD, MD), and literature data. Social media analysis is not a typical ChemE data source."
+
+  - question: "What is the correct order of steps in the machine learning workflow?"
+    options:
+      - "Train model → Collect data → Evaluate → Deploy"
+      - "Define problem → Collect data → Prepare data → Train model → Evaluate"
+      - "Evaluate → Train model → Collect data → Deploy"
+      - "Deploy → Train model → Evaluate → Collect data"
+    answer: 1
+    explanation: "The ML workflow follows a logical sequence: first define the problem, then collect and explore data, prepare it, choose and train models, evaluate, interpret, and finally deploy if applicable."
+
+  - question: "In Python, what is the more 'Pythonic' way to convert a list of temperatures from Kelvin to Celsius?"
+    options:
+      - "Using a for loop with .append()"
+      - "Using a list comprehension"
+      - "Using a while loop"
+      - "Using recursion"
+    answer: 1
+    explanation: "List comprehensions like [T - 273.15 for T in temperatures] are more concise and Pythonic than explicit for loops with append. They're also often faster."
+
+  - question: "What does an R-squared (R²) value of 0.92 mean for a regression model?"
+    options:
+      - "The model is 92% accurate"
+      - "92% of the variance in the target is explained by the model"
+      - "The model makes errors 92% of the time"
+      - "92% of the data points are correctly classified"
+    answer: 1
+    explanation: "R² (coefficient of determination) represents the proportion of variance in the dependent variable that is explained by the model. An R² of 0.92 means 92% of the variance is explained, with 8% remaining as unexplained (noise or missing variables)."
+
+  - question: "Why do we split data into training and test sets?"
+    options:
+      - "To make the computer run faster"
+      - "To reduce the amount of data we need to process"
+      - "To evaluate how well the model generalizes to unseen data"
+      - "To create backup copies of the data"
+    answer: 2
+    explanation: "The train/test split allows us to evaluate model performance on data it hasn't seen during training. This helps detect overfitting and gives a realistic estimate of how the model will perform on new, unseen data."
+
+  - question: "What does RMSE measure in a regression model?"
+    options:
+      - "The percentage of correct predictions"
+      - "The average prediction error in the same units as the target variable"
+      - "The number of features used in the model"
+      - "The time it takes to train the model"
+    answer: 1
+    explanation: "RMSE (Root Mean Squared Error) measures the average magnitude of prediction errors. It's in the same units as the target variable, making it interpretable. For example, RMSE of 2% for yield means predictions are typically within ±2 percentage points of actual values."
+
+  - question: "In the predicted vs actual plot, where should points fall for a perfect model?"
+    options:
+      - "In a horizontal line"
+      - "In a vertical line"
+      - "Along the diagonal (y=x) line"
+      - "Scattered randomly across the plot"
+    answer: 2
+    explanation: "For a perfect model, predicted values exactly equal actual values, so all points fall on the diagonal line where predicted = actual. Points above the line indicate over-prediction, and points below indicate under-prediction."
+
+  - question: "What Python data structure would you use to store experiment parameters with named fields like 'temperature', 'pressure', and 'catalyst'?"
+    options:
+      - "A list"
+      - "A tuple"
+      - "A dictionary"
+      - "A set"
+    answer: 2
+    explanation: "Dictionaries store key-value pairs, making them ideal for named parameters. You can access values by name like experiment['temperature'] rather than by index position."
