@@ -45,3 +45,7 @@ Thumbs.db
 
 # Photo roster
 PhotoRoster-S26-06642-A3.pdf
+
+# Generated data files from notebook execution
+*.npy
+*.npz
