@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Which of the following is NOT a reliable indicator that a linear model is insufficient for your data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Residual plots showing a curved pattern", "correct": false, "feedback": "Curved residuals clearly indicate the model is missing nonlinear structure in the data."},
+      {"answer": "Domain knowledge suggesting exponential or saturation behavior", "correct": false, "feedback": "Physical understanding of the system is a valid reason to expect nonlinearity."},
+      {"answer": "A high R-squared value on the training set", "correct": true, "feedback": "Correct! A high R-squared on training data does not indicate the model is insufficient - in fact, it suggests the model fits well. The other options are genuine indicators of nonlinearity."},
+      {"answer": "Low R-squared despite having good predictive features", "correct": false, "feedback": "If you have features that should predict the target but R-squared is low, a nonlinear relationship is likely."}
+    ]
+  },
+  {
+    "question": "What is the primary purpose of examining residual plots when evaluating a regression model?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To calculate the R-squared value", "correct": false, "feedback": "R-squared is calculated directly from predictions and actual values, not from residual plots."},
+      {"answer": "To detect patterns suggesting the model is missing important relationships", "correct": true, "feedback": "Correct! If residuals show a systematic pattern (like a curve), it indicates the model is not capturing all the structure in the data, suggesting nonlinearity."},
+      {"answer": "To determine the optimal number of features", "correct": false, "feedback": "Residual plots don't directly tell you how many features to use."},
+      {"answer": "To identify which features have the largest coefficients", "correct": false, "feedback": "Coefficient magnitudes are found from the fitted model, not residual plots."}
+    ]
+  },
+  {
+    "question": "When using polynomial features with 10 original features and degree 3, approximately how many features are created?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "30 features", "correct": false, "feedback": "This would be true for simple powers only (10 features x 3 degrees), but polynomial features include all cross-terms."},
+      {"answer": "100 features", "correct": false, "feedback": "The feature explosion is more dramatic due to all interaction terms."},
+      {"answer": "286 features", "correct": true, "feedback": "Correct! The formula is C(d+p, p) where d=10 features and p=3 degree, giving 286 features. This is why high-degree polynomials with many features can lead to overfitting."},
+      {"answer": "1000 features", "correct": false, "feedback": "While there is significant feature expansion, it's not quite this extreme for degree 3."}
+    ]
+  },
+  {
+    "question": "What is the key tradeoff when choosing polynomial degree for regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Higher degree always improves prediction accuracy", "correct": false, "feedback": "Higher degrees can capture training data better but often overfit to noise."},
+      {"answer": "Lower degree is faster to compute but provides worse predictions", "correct": false, "feedback": "While lower degree is simpler, it's not just about computation speed - it's about model complexity and generalization."},
+      {"answer": "Higher degree increases flexibility but also increases overfitting risk", "correct": true, "feedback": "Correct! This is the bias-variance tradeoff. Higher degrees reduce bias (can fit complex patterns) but increase variance (sensitivity to noise and overfitting)."},
+      {"answer": "The degree should always match the number of data points", "correct": false, "feedback": "There's no such rule. In fact, having degree close to n_samples would cause severe overfitting."}
+    ]
+  },
+  {
+    "question": "In Support Vector Regression (SVR), what is the purpose of the epsilon (epsilon) parameter?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It controls the regularization strength like the C parameter", "correct": false, "feedback": "C controls regularization. Epsilon has a different role related to the tolerance for errors."},
+      {"answer": "It defines the width of a tube around the prediction where errors are not penalized", "correct": true, "feedback": "Correct! The epsilon-tube is a key feature of SVR. Points inside the tube contribute no loss, making SVR robust to small noise."},
+      {"answer": "It sets the learning rate for the optimization algorithm", "correct": false, "feedback": "SVR doesn't use a learning rate in the same way neural networks do."},
+      {"answer": "It determines the kernel width for RBF kernels", "correct": false, "feedback": "The gamma parameter controls RBF kernel width, not epsilon."}
+    ]
+  },
+  {
+    "question": "In SVR with an RBF kernel, what effect does increasing the gamma parameter have?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Makes the model more global, considering distant points more", "correct": false, "feedback": "This is backwards - higher gamma makes the kernel more local."},
+      {"answer": "Makes the kernel more local, potentially leading to overfitting", "correct": true, "feedback": "Correct! Higher gamma means each training point has influence only in a smaller region, which can lead to overfitting. Lower gamma gives smoother, more global predictions."},
+      {"answer": "Increases the regularization, preventing overfitting", "correct": false, "feedback": "Gamma controls kernel width, not regularization. The C parameter controls regularization."},
+      {"answer": "Has no effect when combined with proper scaling", "correct": false, "feedback": "Gamma significantly affects model behavior regardless of scaling."}
+    ]
+  },
+  {
+    "question": "Why is feature scaling particularly important for SVR but not as critical for polynomial regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "SVR uses gradient descent which requires scaled features", "correct": false, "feedback": "While SVR uses optimization, the main reason relates to how kernels compute distances."},
+      {"answer": "Kernel functions measure distances between points, which are affected by feature scales", "correct": true, "feedback": "Correct! Kernels like RBF compute distances in feature space. If features have different scales, those with larger values will dominate the distance calculation, biasing the model."},
+      {"answer": "Polynomial regression automatically scales features internally", "correct": false, "feedback": "Polynomial regression doesn't automatically scale. It's just less sensitive because it fits coefficients that can compensate for scale differences."},
+      {"answer": "Feature scaling improves computational speed for SVR", "correct": false, "feedback": "While there may be some computational benefits, the main reason is model accuracy."}
+    ]
+  },
+  {
+    "question": "When should you prefer SVR over polynomial features for nonlinear regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When you have a small dataset with 1-2 features", "correct": false, "feedback": "Polynomial features work well for few features since the feature explosion is manageable."},
+      {"answer": "When interpretability of coefficients is important", "correct": false, "feedback": "SVR is less interpretable than polynomial regression, so this would favor polynomials."},
+      {"answer": "When you have many features and the functional form is unknown", "correct": true, "feedback": "Correct! SVR handles many features efficiently through the kernel trick and doesn't require specifying the polynomial form. It's ideal when you don't know the relationship structure."},
+      {"answer": "When you need the fastest possible training time", "correct": false, "feedback": "SVR is typically slower than linear models with polynomial features for larger datasets."}
+    ]
+  }
+]

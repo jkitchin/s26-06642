@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the 'curse of dimensionality' in machine learning?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Having too few features to build a good model", "correct": false, "feedback": "Incorrect. The curse of dimensionality refers to problems with too MANY dimensions, not too few."},
+      {"answer": "Data points become increasingly sparse and isolated as the number of features increases, making pattern detection harder", "correct": true, "feedback": "Correct! In high-dimensional spaces, data becomes sparse, distances lose meaning, and exponentially more samples are needed to achieve adequate coverage."},
+      {"answer": "Computers run out of memory when processing large datasets", "correct": false, "feedback": "Incorrect. While memory can be a practical concern, the curse of dimensionality specifically refers to statistical and geometric problems in high-dimensional spaces."},
+      {"answer": "Features become perfectly correlated in high dimensions", "correct": false, "feedback": "Incorrect. While correlation between features is common, the curse of dimensionality refers to sparsity and distance-related problems, not correlation."}
+    ]
+  },
+  {
+    "question": "When should you standardize (scale) your data before applying PCA?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Never - PCA automatically handles different scales", "correct": false, "feedback": "Incorrect. PCA does NOT automatically handle different scales. Features with larger ranges will dominate the principal components."},
+      {"answer": "Only when using t-SNE or UMAP afterward", "correct": false, "feedback": "Incorrect. Scaling is important for PCA itself, regardless of what methods you use afterward."},
+      {"answer": "When features have different units or vastly different numerical ranges", "correct": true, "feedback": "Correct! When combining heterogeneous measurements (like temperature, pressure, and concentration), scaling ensures each feature contributes equally rather than being dominated by features with large numerical values."},
+      {"answer": "Only when you have more than 100 features", "correct": false, "feedback": "Incorrect. The number of features doesn't determine whether to scale - the difference in units and ranges does."}
+    ]
+  },
+  {
+    "question": "What does PCA preserve when reducing dimensionality?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Local neighborhood relationships between points", "correct": false, "feedback": "Incorrect. Preserving local neighborhoods is what t-SNE and UMAP focus on, not PCA."},
+      {"answer": "Maximum variance in the data along orthogonal linear directions", "correct": true, "feedback": "Correct! PCA finds new orthogonal axes (principal components) ordered by the amount of variance they capture. It assumes variance equals information."},
+      {"answer": "Cluster boundaries and group separations", "correct": false, "feedback": "Incorrect. PCA doesn't explicitly try to preserve cluster structure - it only maximizes variance, which may or may not align with cluster separations."},
+      {"answer": "Nonlinear manifold structure in the data", "correct": false, "feedback": "Incorrect. PCA can only capture LINEAR structure. For nonlinear manifolds, you need methods like t-SNE or UMAP."}
+    ]
+  },
+  {
+    "question": "How do you interpret PCA loadings?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Loadings tell you how much variance each principal component explains", "correct": false, "feedback": "Incorrect. The explained variance ratio tells you how much variance each PC explains. Loadings tell you how original features contribute to each PC."},
+      {"answer": "Loadings indicate the importance of each sample in the dataset", "correct": false, "feedback": "Incorrect. Loadings describe the relationship between original features and principal components, not sample importance."},
+      {"answer": "Large positive/negative loadings indicate features that strongly contribute to that PC; near-zero loadings indicate minimal contribution", "correct": true, "feedback": "Correct! Loadings show how each original feature contributes to each PC. Features with similar loadings are correlated, while opposite signs indicate anti-correlation."},
+      {"answer": "Loadings should always sum to 1.0 for each principal component", "correct": false, "feedback": "Incorrect. Loadings are coefficients that can have any value; they don't need to sum to 1."}
+    ]
+  },
+  {
+    "question": "Which approach is commonly used to decide how many principal components to keep?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Always keep exactly 2 components for visualization", "correct": false, "feedback": "Incorrect. While 2 components are common for visualization, the optimal number depends on your goal and should be determined by examining explained variance."},
+      {"answer": "Use a scree plot to find the 'elbow' where explained variance drops off, or set a cumulative variance threshold (e.g., 90%)", "correct": true, "feedback": "Correct! Common strategies include finding the elbow in the scree plot, setting a variance threshold, or using cross-validation for prediction tasks."},
+      {"answer": "Keep the same number of components as original features", "correct": false, "feedback": "Incorrect. That would defeat the purpose of dimensionality reduction!"},
+      {"answer": "Always keep components until cumulative variance reaches exactly 100%", "correct": false, "feedback": "Incorrect. Keeping all variance means keeping all components, which doesn't reduce dimensionality. Some information loss is acceptable for simpler representations."}
+    ]
+  },
+  {
+    "question": "What is the key difference between PCA and t-SNE?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "PCA is slower but more accurate than t-SNE", "correct": false, "feedback": "Incorrect. PCA is actually FASTER than t-SNE, and 'accuracy' depends on what structure you're trying to preserve."},
+      {"answer": "PCA preserves global linear structure while t-SNE preserves local neighborhood relationships (potentially at the expense of global structure)", "correct": true, "feedback": "Correct! PCA finds linear directions of maximum variance (global structure), while t-SNE focuses on keeping nearby points close together (local structure), which can distort distances between clusters."},
+      {"answer": "t-SNE provides interpretable loadings while PCA does not", "correct": false, "feedback": "Incorrect. It's the opposite - PCA provides interpretable loadings, while t-SNE does not."},
+      {"answer": "t-SNE can project new data points while PCA cannot", "correct": false, "feedback": "Incorrect. It's the opposite - PCA and UMAP can project new data, but t-SNE cannot transform new points after fitting."}
+    ]
+  },
+  {
+    "question": "What does the perplexity parameter control in t-SNE?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The number of principal components to compute first", "correct": false, "feedback": "Incorrect. Perplexity doesn't relate to PCA. It controls how many neighbors each point considers."},
+      {"answer": "Roughly how many neighbors each point considers, balancing local vs. broader structure", "correct": true, "feedback": "Correct! Low perplexity (5-10) emphasizes very local structure with tight clusters. High perplexity (50+) considers more neighbors and captures broader patterns."},
+      {"answer": "The learning rate for the optimization algorithm", "correct": false, "feedback": "Incorrect. Learning rate is a separate parameter. Perplexity specifically controls the effective number of neighbors."},
+      {"answer": "The final number of dimensions in the output", "correct": false, "feedback": "Incorrect. The n_components parameter controls output dimensions. Perplexity controls neighborhood size."}
+    ]
+  },
+  {
+    "question": "Why should you NOT interpret distances between clusters in a t-SNE plot?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "t-SNE only works with categorical data, not continuous distances", "correct": false, "feedback": "Incorrect. t-SNE works with continuous data. The issue is that it distorts global distances while preserving local structure."},
+      {"answer": "t-SNE sacrifices global structure to preserve local neighborhoods, so distances between clusters can be arbitrary and misleading", "correct": true, "feedback": "Correct! t-SNE focuses on keeping nearby points close together but can arbitrarily stretch or compress distances between clusters. Two clusters that appear far apart might actually be similar."},
+      {"answer": "The algorithm randomly assigns cluster positions each time you run it", "correct": false, "feedback": "Incorrect. While t-SNE does have randomness, the deeper issue is that it explicitly prioritizes local over global structure."},
+      {"answer": "t-SNE only shows relative rankings, not actual distances", "correct": false, "feedback": "Incorrect. The issue is more fundamental - t-SNE doesn't preserve global distance relationships at all, not just that it shows rankings."}
+    ]
+  }
+]

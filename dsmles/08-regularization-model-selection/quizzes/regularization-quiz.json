@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the main cause of overfitting in machine learning models?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Using too little training data with a simple model", "correct": false, "feedback": "Incorrect. Using too little data with a simple model typically leads to underfitting, not overfitting."},
+      {"answer": "The model memorizing noise in the training data rather than learning generalizable patterns", "correct": true, "feedback": "Correct! Overfitting occurs when a model is too flexible and learns the specific noise in the training data rather than the underlying signal, causing poor generalization to new data."},
+      {"answer": "Using standardized features before training", "correct": false, "feedback": "Incorrect. Standardizing features is actually a best practice that can help prevent overfitting, not cause it."},
+      {"answer": "Training for too few epochs", "correct": false, "feedback": "Incorrect. Training for too few epochs typically leads to underfitting, not overfitting."}
+    ]
+  },
+  {
+    "question": "In the bias-variance tradeoff, what happens when a model is too complex?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "High bias, low variance (underfitting)", "correct": false, "feedback": "Incorrect. High bias and low variance characterize models that are too simple, not too complex."},
+      {"answer": "Low bias, high variance (overfitting)", "correct": true, "feedback": "Correct! Complex models have low bias (they can fit the training data well) but high variance (they're sensitive to the specific training data and fit differently with different samples), leading to overfitting."},
+      {"answer": "High bias, high variance", "correct": false, "feedback": "Incorrect. It's rare to have both high bias and high variance simultaneously; complexity trades off between them."},
+      {"answer": "Low bias, low variance (optimal)", "correct": false, "feedback": "Incorrect. Low bias and low variance would be optimal, but this doesn't describe overly complex models."}
+    ]
+  },
+  {
+    "question": "What is the key difference between Ridge (L2) and Lasso (L1) regularization?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Ridge uses cross-validation while Lasso does not", "correct": false, "feedback": "Incorrect. Both Ridge and Lasso can use cross-validation to tune their regularization parameter."},
+      {"answer": "Ridge shrinks coefficients toward zero but never exactly to zero, while Lasso can set coefficients exactly to zero", "correct": true, "feedback": "Correct! The L2 penalty in Ridge shrinks all coefficients but keeps them non-zero, while the L1 penalty in Lasso can drive coefficients exactly to zero, performing automatic feature selection."},
+      {"answer": "Lasso is faster to compute than Ridge", "correct": false, "feedback": "Incorrect. Actually, Ridge has a closed-form solution and is typically faster to compute than Lasso."},
+      {"answer": "Ridge works only with normalized data while Lasso works with any data", "correct": false, "feedback": "Incorrect. Both methods benefit from scaled/normalized data since they penalize coefficient magnitude."}
+    ]
+  },
+  {
+    "question": "Why does Lasso (L1 regularization) produce sparse solutions with some coefficients exactly equal to zero?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The L1 penalty randomly sets coefficients to zero", "correct": false, "feedback": "Incorrect. The process is deterministic, not random. The optimization finds the best solution given the L1 constraint."},
+      {"answer": "The L1 penalty creates a diamond-shaped constraint region where optimal solutions tend to occur at corners (where some coefficients are zero)", "correct": true, "feedback": "Correct! The L1 penalty creates a constraint region with corners in coefficient space. The optimal solution often lies at these corners where one or more coefficients are exactly zero, unlike the smooth L2 constraint which has no corners."},
+      {"answer": "Lasso automatically removes features with low variance", "correct": false, "feedback": "Incorrect. Lasso doesn't directly measure feature variance; it penalizes coefficient magnitude based on the L1 norm."},
+      {"answer": "The L1 penalty forces coefficients below a threshold to become zero during post-processing", "correct": false, "feedback": "Incorrect. Lasso coefficients become exactly zero during optimization, not as a post-processing step."}
+    ]
+  },
+  {
+    "question": "What is ElasticNet regularization?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A regularization method that alternates between L1 and L2 penalties during training", "correct": false, "feedback": "Incorrect. ElasticNet doesn't alternate; it applies both penalties simultaneously."},
+      {"answer": "A combination of L1 and L2 penalties controlled by the l1_ratio parameter", "correct": true, "feedback": "Correct! ElasticNet combines both penalties: l1_ratio=1 gives pure Lasso, l1_ratio=0 gives pure Ridge, and values in between give a mix. This combines Lasso's feature selection with Ridge's stability for correlated features."},
+      {"answer": "A method that automatically chooses between Ridge and Lasso based on data", "correct": false, "feedback": "Incorrect. ElasticNet doesn't choose between them; it uses both simultaneously with a user-specified ratio."},
+      {"answer": "A neural network regularization technique", "correct": false, "feedback": "Incorrect. ElasticNet is a linear model regularization technique, not specific to neural networks."}
+    ]
+  },
+  {
+    "question": "In K-fold cross-validation, how is the final performance estimate calculated?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "By training on all K folds and testing on a separate holdout set", "correct": false, "feedback": "Incorrect. K-fold CV doesn't require a separate holdout set; it uses all data for both training and testing across folds."},
+      {"answer": "By averaging the test scores from all K iterations, where each fold serves as the test set exactly once", "correct": true, "feedback": "Correct! In K-fold CV, the data is split into K folds. Each fold serves as the test set once while the other K-1 folds form the training set. The final score is the average of all K test scores."},
+      {"answer": "By selecting the best score among all K iterations", "correct": false, "feedback": "Incorrect. Selecting the best score would be overly optimistic. The average provides a more reliable estimate."},
+      {"answer": "By training on the first fold and testing on the remaining K-1 folds", "correct": false, "feedback": "Incorrect. This would mean training on only 1/K of the data, which is the opposite of how K-fold CV works."}
+    ]
+  },
+  {
+    "question": "Why is cross-validation preferred over a single train/test split for model evaluation?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Cross-validation is faster to compute", "correct": false, "feedback": "Incorrect. Cross-validation requires training the model K times, so it's actually slower than a single split."},
+      {"answer": "Cross-validation uses all data for both training and testing, providing more reliable and less variable performance estimates", "correct": true, "feedback": "Correct! A single split's results depend heavily on which points happen to be in the test set. Cross-validation uses all data for testing (across different folds), gives error bars via the standard deviation across folds, and is less sensitive to the random split."},
+      {"answer": "Cross-validation automatically prevents overfitting", "correct": false, "feedback": "Incorrect. Cross-validation helps detect overfitting but doesn't automatically prevent it. Regularization prevents overfitting."},
+      {"answer": "Cross-validation always gives higher accuracy scores", "correct": false, "feedback": "Incorrect. Cross-validation gives more reliable estimates, but not necessarily higher scores."}
+    ]
+  },
+  {
+    "question": "What is the purpose of GridSearchCV in scikit-learn?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To visualize model predictions on a 2D grid", "correct": false, "feedback": "Incorrect. GridSearchCV is for hyperparameter tuning, not visualization."},
+      {"answer": "To systematically search through a grid of hyperparameter values and find the best combination using cross-validation", "correct": true, "feedback": "Correct! GridSearchCV exhaustively searches through a specified parameter grid, evaluating each combination using cross-validation to find the hyperparameters that give the best cross-validated performance."},
+      {"answer": "To split data into a grid pattern for spatial analysis", "correct": false, "feedback": "Incorrect. GridSearchCV has nothing to do with spatial data; it searches hyperparameter combinations."},
+      {"answer": "To automatically select the best features in a dataset", "correct": false, "feedback": "Incorrect. GridSearchCV tunes hyperparameters, not feature selection (though it can tune parameters of feature selection methods)."}
+    ]
+  }
+]

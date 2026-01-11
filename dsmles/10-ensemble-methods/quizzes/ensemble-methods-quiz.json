@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Why do ensemble methods typically outperform single models?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "They use more data for training", "correct": false, "feedback": "Incorrect. Ensemble methods don't necessarily use more data; bagging actually uses bootstrap samples that are the same size as the original data."},
+      {"answer": "Different models make different errors that cancel out when combined", "correct": true, "feedback": "Correct! This is the 'wisdom of crowds' principle. Individual models make different mistakes, and averaging reduces the impact of any one model's errors."},
+      {"answer": "They always use neural networks internally", "correct": false, "feedback": "Incorrect. Ensemble methods like Random Forest and Gradient Boosting typically use decision trees as base learners, not neural networks."},
+      {"answer": "They require less computational resources", "correct": false, "feedback": "Incorrect. Ensemble methods actually require more computational resources since they train multiple models instead of one."}
+    ]
+  },
+  {
+    "question": "What is the key difference between bagging and boosting?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Bagging uses neural networks while boosting uses decision trees", "correct": false, "feedback": "Incorrect. Both bagging and boosting can use decision trees (and do in Random Forest and Gradient Boosting)."},
+      {"answer": "Bagging trains models in parallel on random subsets, while boosting trains models sequentially to correct previous errors", "correct": true, "feedback": "Correct! Bagging creates independent models on bootstrap samples and averages them. Boosting builds models sequentially, with each new model focusing on the errors of the previous ones."},
+      {"answer": "Bagging is for classification while boosting is for regression", "correct": false, "feedback": "Incorrect. Both bagging and boosting can be used for both classification and regression problems."},
+      {"answer": "Boosting always produces better results than bagging", "correct": false, "feedback": "Incorrect. Neither method is universally better. Bagging helps reduce variance (overfitting), while boosting helps reduce bias (underfitting)."}
+    ]
+  },
+  {
+    "question": "What two key techniques does Random Forest use to improve upon single decision trees?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Feature scaling and regularization", "correct": false, "feedback": "Incorrect. Random Forest doesn't require feature scaling and uses a different approach to regularization."},
+      {"answer": "Bootstrap aggregating (bagging) and random feature selection at each split", "correct": true, "feedback": "Correct! Bagging creates diverse training sets, and random feature selection decorrelates the trees so they don't all rely on the same strong features."},
+      {"answer": "Gradient descent and cross-validation", "correct": false, "feedback": "Incorrect. Random Forest doesn't use gradient descent; it uses decision trees that are trained using greedy splits."},
+      {"answer": "Early stopping and learning rate decay", "correct": false, "feedback": "Incorrect. These are techniques used in boosting methods, not Random Forest."}
+    ]
+  },
+  {
+    "question": "Why does Random Forest rarely overfit even with many trees?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It uses L2 regularization internally", "correct": false, "feedback": "Incorrect. Random Forest doesn't use explicit regularization like L2. Its resistance to overfitting comes from the averaging process."},
+      {"answer": "Averaging many independent trees reduces variance without increasing bias", "correct": true, "feedback": "Correct! Each tree may overfit slightly, but when you average many independent trees trained on different bootstrap samples, their individual overfitting errors tend to cancel out."},
+      {"answer": "It limits the depth of all trees automatically", "correct": false, "feedback": "Incorrect. Random Forest doesn't automatically limit tree depth; this is a hyperparameter you can set."},
+      {"answer": "It removes outliers from the training data", "correct": false, "feedback": "Incorrect. Random Forest doesn't remove outliers; it trains on whatever data you provide."}
+    ]
+  },
+  {
+    "question": "How does Gradient Boosting reduce prediction error?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "By training all models simultaneously on random subsets", "correct": false, "feedback": "Incorrect. That describes bagging, not boosting. Gradient Boosting trains models sequentially."},
+      {"answer": "By training each new model to predict the residual errors of the previous ensemble", "correct": true, "feedback": "Correct! Each new tree focuses on predicting what the current ensemble got wrong, gradually reducing the overall error."},
+      {"answer": "By using deeper trees than Random Forest", "correct": false, "feedback": "Incorrect. Gradient Boosting typically uses shallower trees than Random Forest. The power comes from the sequential error correction."},
+      {"answer": "By removing poorly performing trees from the ensemble", "correct": false, "feedback": "Incorrect. Gradient Boosting adds trees sequentially but doesn't remove any. Each tree contributes to the final prediction."}
+    ]
+  },
+  {
+    "question": "What is a key advantage of XGBoost over basic Gradient Boosting?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "XGBoost can only be used for classification problems", "correct": false, "feedback": "Incorrect. XGBoost can be used for both regression and classification, just like basic Gradient Boosting."},
+      {"answer": "XGBoost has built-in regularization (L1/L2 penalties) to prevent overfitting", "correct": true, "feedback": "Correct! XGBoost adds regularization terms to the objective function, plus other optimizations like parallel processing, handling missing values, and tree pruning."},
+      {"answer": "XGBoost uses neural networks instead of decision trees", "correct": false, "feedback": "Incorrect. XGBoost still uses decision trees as base learners; it just implements them more efficiently."},
+      {"answer": "XGBoost requires less data to train effectively", "correct": false, "feedback": "Incorrect. XGBoost doesn't inherently require less data; its advantages are in optimization, regularization, and computational efficiency."}
+    ]
+  },
+  {
+    "question": "For Gradient Boosting methods, what happens when you decrease the learning rate?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The model trains faster but with lower accuracy", "correct": false, "feedback": "Incorrect. Lower learning rates actually require more training time (more iterations) but often yield better results."},
+      {"answer": "Each tree contributes less, requiring more trees but often giving more robust results", "correct": true, "feedback": "Correct! A lower learning rate makes each tree's contribution more conservative, requiring more iterations but typically producing more robust predictions with less overfitting."},
+      {"answer": "The model automatically increases the tree depth", "correct": false, "feedback": "Incorrect. Learning rate and tree depth are independent hyperparameters."},
+      {"answer": "The model switches from boosting to bagging", "correct": false, "feedback": "Incorrect. The learning rate only controls how much each tree contributes; it doesn't change the fundamental boosting approach."}
+    ]
+  },
+  {
+    "question": "What does feature importance from a Random Forest tell you?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The exact mathematical relationship between features and the target", "correct": false, "feedback": "Incorrect. Feature importance shows which features are most useful for predictions, but not the exact functional form of the relationship."},
+      {"answer": "Which features are most useful for making predictions based on how much they reduce impurity across all trees", "correct": true, "feedback": "Correct! Feature importance measures how much each feature contributes to reducing prediction error when used in splits across all trees in the forest."},
+      {"answer": "The correlation coefficient between each feature and the target", "correct": false, "feedback": "Incorrect. Feature importance is not the same as correlation. A feature can have high importance even with low correlation if it captures nonlinear relationships."},
+      {"answer": "Which features should be removed from the model", "correct": false, "feedback": "Incorrect. Feature importance identifies the most useful features, not which to remove. Low-importance features might still contribute."}
+    ]
+  }
+]

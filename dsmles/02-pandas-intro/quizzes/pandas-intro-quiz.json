@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the key difference between a DataFrame and a Series in Pandas?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A DataFrame can only hold numeric data, while a Series can hold any type", "correct": false, "feedback": "Incorrect. Both DataFrames and Series can hold various data types including numeric, string, and categorical data."},
+      {"answer": "A Series is a labeled 1D array (like a column), while a DataFrame is a labeled 2D table (like a spreadsheet)", "correct": true, "feedback": "Correct! A Series is essentially a single column with labels, while a DataFrame is a collection of Series that form a 2D table with row and column labels."},
+      {"answer": "A DataFrame is faster than a Series for all operations", "correct": false, "feedback": "Incorrect. Performance depends on the operation being performed, not on which data structure you use."},
+      {"answer": "A Series can have an index, but a DataFrame cannot", "correct": false, "feedback": "Incorrect. Both Series and DataFrames have indices. In fact, a DataFrame has both a row index and column labels."}
+    ]
+  },
+  {
+    "question": "When selecting a single column from a DataFrame df, what is the difference between df['temperature'] and df[['temperature']]?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df['temperature'] returns a Series, while df[['temperature']] returns a DataFrame", "correct": true, "feedback": "Correct! Using single brackets returns a Series (1D), while double brackets returns a DataFrame (2D) with one column. This distinction matters for subsequent operations."},
+      {"answer": "They are exactly the same and can be used interchangeably", "correct": false, "feedback": "Incorrect. They return different types: Series vs DataFrame. This affects what methods are available and how the data is displayed."},
+      {"answer": "df[['temperature']] is faster because it uses list optimization", "correct": false, "feedback": "Incorrect. The double bracket syntax is not about performance—it's about returning a DataFrame instead of a Series."},
+      {"answer": "df['temperature'] only works for numeric columns", "correct": false, "feedback": "Incorrect. df['column_name'] works for any column type, not just numeric columns."}
+    ]
+  },
+  {
+    "question": "What is the correct way to filter a DataFrame for rows where temperature is greater than 400 AND conversion is greater than 0.7?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df[df['temperature'] > 400 and df['conversion'] > 0.7]", "correct": false, "feedback": "Incorrect. Python's 'and' keyword doesn't work with Pandas because it needs to apply operations element-wise. Use '&' instead."},
+      {"answer": "df[(df['temperature'] > 400) & (df['conversion'] > 0.7)]", "correct": true, "feedback": "Correct! Use '&' for AND operations and '|' for OR operations. Always wrap each condition in parentheses to ensure proper operator precedence."},
+      {"answer": "df.filter(temperature > 400, conversion > 0.7)", "correct": false, "feedback": "Incorrect. This syntax doesn't exist in Pandas. Use boolean indexing with & for combining conditions."},
+      {"answer": "df[df['temperature'] > 400][df['conversion'] > 0.7]", "correct": false, "feedback": "Incorrect. While this might work in some cases, it's inefficient and can lead to confusing results. Use the & operator to combine conditions in a single filter."}
+    ]
+  },
+  {
+    "question": "What does df.dropna() do by default?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Drops all columns that contain any missing values", "correct": false, "feedback": "Incorrect. By default, dropna() operates on rows (axis=0), not columns."},
+      {"answer": "Drops rows where ALL values are missing", "correct": false, "feedback": "Incorrect. The default behavior is to drop rows with ANY missing value. Use how='all' to drop only rows where all values are missing."},
+      {"answer": "Drops rows where ANY value is missing", "correct": true, "feedback": "Correct! By default, dropna() removes any row that has at least one missing (NaN) value. Use subset=['col1', 'col2'] to only consider specific columns."},
+      {"answer": "Replaces missing values with zero", "correct": false, "feedback": "Incorrect. dropna() removes rows with missing values. To fill missing values, use fillna() instead."}
+    ]
+  },
+  {
+    "question": "What is the difference between iloc and loc for selecting rows?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "iloc uses integer position (0, 1, 2...), while loc uses index labels", "correct": true, "feedback": "Correct! iloc is position-based (like array indexing), while loc is label-based (uses the actual index values). This distinction is crucial when your index isn't 0, 1, 2..."},
+      {"answer": "loc is faster than iloc for large DataFrames", "correct": false, "feedback": "Incorrect. The performance difference is negligible. The key difference is how you reference rows: by position (iloc) or by label (loc)."},
+      {"answer": "iloc can only select single rows, while loc can select multiple rows", "correct": false, "feedback": "Incorrect. Both iloc and loc can select single rows, multiple rows, and ranges. The difference is position-based vs label-based selection."},
+      {"answer": "loc is for columns and iloc is for rows", "correct": false, "feedback": "Incorrect. Both loc and iloc can be used for row selection, column selection, or both. The 'i' in iloc stands for 'integer', not 'index' or 'row'."}
+    ]
+  },
+  {
+    "question": "Which method would you use to fill missing values in a DataFrame with the column mean?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df.replace(np.nan, df.mean())", "correct": false, "feedback": "Incorrect. While replace() can substitute values, fillna() is the standard method for handling missing values and works more intuitively with statistical measures."},
+      {"answer": "df.dropna(fill=df.mean())", "correct": false, "feedback": "Incorrect. dropna() removes missing values, it doesn't fill them. Use fillna() to fill missing values."},
+      {"answer": "df.fillna(df.mean())", "correct": true, "feedback": "Correct! fillna() can accept a scalar, dictionary, Series, or DataFrame. When you pass df.mean(), it fills NaN values in each column with that column's mean."},
+      {"answer": "df.interpolate(method='mean')", "correct": false, "feedback": "Incorrect. interpolate() fills missing values based on neighboring values (useful for time series). To fill with column means, use fillna(df.mean())."}
+    ]
+  },
+  {
+    "question": "After loading a CSV file with pd.read_csv(), what three methods should you use first to inspect your data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "print(), len(), type()", "correct": false, "feedback": "Incorrect. While these are general Python functions, Pandas provides more informative methods specifically for DataFrames."},
+      {"answer": "head(), info(), describe()", "correct": true, "feedback": "Correct! head() shows the first few rows, info() shows column types and non-null counts, and describe() provides summary statistics. These three give you a complete picture of your data."},
+      {"answer": "shape(), columns(), values()", "correct": false, "feedback": "Incorrect. shape and columns are attributes (not methods), and values just converts to a NumPy array. head(), info(), and describe() provide much more useful initial inspection."},
+      {"answer": "summary(), preview(), statistics()", "correct": false, "feedback": "Incorrect. These methods don't exist in Pandas. Use head(), info(), and describe() for initial data inspection."}
+    ]
+  },
+  {
+    "question": "What Pandas value represents missing data, and how do you check for it?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "None, checked with df.isnone()", "correct": false, "feedback": "Incorrect. While Python's None can become NaN in Pandas, the actual missing value marker is NaN. The check method is isna() or isnull()."},
+      {"answer": "NaN (Not a Number), checked with df.isna() or df.isnull()", "correct": true, "feedback": "Correct! NaN is Pandas' missing value marker. Both isna() and isnull() work identically—isna() is the newer, preferred name. Use df.isna().sum() to count missing values per column."},
+      {"answer": "NULL, checked with df.isnull()", "correct": false, "feedback": "Incorrect. While the method is called isnull(), the actual value in Pandas is NaN (Not a Number), not NULL."},
+      {"answer": "Missing, checked with df.ismissing()", "correct": false, "feedback": "Incorrect. There is no 'Missing' value or ismissing() method in Pandas. Missing values are represented as NaN and checked with isna() or isnull()."}
+    ]
+  }
+]

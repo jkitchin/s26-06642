@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Why is NumPy significantly faster than Python lists for numerical operations?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "NumPy uses parallel processing across multiple CPU cores automatically", "correct": false, "feedback": "NumPy doesn't automatically parallelize operations. The speed comes from vectorization and compiled C code, not parallel processing."},
+      {"answer": "NumPy arrays are homogeneous, stored contiguously in memory, and operations run in compiled C code (vectorization)", "correct": true, "feedback": "Correct! NumPy's speed comes from three factors: (1) homogeneous types eliminate per-element type checking, (2) contiguous memory enables cache-efficient access, and (3) operations run in optimized C/Fortran code rather than interpreted Python."},
+      {"answer": "NumPy compresses the data to use less memory", "correct": false, "feedback": "NumPy doesn't compress data. Its speed comes from vectorization and efficient memory layout, not compression."},
+      {"answer": "Python lists have a bug that makes them slow", "correct": false, "feedback": "Python lists aren't buggy - they're designed for flexibility (mixed types, dynamic sizing). This flexibility has overhead that NumPy avoids by requiring homogeneous types."}
+    ]
+  },
+  {
+    "question": "Which function would you use to create an array of 100 evenly spaced values between 0 and 10 (inclusive)?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "np.arange(0, 10, 100)", "correct": false, "feedback": "np.arange(start, stop, step) takes a step size, not the number of points. This would try to create values from 0 to 10 with step 100, giving only one value."},
+      {"answer": "np.linspace(0, 10, 100)", "correct": true, "feedback": "Correct! np.linspace(start, stop, num) creates num evenly spaced values from start to stop (inclusive by default). This is the right choice when you know how many points you want."},
+      {"answer": "np.zeros(100) + np.arange(100) * 0.1", "correct": false, "feedback": "While this creates 100 values, it's overly complex. np.linspace is the direct solution for creating evenly spaced values."},
+      {"answer": "np.array(range(0, 10, 0.1))", "correct": false, "feedback": "Python's range() doesn't accept float step values. Even if it did, this would create approximately 100 values, not exactly 100."}
+    ]
+  },
+  {
+    "question": "Given a 2D array 'data' with shape (5, 3), what does 'data[:, 1]' return?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The first row of the array", "correct": false, "feedback": "The first row would be data[0, :] or data[0]. The ':' before the comma selects all rows."},
+      {"answer": "The second column of the array (all 5 values)", "correct": true, "feedback": "Correct! The colon ':' selects all rows, and '1' selects the second column (0-indexed). This returns a 1D array of shape (5,) containing all values from the second column."},
+      {"answer": "A single element at position (0, 1)", "correct": false, "feedback": "A single element would be data[0, 1]. The ':' selects all rows, so this returns an entire column."},
+      {"answer": "The last column of the array", "correct": false, "feedback": "The last column would be data[:, -1] or data[:, 2]. Index 1 refers to the second column (0-indexed)."}
+    ]
+  },
+  {
+    "question": "What does boolean indexing return?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A view of the original array", "correct": false, "feedback": "Boolean indexing returns a copy, not a view. This is different from basic slicing, which returns a view."},
+      {"answer": "A copy containing only elements where the condition is True", "correct": true, "feedback": "Correct! Boolean indexing creates a new array containing only the elements where the boolean mask is True. Since it's a copy, modifying the result won't affect the original array."},
+      {"answer": "A boolean array of the same shape as the input", "correct": false, "feedback": "The boolean condition creates a mask, but applying that mask to an array extracts the matching elements, returning a smaller array of values."},
+      {"answer": "The indices where the condition is True", "correct": false, "feedback": "To get indices, you would use np.where() or np.nonzero(). Boolean indexing directly returns the values, not their indices."}
+    ]
+  },
+  {
+    "question": "In NumPy broadcasting, if you multiply an array of shape (5, 1) by an array of shape (4,), what is the shape of the result?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Error - shapes are incompatible", "correct": false, "feedback": "These shapes are compatible for broadcasting! Dimensions are compared from right to left: (5,1) and (4,) become (5,1) and (1,4), then broadcast to (5,4)."},
+      {"answer": "(5, 4)", "correct": true, "feedback": "Correct! Broadcasting stretches dimensions of size 1 to match. The (5,1) array broadcasts along columns, and the (4,) array broadcasts along rows, producing a (5,4) result."},
+      {"answer": "(5,)", "correct": false, "feedback": "The result would be larger, not smaller. Broadcasting expands arrays to create all combinations of the input values."},
+      {"answer": "(4, 5)", "correct": false, "feedback": "Close, but the order matters. The first array determines rows (5), the second determines columns (4), giving (5,4)."}
+    ]
+  },
+  {
+    "question": "What does np.mean(data, axis=0) compute for a 2D array where rows are experiments and columns are variables?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The mean of each experiment (across variables)", "correct": false, "feedback": "That would be axis=1. axis=0 operates across rows (down the columns)."},
+      {"answer": "The mean of each variable (across experiments)", "correct": true, "feedback": "Correct! axis=0 means 'collapse along axis 0' (rows), so you compute the mean down each column. The result has one value per column - the mean of that variable across all experiments."},
+      {"answer": "The overall mean of all elements", "correct": false, "feedback": "The overall mean would be np.mean(data) with no axis argument. Specifying axis computes means along that dimension."},
+      {"answer": "A 2D array of means", "correct": false, "feedback": "The result is 1D (one value per column). axis=0 reduces the array along that dimension."}
+    ]
+  },
+  {
+    "question": "Why is it important to set a random seed (e.g., rng = np.random.default_rng(42)) in scientific computing?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It makes the random numbers more random", "correct": false, "feedback": "Seeds don't affect randomness quality. They determine the starting point of the pseudo-random sequence, making it reproducible."},
+      {"answer": "It makes results reproducible - the same seed gives the same sequence of random numbers", "correct": true, "feedback": "Correct! Setting a seed ensures anyone running your code gets identical 'random' numbers. This is essential for debugging, sharing results, and scientific reproducibility."},
+      {"answer": "It prevents memory errors when generating large arrays", "correct": false, "feedback": "Seeds don't affect memory usage. They only determine which sequence of pseudo-random numbers is generated."},
+      {"answer": "It's required by NumPy or the code will crash", "correct": false, "feedback": "Seeds are optional. Without a seed, NumPy uses system entropy for initialization, giving different results each run."}
+    ]
+  },
+  {
+    "question": "What is the key difference between basic slicing (e.g., a[1:4]) and .copy()?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Slicing is faster but less accurate", "correct": false, "feedback": "Both give the same values. The difference is whether they share memory with the original array."},
+      {"answer": "Basic slicing returns a view (shares memory with original), .copy() creates an independent copy", "correct": true, "feedback": "Correct! A view shares memory with the original - modifying the view modifies the original. A copy is independent - changes don't affect the original. Use .copy() when you need to modify data without side effects."},
+      {"answer": ".copy() only works on 1D arrays", "correct": false, "feedback": ".copy() works on arrays of any dimension. The view vs copy distinction applies to all array operations."},
+      {"answer": "There is no difference; they behave identically", "correct": false, "feedback": "There's a crucial difference! Modifying a view modifies the original array. This is a common source of bugs in NumPy code."}
+    ]
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "question": "When is linear regression most appropriate for modeling a relationship?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When the relationship follows an exponential trend", "correct": false, "feedback": "Exponential relationships are nonlinear and require transformation (e.g., log) or nonlinear models."},
+      {"answer": "When effects are additive and relationships are approximately monotonic", "correct": true, "feedback": "Correct! Linear regression works well when effects add together and relationships are roughly straight (or can be made so with transformations)."},
+      {"answer": "When there are strong threshold effects or phase transitions", "correct": false, "feedback": "Threshold effects create discontinuities that linear models cannot capture."},
+      {"answer": "When the data shows saturation behavior like Michaelis-Menten kinetics", "correct": false, "feedback": "Saturation curves are inherently nonlinear and require specialized models."}
+    ]
+  },
+  {
+    "question": "In a linear regression model, a coefficient of 0.05 for pressure (in atm) means:",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Pressure explains 5% of the variance in the target variable", "correct": false, "feedback": "Coefficients represent the change in y per unit change in x, not variance explained."},
+      {"answer": "For each 1 atm increase in pressure, the target increases by 0.05 units (holding other features constant)", "correct": true, "feedback": "Correct! Coefficients tell you how much y changes when that feature increases by 1 unit, assuming all other features stay constant."},
+      {"answer": "Pressure is 5% correlated with the target variable", "correct": false, "feedback": "Coefficients are not correlation values. Correlation measures linear association on a -1 to 1 scale."},
+      {"answer": "The model is 5% confident in the pressure effect", "correct": false, "feedback": "Coefficients don't represent confidence levels. Confidence requires statistical inference (p-values, confidence intervals)."}
+    ]
+  },
+  {
+    "question": "Why are standardized coefficients important for comparing feature importance?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "They make the model run faster during training", "correct": false, "feedback": "Standardization doesn't affect computational speed for linear regression."},
+      {"answer": "They put all features on the same scale, allowing fair comparison of effect sizes", "correct": true, "feedback": "Correct! Raw coefficients depend on feature units (e.g., Kelvin vs atm). Standardizing makes coefficients comparable by measuring effects in standard deviations."},
+      {"answer": "They guarantee the model won't overfit", "correct": false, "feedback": "Standardization doesn't prevent overfitting. Regularization and proper validation address overfitting."},
+      {"answer": "They automatically remove multicollinearity", "correct": false, "feedback": "Standardization doesn't remove correlations between features. Multicollinearity must be addressed through feature selection or regularization."}
+    ]
+  },
+  {
+    "question": "You train a model and get Training R² = 0.98 and Test R² = 0.65. What does this indicate?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The model is underfitting and needs more complexity", "correct": false, "feedback": "High training R² suggests the model is complex enough. Underfitting would show low R² on both sets."},
+      {"answer": "The model is overfitting and memorizing training data", "correct": true, "feedback": "Correct! A large gap between training and test R² is a classic sign of overfitting. The model fits training noise that doesn't generalize."},
+      {"answer": "The test set is too small", "correct": false, "feedback": "While small test sets can be noisy, a 33-point gap is too large to attribute to sample size alone."},
+      {"answer": "The model is performing well and ready for deployment", "correct": false, "feedback": "The low test R² means the model won't generalize well to new data. This is a serious problem."}
+    ]
+  },
+  {
+    "question": "Which metric should you use when large prediction errors are especially costly?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "MAE (Mean Absolute Error) because it treats all errors equally", "correct": false, "feedback": "MAE is less sensitive to large errors because it doesn't square them. Use MAE when you want robustness to outliers."},
+      {"answer": "R² because it's normalized between 0 and 1", "correct": false, "feedback": "R² measures variance explained but doesn't directly penalize large errors more than small ones."},
+      {"answer": "RMSE (Root Mean Squared Error) because it penalizes large errors more heavily", "correct": true, "feedback": "Correct! RMSE squares errors before averaging, so large errors contribute disproportionately. This is appropriate when big mistakes are costly."},
+      {"answer": "The intercept value because it sets the baseline", "correct": false, "feedback": "The intercept is a model parameter, not an evaluation metric."}
+    ]
+  },
+  {
+    "question": "In a residual plot (residuals vs predicted values), what pattern indicates the model is appropriate?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A U-shaped or curved pattern centered at zero", "correct": false, "feedback": "A curved pattern indicates a nonlinear relationship that the linear model is missing. You may need polynomial terms."},
+      {"answer": "A funnel shape with increasing spread from left to right", "correct": false, "feedback": "A funnel shape indicates heteroscedasticity (non-constant variance). This violates regression assumptions."},
+      {"answer": "Random scatter around zero with roughly constant spread", "correct": true, "feedback": "Correct! Good residuals show no pattern, are centered at zero, and have constant variance across all predicted values."},
+      {"answer": "All residuals clustered tightly at exactly zero", "correct": false, "feedback": "Residuals exactly at zero would mean perfect predictions. This is unrealistic and might indicate data leakage or overfitting."}
+    ]
+  },
+  {
+    "question": "What is multicollinearity and why is it a problem in linear regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When features have missing values, making the model unable to train", "correct": false, "feedback": "Missing values are a data quality issue, not multicollinearity. Multicollinearity involves relationships between features."},
+      {"answer": "When features are highly correlated with each other, making individual coefficients unstable", "correct": true, "feedback": "Correct! When features are correlated, it's hard to separate their individual effects. Small data changes can cause large coefficient swings."},
+      {"answer": "When the target variable has multiple peaks in its distribution", "correct": false, "feedback": "Target distribution shape isn't related to multicollinearity, which concerns feature-feature relationships."},
+      {"answer": "When you use too many features relative to samples", "correct": false, "feedback": "That's a different issue (high dimensionality/overfitting). Multicollinearity can occur even with many samples."}
+    ]
+  },
+  {
+    "question": "An R² value of 0 means:",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The model makes perfect predictions", "correct": false, "feedback": "Perfect predictions would give R² = 1, not 0."},
+      {"answer": "The model predicts no better than simply using the mean of the target", "correct": true, "feedback": "Correct! R² = 0 means the model's predictions are as good as predicting the average for every sample. The features provide no predictive value."},
+      {"answer": "There is no correlation between any features and the target", "correct": false, "feedback": "R² measures model fit, not raw correlations. Features could be correlated but combined poorly in the model."},
+      {"answer": "The model has no intercept term", "correct": false, "feedback": "The intercept is a model parameter choice. R² = 0 indicates prediction quality, not model structure."}
+    ]
+  }
+]

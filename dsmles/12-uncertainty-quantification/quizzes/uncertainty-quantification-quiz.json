@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Why is uncertainty quantification especially important in engineering compared to pure scientific research?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Engineering calculations are inherently more complex", "correct": false, "feedback": "Complexity isn't the key difference. Both fields can have complex calculations."},
+      {"answer": "Engineers need to design with safety margins based on worst-case scenarios", "correct": true, "feedback": "Correct! In research we seek 'true' values, but in engineering we must design for worst cases. Understanding uncertainty lets us set appropriate safety factors and make robust decisions."},
+      {"answer": "Scientific measurements are always more precise than engineering measurements", "correct": false, "feedback": "This isn't generally true. Both fields face measurement uncertainty."},
+      {"answer": "Engineering doesn't require statistical significance", "correct": false, "feedback": "Engineering decisions should also be statistically sound."}
+    ]
+  },
+  {
+    "question": "What does pycse's `regress` function provide that standard scikit-learn linear regression does not?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Faster computation time", "correct": false, "feedback": "Speed isn't the key advantage. Both are fast for typical problems."},
+      {"answer": "Better handling of missing data", "correct": false, "feedback": "Missing data handling isn't the distinguishing feature."},
+      {"answer": "Confidence intervals on the fitted parameters", "correct": true, "feedback": "Correct! pycse's regress returns not just parameter estimates (p), but also their confidence intervals (pint) and standard errors (se). This is crucial for knowing if parameters are significantly different from zero and how precise estimates are."},
+      {"answer": "Support for more types of regression models", "correct": false, "feedback": "pycse focuses on providing uncertainty, not more model types."}
+    ]
+  },
+  {
+    "question": "What is the key feature that makes Gaussian Process (GP) uncertainty 'data-aware'?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "GP uncertainty is smaller near training data points and larger far from them", "correct": true, "feedback": "Correct! GPs know where they have data and where they don't. Predictions close to training points are confident (small uncertainty), while predictions far from training points are uncertain (large uncertainty). This is exactly what we want for honest predictions."},
+      {"answer": "GP uncertainty accounts for the size of the training dataset", "correct": false, "feedback": "While dataset size matters, the key feature is how uncertainty varies spatially relative to training points."},
+      {"answer": "GP uncertainty is always symmetric around predictions", "correct": false, "feedback": "The spatial variation of uncertainty is the key feature, not symmetry."},
+      {"answer": "GP uncertainty uses the same value everywhere like other regression methods", "correct": false, "feedback": "This is the opposite of GP behavior! GPs vary their uncertainty based on distance from training data."}
+    ]
+  },
+  {
+    "question": "When should you use Monte Carlo uncertainty propagation instead of analytical propagation (like the uncertainties package)?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Only when you have very small uncertainties", "correct": false, "feedback": "Small uncertainties actually work well with analytical methods."},
+      {"answer": "When functions are highly nonlinear or uncertainties are large/non-normal", "correct": true, "feedback": "Correct! Analytical propagation assumes small, symmetric uncertainties. Monte Carlo is necessary when uncertainties are large, distributions are non-normal (uniform, log-normal), functions are highly nonlinear, or you need the full output distribution."},
+      {"answer": "Only for problems with more than 10 input variables", "correct": false, "feedback": "The number of variables isn't the deciding factor. The nature of the uncertainties and functions matters more."},
+      {"answer": "When computation speed is the top priority", "correct": false, "feedback": "Monte Carlo is typically slower than analytical methods, not faster."}
+    ]
+  },
+  {
+    "question": "In the context of uncertainty quantification, what is the difference between parameter uncertainty and prediction uncertainty?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "They are the same thing with different names", "correct": false, "feedback": "They are distinct concepts that should not be confused."},
+      {"answer": "Parameter uncertainty describes fitted model coefficients; prediction uncertainty includes this plus additional variability in outcomes", "correct": true, "feedback": "Correct! Confidence intervals on parameters tell you about uncertainty in the fitted coefficients. Prediction intervals are typically wider because they include both parameter uncertainty and inherent outcome variability (residual error)."},
+      {"answer": "Parameter uncertainty is always larger than prediction uncertainty", "correct": false, "feedback": "It's typically the opposite - prediction intervals are usually wider than confidence intervals on parameters."},
+      {"answer": "Only parameter uncertainty matters for engineering decisions", "correct": false, "feedback": "Both are important. For making decisions about expected outcomes, prediction uncertainty is often more relevant."}
+    ]
+  },
+  {
+    "question": "What does the uncertainties package in Python do?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Automatically detects outliers in datasets", "correct": false, "feedback": "The uncertainties package is for propagation, not outlier detection."},
+      {"answer": "Tracks how uncertainty flows through calculations automatically", "correct": true, "feedback": "Correct! You define uncertain numbers like T = ufloat(400, 5) for 400 plus or minus 5, and the package automatically propagates uncertainty through any mathematical operations. This is analytical error propagation made easy."},
+      {"answer": "Converts all uncertainties to standard deviations", "correct": false, "feedback": "While it uses standard deviations internally, its main purpose is propagation, not conversion."},
+      {"answer": "Only works with linear equations", "correct": false, "feedback": "The uncertainties package works with nonlinear functions too using automatic differentiation."}
+    ]
+  },
+  {
+    "question": "Why might a Gaussian Process underestimate uncertainty for predictions very far from any training data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "GPs always give perfect uncertainty estimates", "correct": false, "feedback": "GPs are powerful but have limitations, especially in extreme extrapolation."},
+      {"answer": "The uncertainty eventually returns to a prior level rather than continuing to grow indefinitely", "correct": true, "feedback": "Correct! GP uncertainty grows as you move away from data, but eventually stabilizes at a prior level determined by the kernel parameters. Very far from data, the GP may not adequately capture just how uncertain extrapolation really is."},
+      {"answer": "GPs don't provide uncertainty estimates at all far from data", "correct": false, "feedback": "GPs do provide uncertainty estimates everywhere, but they may be underestimates in extreme extrapolation."},
+      {"answer": "Training data points are always reliable, so extrapolation is too", "correct": false, "feedback": "Extrapolation is generally less reliable than interpolation, regardless of data quality."}
+    ]
+  },
+  {
+    "question": "According to the lecture, what is an incomplete prediction?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A prediction that uses fewer than all available features", "correct": false, "feedback": "Feature selection is a separate issue from uncertainty reporting."},
+      {"answer": "A prediction made with a model that hasn't fully converged", "correct": false, "feedback": "Model convergence is important but not what's meant here."},
+      {"answer": "A prediction without uncertainty or confidence limits", "correct": true, "feedback": "Correct! The lecture emphasizes that 'a prediction without uncertainty is incomplete.' When you report 'conversion = 75%' without uncertainty, you're implicitly claiming infinite precision. Better: 'conversion = 75 plus or minus 5%'."},
+      {"answer": "A prediction that only covers part of the input space", "correct": false, "feedback": "While coverage matters, the key point is about reporting uncertainty with any prediction."}
+    ]
+  }
+]

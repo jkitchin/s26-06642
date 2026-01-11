@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Why is model interpretability particularly important in chemical engineering applications?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It makes models run faster on industrial computers", "correct": false, "feedback": "Interpretability doesn't affect model speed. It's about understanding predictions, not computational efficiency."},
+      {"answer": "Regulators require explanations for safety-critical decisions, operators need to trust the models, and engineers need to validate predictions against domain knowledge", "correct": true, "feedback": "Correct! Interpretability enables trust from stakeholders, allows debugging of unexpected predictions, helps validate models against physical understanding, and satisfies regulatory requirements for explainable decisions."},
+      {"answer": "Interpretable models always have higher accuracy than black-box models", "correct": false, "feedback": "This is not true. Historically, there was a tradeoff between accuracy and interpretability. Modern tools like SHAP allow us to explain complex models without sacrificing accuracy."},
+      {"answer": "Python requires interpretability for all machine learning models", "correct": false, "feedback": "Python has no such requirement. Interpretability is a choice that enables trust, debugging, and validation, not a technical requirement."}
+    ]
+  },
+  {
+    "question": "What is the key limitation of feature importance from tree-based models (like Random Forest impurity-based importance)?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It can only rank features but doesn't show how each feature affects predictions (direction or shape of relationship)", "correct": true, "feedback": "Correct! Feature importance tells you WHAT matters but not HOW it matters. It doesn't indicate whether a feature has a positive or negative effect, or whether the relationship is linear or saturating."},
+      {"answer": "It only works with Random Forest, not with XGBoost or other tree models", "correct": false, "feedback": "Feature importance is available from multiple tree-based models including Random Forest (impurity-based) and XGBoost (gain-based)."},
+      {"answer": "It requires thousands of samples to compute accurately", "correct": false, "feedback": "Feature importance from tree models can be computed with modest sample sizes. The main limitation is about what information it provides, not computational requirements."},
+      {"answer": "It cannot identify important features in chemical datasets", "correct": false, "feedback": "Feature importance works well for identifying which features matter in chemical datasets. The limitation is that it doesn't reveal the direction or shape of relationships."}
+    ]
+  },
+  {
+    "question": "What is the theoretical basis for SHAP values?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Information theory and entropy maximization", "correct": false, "feedback": "SHAP is not based on information theory. It's based on cooperative game theory concepts developed by Lloyd Shapley."},
+      {"answer": "Shapley values from game theory, which fairly distribute credit among 'players' (features) based on their marginal contributions across all possible feature combinations", "correct": true, "feedback": "Correct! SHAP is based on Shapley values from game theory (60+ years of research). It treats features as players in a cooperative game and assigns each feature its fair share of credit by averaging marginal contributions across all possible feature coalitions."},
+      {"answer": "Bayesian probability theory and prior distributions", "correct": false, "feedback": "SHAP is not based on Bayesian theory. While it has a probabilistic interpretation, its foundation is in cooperative game theory and Shapley values."},
+      {"answer": "Gradient descent optimization from deep learning", "correct": false, "feedback": "SHAP is not based on gradient descent. It's based on game theory concepts and can be computed exactly for tree-based models using TreeExplainer."}
+    ]
+  },
+  {
+    "question": "In a SHAP summary plot, what do the colors (red vs blue) represent?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Red means the feature increased the prediction, blue means it decreased it", "correct": false, "feedback": "The x-axis (SHAP value position) shows whether the prediction increased or decreased. Color represents the feature's actual value, not its effect on the prediction."},
+      {"answer": "Red indicates high feature values, blue indicates low feature values for each sample", "correct": true, "feedback": "Correct! In SHAP summary plots, color represents the feature's value (red=high, blue=low). The x-axis position shows the SHAP value (contribution to prediction). This lets you see relationships: if red points are on the right, high feature values increase predictions."},
+      {"answer": "Red shows positive correlation, blue shows negative correlation with the target", "correct": false, "feedback": "Color represents the feature value for each sample, not the correlation with the target. The pattern of colors along the x-axis reveals the relationship."},
+      {"answer": "Red indicates outliers, blue indicates normal data points", "correct": false, "feedback": "Color represents feature values (high=red, low=blue), not whether points are outliers."}
+    ]
+  },
+  {
+    "question": "What does a SHAP waterfall plot show?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The training history of the model over epochs", "correct": false, "feedback": "Waterfall plots don't show training history. They explain how features contribute to a single prediction."},
+      {"answer": "How each feature's contribution pushes a single prediction up or down from the baseline (expected value) to the final prediction", "correct": true, "feedback": "Correct! Waterfall plots break down an individual prediction by showing: (1) the baseline (average prediction), (2) how each feature pushes the prediction up (positive SHAP) or down (negative SHAP), and (3) how these contributions sum to the final prediction."},
+      {"answer": "The flow of data through different layers of a neural network", "correct": false, "feedback": "Waterfall plots explain feature contributions, not neural network architecture. They work with any model type that SHAP supports."},
+      {"answer": "The distribution of prediction errors across the test set", "correct": false, "feedback": "Waterfall plots explain individual predictions, not error distributions. They show how features contributed to ONE specific prediction."}
+    ]
+  },
+  {
+    "question": "What is the key difference between Partial Dependence Plots (PDPs) and SHAP dependence plots?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "PDPs are faster to compute while SHAP dependence plots are more accurate", "correct": false, "feedback": "Speed and accuracy aren't the key differences. The difference is in what they measure: marginal effects vs actual contributions."},
+      {"answer": "PDPs show the marginal effect (averaging over other features), while SHAP dependence shows the actual contribution for each sample (revealing interactions through color)", "correct": true, "feedback": "Correct! PDPs show 'if we set temperature to X, what's the average prediction?' by marginalizing over other features. SHAP dependence shows 'for samples where temperature was X, how much did temperature contribute?' The color in SHAP plots can reveal interactions that PDPs average out."},
+      {"answer": "PDPs only work with tree models while SHAP works with any model", "correct": false, "feedback": "PDPs are model-agnostic and work with any model type. The difference is in what effect they measure, not model compatibility."},
+      {"answer": "PDPs show global importance while SHAP dependence shows local importance", "correct": false, "feedback": "Both can show how a feature affects predictions across values. The difference is that PDPs show marginal effects while SHAP shows actual contributions."}
+    ]
+  },
+  {
+    "question": "What does it mean to validate model interpretations against domain knowledge?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Using only features that experts approve before training the model", "correct": false, "feedback": "Domain validation happens after training, not before. It's about checking whether learned relationships make physical/chemical sense."},
+      {"answer": "Checking if the learned feature effects match expected physical or chemical relationships (e.g., higher temperature should increase reaction rate according to Arrhenius)", "correct": true, "feedback": "Correct! Domain validation means verifying that model-learned relationships align with established scientific understanding. If SHAP shows temperature has a negative effect on reaction yield, but Arrhenius kinetics suggests it should be positive, you should investigate for errors in data, features, or model."},
+      {"answer": "Training separate models for each chemical engineering subdomain", "correct": false, "feedback": "Domain validation is about checking learned relationships against known science, not about training specialized models."},
+      {"answer": "Ensuring the model was trained on data from the correct industrial domain", "correct": false, "feedback": "While using appropriate data is important, domain validation specifically refers to checking if learned feature effects align with physical/chemical understanding."}
+    ]
+  },
+  {
+    "question": "What is the difference between local and global model explanations?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Local explanations use nearby data points, global explanations use the entire dataset for training", "correct": false, "feedback": "This confuses local/global explanations with training approaches. Local and global refer to the scope of explanation, not data selection for training."},
+      {"answer": "Global explanations show what features matter overall (like SHAP summary plots), while local explanations show why the model made a specific individual prediction (like SHAP waterfall plots)", "correct": true, "feedback": "Correct! Global explanations answer 'what features does this model generally rely on?' (feature importance, summary plots). Local explanations answer 'why did the model predict X for this specific sample?' (waterfall plots, force plots). Both are needed: global for validation, local for debugging."},
+      {"answer": "Local explanations are computed locally on your machine, global explanations require cloud computing", "correct": false, "feedback": "Local and global refer to the scope of explanation (individual vs overall), not where computation happens."},
+      {"answer": "Global explanations work for all model types, local explanations only work for tree-based models", "correct": false, "feedback": "Both local and global explanations can be computed for many model types using SHAP. The distinction is about scope: explaining overall patterns vs individual predictions."}
+    ]
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the key difference between supervised and unsupervised learning?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Supervised learning uses more data than unsupervised learning", "correct": false, "feedback": "Incorrect. The amount of data is not what distinguishes these approaches. The difference is whether you have labels (y) to train against."},
+      {"answer": "Unsupervised learning has labels (y) to train against, while supervised learning does not", "correct": false, "feedback": "Incorrect. This is backwards. Supervised learning has labels; unsupervised learning does not."},
+      {"answer": "Supervised learning has labels (y) to train against, while unsupervised learning only has features (X) and discovers natural groups", "correct": true, "feedback": "Correct! In supervised learning, you have target labels to predict. In unsupervised learning like clustering, you only have features and want to discover hidden structure in the data."},
+      {"answer": "Supervised learning is always more accurate than unsupervised learning", "correct": false, "feedback": "Incorrect. Accuracy depends on the problem and data, not the learning paradigm. The key difference is the presence or absence of labels."}
+    ]
+  },
+  {
+    "question": "What shape of clusters does K-means assume?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Elongated elliptical clusters", "correct": false, "feedback": "Incorrect. K-means does not handle elongated clusters well because it uses distance to centroids."},
+      {"answer": "Spherical clusters of similar size", "correct": true, "feedback": "Correct! K-means assumes clusters are spherical (similar extent in all directions) and roughly similar in size. When these assumptions hold, K-means works well."},
+      {"answer": "Irregularly shaped clusters of any size", "correct": false, "feedback": "Incorrect. K-means struggles with irregular shapes. DBSCAN is better for clusters of arbitrary shape."},
+      {"answer": "Hierarchical nested clusters", "correct": false, "feedback": "Incorrect. K-means produces a flat partition, not nested clusters. Hierarchical clustering produces nested structure."}
+    ]
+  },
+  {
+    "question": "In the elbow method for choosing k in K-means, what are you looking for in the plot of inertia vs k?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The point where inertia reaches zero", "correct": false, "feedback": "Incorrect. Inertia only reaches zero when k equals the number of data points, which is not useful."},
+      {"answer": "The point where the curve shows diminishing returns (the 'elbow')", "correct": true, "feedback": "Correct! The elbow is where adding more clusters gives diminishing returns in reducing inertia. This suggests a natural number of clusters."},
+      {"answer": "The point where inertia is maximum", "correct": false, "feedback": "Incorrect. Maximum inertia occurs at k=1 (all points in one cluster), which is not informative."},
+      {"answer": "The point where the curve is steepest", "correct": false, "feedback": "Incorrect. The steepest part is usually at low k values. The elbow is where the curve starts to flatten."}
+    ]
+  },
+  {
+    "question": "What does a silhouette score close to +1 indicate?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Points are poorly clustered and likely in the wrong cluster", "correct": false, "feedback": "Incorrect. A score close to -1 (not +1) would indicate points are in the wrong cluster."},
+      {"answer": "Points are well-matched to their own cluster and poorly-matched to neighboring clusters", "correct": true, "feedback": "Correct! Silhouette scores range from -1 to +1. A score near +1 means points fit well in their assigned cluster and are far from other clusters."},
+      {"answer": "The clustering algorithm has converged", "correct": false, "feedback": "Incorrect. Silhouette score measures cluster quality, not algorithm convergence."},
+      {"answer": "There is only one cluster in the data", "correct": false, "feedback": "Incorrect. Silhouette score requires at least 2 clusters to be calculated."}
+    ]
+  },
+  {
+    "question": "What information does a dendrogram from hierarchical clustering provide?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Only the final cluster assignments", "correct": false, "feedback": "Incorrect. A dendrogram shows much more than just final assignments - it shows the entire hierarchical structure."},
+      {"answer": "The distances at which clusters merge, allowing you to see cluster structure at multiple scales", "correct": true, "feedback": "Correct! The dendrogram shows how clusters merge at different distances. You can cut at different heights to get different numbers of clusters, and gaps indicate natural clustering levels."},
+      {"answer": "The optimal value of k for K-means", "correct": false, "feedback": "Incorrect. While you can use a dendrogram to choose k, it doesn't directly give you an optimal k for K-means."},
+      {"answer": "The density of each cluster", "correct": false, "feedback": "Incorrect. Dendrograms show merge distances, not cluster densities. DBSCAN uses density concepts."}
+    ]
+  },
+  {
+    "question": "In DBSCAN, what happens to points that are not within eps distance of any core point?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "They are assigned to the nearest cluster", "correct": false, "feedback": "Incorrect. Unlike K-means, DBSCAN does not force all points into clusters."},
+      {"answer": "They form their own cluster", "correct": false, "feedback": "Incorrect. Isolated points do not form clusters in DBSCAN."},
+      {"answer": "They are labeled as noise (typically with label -1)", "correct": true, "feedback": "Correct! DBSCAN identifies points in sparse regions as noise, labeled -1. This is a key advantage over K-means for handling outliers."},
+      {"answer": "The algorithm fails to converge", "correct": false, "feedback": "Incorrect. DBSCAN handles sparse points naturally by labeling them as noise."}
+    ]
+  },
+  {
+    "question": "What happens if the eps parameter in DBSCAN is set too small?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "All clusters merge into one large cluster", "correct": false, "feedback": "Incorrect. This happens when eps is too large, not too small."},
+      {"answer": "Many points become noise because they don't have enough nearby neighbors", "correct": true, "feedback": "Correct! When eps is too small, points appear too sparse to form clusters, resulting in many noise points and potentially many tiny clusters."},
+      {"answer": "The algorithm runs faster", "correct": false, "feedback": "Incorrect. While computation may be affected, the primary issue with small eps is poor clustering results."},
+      {"answer": "DBSCAN becomes equivalent to K-means", "correct": false, "feedback": "Incorrect. DBSCAN and K-means use fundamentally different approaches regardless of parameter settings."}
+    ]
+  },
+  {
+    "question": "Why is it important to scale features before clustering?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Scaling makes the algorithm run faster", "correct": false, "feedback": "Incorrect. Scaling may not significantly affect speed. The main reason is about distance calculations."},
+      {"answer": "Clustering uses distances, and unscaled features with larger ranges will dominate the distance calculations", "correct": true, "feedback": "Correct! Features with larger numerical ranges will disproportionately influence distance-based clustering. Scaling ensures all features contribute equally to cluster formation."},
+      {"answer": "Scaling is required for the algorithm to converge", "correct": false, "feedback": "Incorrect. Algorithms will still converge without scaling, but the results may be poor because some features dominate."},
+      {"answer": "Scaling improves the interpretability of cluster labels", "correct": false, "feedback": "Incorrect. Scaling affects distance calculations, not label interpretability. Cluster profiling helps with interpretation."}
+    ]
+  }
+]

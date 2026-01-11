@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the fundamental difference between regression and classification?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Regression uses neural networks while classification uses decision trees", "correct": false, "feedback": "Incorrect. Both regression and classification can use various algorithms including neural networks and decision trees. The difference is in the type of output."},
+      {"answer": "Regression predicts continuous values while classification predicts categorical labels", "correct": true, "feedback": "Correct! Regression predicts continuous numbers (like yield or temperature) while classification predicts discrete categories (like pass/fail or material type)."},
+      {"answer": "Classification always has higher accuracy than regression", "correct": false, "feedback": "Incorrect. Accuracy is a classification metric, not a comparison between the two approaches. They solve different types of problems."},
+      {"answer": "Regression requires more data than classification", "correct": false, "feedback": "Incorrect. Data requirements depend on problem complexity, not on whether you're doing regression or classification."}
+    ]
+  },
+  {
+    "question": "What does the sigmoid function do in logistic regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It converts any real number to a value between 0 and 1, representing probability", "correct": true, "feedback": "Correct! The sigmoid function maps any real-valued input to the range (0, 1), making it suitable for representing probabilities in binary classification."},
+      {"answer": "It makes the model more accurate by removing outliers", "correct": false, "feedback": "Incorrect. The sigmoid function is a mathematical transformation, not an outlier removal technique."},
+      {"answer": "It speeds up the training process by reducing computation", "correct": false, "feedback": "Incorrect. The sigmoid function defines the model structure, not the training speed."},
+      {"answer": "It normalizes the input features to have zero mean", "correct": false, "feedback": "Incorrect. Feature normalization is done by scalers like StandardScaler, not by the sigmoid function."}
+    ]
+  },
+  {
+    "question": "In a confusion matrix, what does a False Positive (FP) represent?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A sample that was correctly predicted as positive", "correct": false, "feedback": "Incorrect. That would be a True Positive (TP). False Positive means the prediction was wrong."},
+      {"answer": "A sample that was predicted as positive but is actually negative", "correct": true, "feedback": "Correct! A False Positive occurs when the model predicts the positive class, but the true label is negative. This is also called a Type I error or false alarm."},
+      {"answer": "A sample that was predicted as negative but is actually positive", "correct": false, "feedback": "Incorrect. That describes a False Negative (FN), not a False Positive."},
+      {"answer": "A sample that was correctly predicted as negative", "correct": false, "feedback": "Incorrect. That would be a True Negative (TN). False Positive involves an incorrect prediction."}
+    ]
+  },
+  {
+    "question": "When should you prioritize recall over precision?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When false alarms are very costly", "correct": false, "feedback": "Incorrect. When false alarms (false positives) are costly, you should prioritize precision to minimize them."},
+      {"answer": "When missing positive cases is very costly or dangerous", "correct": true, "feedback": "Correct! Prioritize recall when missing a positive case (false negative) has serious consequences, such as missing a cancer diagnosis or failing to detect a safety hazard."},
+      {"answer": "When you have balanced classes", "correct": false, "feedback": "Incorrect. Class balance doesn't directly determine whether to prioritize recall or precision; the cost of different error types does."},
+      {"answer": "When you want to maximize accuracy", "correct": false, "feedback": "Incorrect. Accuracy is a different metric that doesn't directly relate to the precision-recall tradeoff."}
+    ]
+  },
+  {
+    "question": "What does the F1 score measure?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The percentage of correct predictions", "correct": false, "feedback": "Incorrect. That describes accuracy, not F1 score."},
+      {"answer": "The area under the ROC curve", "correct": false, "feedback": "Incorrect. That describes AUC (Area Under the Curve), not F1 score."},
+      {"answer": "The harmonic mean of precision and recall", "correct": true, "feedback": "Correct! F1 = 2 * (precision * recall) / (precision + recall). The harmonic mean penalizes extreme imbalances, so F1 is only high when both precision and recall are reasonable."},
+      {"answer": "The ratio of true positives to total samples", "correct": false, "feedback": "Incorrect. That would describe a different metric. F1 specifically combines precision and recall using the harmonic mean."}
+    ]
+  },
+  {
+    "question": "What does an AUC (Area Under the ROC Curve) of 0.5 indicate?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A perfect classifier", "correct": false, "feedback": "Incorrect. A perfect classifier would have an AUC of 1.0, not 0.5."},
+      {"answer": "A classifier performing no better than random guessing", "correct": true, "feedback": "Correct! An AUC of 0.5 means the model is no better than randomly assigning classes. The ROC curve lies along the diagonal. A useful classifier should have AUC significantly above 0.5."},
+      {"answer": "A classifier that always predicts the negative class", "correct": false, "feedback": "Incorrect. Always predicting negative is a specific behavior, while AUC of 0.5 indicates random-level performance overall."},
+      {"answer": "A classifier with 50% accuracy", "correct": false, "feedback": "Incorrect. AUC and accuracy are different metrics. AUC measures ranking ability across all thresholds, not just at one decision boundary."}
+    ]
+  },
+  {
+    "question": "Why can accuracy be misleading with imbalanced classes?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Because accuracy cannot be calculated for imbalanced datasets", "correct": false, "feedback": "Incorrect. Accuracy can be calculated for any dataset; it's just not always informative."},
+      {"answer": "Because a model predicting only the majority class can achieve high accuracy while being useless", "correct": true, "feedback": "Correct! If 99% of samples are class A, a model that always predicts class A achieves 99% accuracy but completely fails to detect class B. This is why precision, recall, and F1 are important for imbalanced data."},
+      {"answer": "Because imbalanced datasets always have more noise", "correct": false, "feedback": "Incorrect. Class imbalance doesn't necessarily mean more noise; it means different class proportions."},
+      {"answer": "Because accuracy requires equal numbers of samples in each class", "correct": false, "feedback": "Incorrect. Accuracy can be computed regardless of class distribution; it's just that its interpretation becomes misleading."}
+    ]
+  },
+  {
+    "question": "What does setting class_weight='balanced' do in logistic regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It removes samples from the majority class to balance the dataset", "correct": false, "feedback": "Incorrect. That describes undersampling. Class weighting doesn't remove samples."},
+      {"answer": "It duplicates samples from the minority class", "correct": false, "feedback": "Incorrect. That describes oversampling. Class weighting adjusts error penalties, not sample counts."},
+      {"answer": "It penalizes errors on the minority class more heavily during training", "correct": true, "feedback": "Correct! Class weighting assigns higher penalty to misclassifying minority class samples, making the model pay more attention to them. It's mathematically equivalent to replicating minority samples."},
+      {"answer": "It ensures the model always predicts equal numbers of each class", "correct": false, "feedback": "Incorrect. Class weighting affects training, not the distribution of predictions."}
+    ]
+  }
+]

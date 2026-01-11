@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Why does feature engineering often matter more than algorithm choice?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Feature engineering is computationally cheaper than trying different algorithms", "correct": false, "feedback": "While this may be true in some cases, it's not the main reason feature engineering matters."},
+      {"answer": "Good features encode domain knowledge that algorithms would otherwise have to learn from limited data", "correct": true, "feedback": "Correct! Domain-informed features reduce the hypothesis space and help models learn effectively from small datasets typical in chemical engineering."},
+      {"answer": "Modern algorithms cannot process raw data without feature engineering", "correct": false, "feedback": "Many algorithms can process raw data, but they may not perform as well without engineered features."},
+      {"answer": "Feature engineering is required by all machine learning libraries", "correct": false, "feedback": "Feature engineering is not required by libraries—it's a best practice for improving model performance."}
+    ]
+  },
+  {
+    "question": "For reaction rate data following Arrhenius kinetics (r = A·exp(-Ea/RT)·C^n), which feature transformation converts the problem to linear regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Use T and C directly as features to predict r", "correct": false, "feedback": "Using raw T and C gives a nonlinear relationship that linear regression cannot capture well."},
+      {"answer": "Use 1/T and log(C) as features to predict log(r)", "correct": true, "feedback": "Correct! Taking log(r) = log(A) - Ea/(RT) + n·log(C) makes the relationship linear in 1/T and log(C)."},
+      {"answer": "Use T² and C² as features to predict r", "correct": false, "feedback": "Squaring doesn't match the Arrhenius form and won't linearize this relationship."},
+      {"answer": "Use exp(T) and exp(C) as features to predict log(r)", "correct": false, "feedback": "This transformation doesn't correspond to the Arrhenius equation structure."}
+    ]
+  },
+  {
+    "question": "Which algorithms require feature scaling for proper performance?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Random Forest and XGBoost", "correct": false, "feedback": "Tree-based methods are scale-invariant because they use threshold-based splits."},
+      {"answer": "Decision Trees and Gradient Boosting", "correct": false, "feedback": "Tree-based methods don't require scaling—they adapt thresholds to any scale."},
+      {"answer": "Regularized regression (Lasso, Ridge), SVM, and KNN", "correct": true, "feedback": "Correct! These algorithms use distance calculations or regularization penalties that are affected by feature magnitude."},
+      {"answer": "All machine learning algorithms require scaling", "correct": false, "feedback": "Tree-based algorithms (Decision Trees, Random Forest, XGBoost) are scale-invariant."}
+    ]
+  },
+  {
+    "question": "What is the key difference between StandardScaler and MinMaxScaler?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "StandardScaler is faster to compute than MinMaxScaler", "correct": false, "feedback": "Both scalers have similar computational complexity."},
+      {"answer": "StandardScaler produces zero mean and unit variance; MinMaxScaler produces values in [0,1]", "correct": true, "feedback": "Correct! StandardScaler uses z = (x - mean)/std, while MinMaxScaler uses (x - min)/(max - min)."},
+      {"answer": "StandardScaler works only for normal distributions; MinMaxScaler works for any distribution", "correct": false, "feedback": "Both can be applied to any distribution, though their assumptions differ."},
+      {"answer": "MinMaxScaler removes outliers while StandardScaler keeps them", "correct": false, "feedback": "Neither scaler removes outliers—both preserve all data points."}
+    ]
+  },
+  {
+    "question": "With 10 input features and polynomial degree 3, approximately how many polynomial features are created?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "30 features", "correct": false, "feedback": "This would be true for degree 1 times 3, but polynomial features grow combinatorially."},
+      {"answer": "100 features", "correct": false, "feedback": "The growth is faster than quadratic due to all combinations of features."},
+      {"answer": "286 features", "correct": true, "feedback": "Correct! The formula is C(d+p, p) where d=10 features and p=3 degree, giving C(13,3) = 286 terms."},
+      {"answer": "1000 features", "correct": false, "feedback": "While large, the actual number follows the combination formula C(d+p, p)."}
+    ]
+  },
+  {
+    "question": "Why should one-hot encoding use drop='first' (or equivalent)?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To reduce memory usage by storing fewer columns", "correct": false, "feedback": "While it does reduce columns, the main reason is avoiding multicollinearity."},
+      {"answer": "To avoid multicollinearity since all indicator columns sum to 1", "correct": true, "feedback": "Correct! If all k categories have columns, they sum to 1, creating perfect linear dependence that breaks regression."},
+      {"answer": "To speed up model training", "correct": false, "feedback": "Speed improvement is minimal—the real benefit is avoiding numerical issues."},
+      {"answer": "To ensure the first category is always the baseline", "correct": false, "feedback": "This is a consequence, not the reason. The dropped category becomes the reference level."}
+    ]
+  },
+  {
+    "question": "How does Lasso regression perform feature selection?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It removes features with low correlation to the target before training", "correct": false, "feedback": "That's a filter method. Lasso performs selection during training."},
+      {"answer": "L1 regularization penalty drives some coefficients exactly to zero", "correct": true, "feedback": "Correct! The L1 penalty's geometry causes coefficients to hit exactly zero, effectively removing those features."},
+      {"answer": "It uses cross-validation to test each possible feature subset", "correct": false, "feedback": "That's a wrapper method. Lasso's selection is embedded in the optimization."},
+      {"answer": "It ranks features by importance and keeps the top k", "correct": false, "feedback": "Lasso doesn't pre-specify k—the number of selected features depends on the regularization strength."}
+    ]
+  },
+  {
+    "question": "What is the main difference between filter and wrapper feature selection methods?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Filter methods are slower but more accurate than wrapper methods", "correct": false, "feedback": "Actually, filter methods are faster but may miss feature interactions."},
+      {"answer": "Filter methods use statistical tests independent of any model; wrapper methods evaluate feature subsets using model performance", "correct": true, "feedback": "Correct! Filter methods (correlation, F-test) are model-agnostic, while wrapper methods train models on different feature subsets."},
+      {"answer": "Filter methods only work with numerical features; wrapper methods handle categorical features", "correct": false, "feedback": "Both can handle various feature types with appropriate preprocessing."},
+      {"answer": "Wrapper methods always select fewer features than filter methods", "correct": false, "feedback": "The number of selected features depends on the specific method and parameters, not the approach type."}
+    ]
+  }
+]

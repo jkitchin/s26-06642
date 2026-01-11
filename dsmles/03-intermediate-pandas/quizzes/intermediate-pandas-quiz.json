@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the correct order of steps in the split-apply-combine pattern used by groupby?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Apply, Split, Combine", "correct": false, "feedback": "Incorrect. You need to split the data into groups first before you can apply any function."},
+      {"answer": "Combine, Split, Apply", "correct": false, "feedback": "Incorrect. You cannot combine results before splitting and applying operations."},
+      {"answer": "Split, Apply, Combine", "correct": true, "feedback": "Correct! GroupBy first splits data into groups, then applies a function to each group, and finally combines the results."},
+      {"answer": "Split, Combine, Apply", "correct": false, "feedback": "Incorrect. You need to apply the function to each group before combining the results."}
+    ]
+  },
+  {
+    "question": "Which aggregation method allows you to specify different functions for different columns in a single groupby operation?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df.groupby('col').mean()", "correct": false, "feedback": "Incorrect. This applies the same function (mean) to all columns."},
+      {"answer": "df.groupby('col').agg({'col1': 'mean', 'col2': 'sum'})", "correct": true, "feedback": "Correct! The agg() method with a dictionary allows you to specify different aggregation functions for each column."},
+      {"answer": "df.groupby('col').apply('mean', 'sum')", "correct": false, "feedback": "Incorrect. The apply() method doesn't accept multiple function names this way."},
+      {"answer": "df.groupby('col').transform('mean')", "correct": false, "feedback": "Incorrect. Transform applies the same function and returns data with the original shape."}
+    ]
+  },
+  {
+    "question": "You have a main experiments table and want to add catalyst properties from a reference table. Some experiments might use catalysts not in the reference table. Which merge type preserves all experiments while adding available catalyst data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "inner join", "correct": false, "feedback": "Incorrect. Inner join only keeps rows where the key exists in both tables, so you'd lose experiments with missing catalyst data."},
+      {"answer": "left join", "correct": true, "feedback": "Correct! Left join keeps all rows from the left (experiments) table and adds matching data from the right (reference) table, filling NaN for missing matches."},
+      {"answer": "right join", "correct": false, "feedback": "Incorrect. Right join keeps all rows from the right table, which would give you all catalysts but potentially lose experiments."},
+      {"answer": "outer join", "correct": false, "feedback": "Incorrect. While outer join preserves all experiments, it also adds rows for catalysts that have no experiments, which isn't what you want."}
+    ]
+  },
+  {
+    "question": "What is the primary purpose of the pivot_table() function in Pandas?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To combine two DataFrames into one", "correct": false, "feedback": "Incorrect. Combining DataFrames is done with merge() or concat()."},
+      {"answer": "To reshape data from long format to wide format with aggregation", "correct": true, "feedback": "Correct! pivot_table() transforms long-format data into wide format, with rows as one variable, columns as another, and values as a third, aggregating duplicates automatically."},
+      {"answer": "To filter rows based on conditions", "correct": false, "feedback": "Incorrect. Filtering is done with query() or boolean indexing."},
+      {"answer": "To sort data by multiple columns", "correct": false, "feedback": "Incorrect. Sorting is done with sort_values()."}
+    ]
+  },
+  {
+    "question": "When would you use the melt() function instead of pivot_table()?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When you need to aggregate duplicate values", "correct": false, "feedback": "Incorrect. pivot_table() handles aggregation; melt() does not aggregate."},
+      {"answer": "When converting wide-format spreadsheet data to long format for analysis", "correct": true, "feedback": "Correct! melt() 'unpivots' wide data into long format, which is often needed when you receive data in spreadsheet format but need it in tidy format for Pandas operations."},
+      {"answer": "When you need to combine data from multiple sources", "correct": false, "feedback": "Incorrect. Combining data sources is done with merge() or concat()."},
+      {"answer": "When you need to create summary statistics by group", "correct": false, "feedback": "Incorrect. Summary statistics by group are created with groupby().agg()."}
+    ]
+  },
+  {
+    "question": "What is the key difference between apply() and transform() when used with groupby?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "apply() is faster than transform()", "correct": false, "feedback": "Incorrect. Speed is not the key difference; they serve different purposes."},
+      {"answer": "transform() returns results with the same shape as the input, while apply() can return aggregated results", "correct": true, "feedback": "Correct! transform() returns a Series/DataFrame with the same index as the original, making it ideal for adding group-level calculations (like z-scores) back to the original DataFrame."},
+      {"answer": "apply() only works with built-in functions", "correct": false, "feedback": "Incorrect. apply() works with any function, including custom lambda functions."},
+      {"answer": "transform() can only compute mean values", "correct": false, "feedback": "Incorrect. transform() can apply any function that returns a scalar or same-length array per group."}
+    ]
+  },
+  {
+    "question": "Which method would you use to convert a column to datetime format and extract the month?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df['date'].month", "correct": false, "feedback": "Incorrect. You need to use the .dt accessor to access datetime properties."},
+      {"answer": "df['date'].dt.month", "correct": true, "feedback": "Correct! The .dt accessor provides access to datetime properties like year, month, day, day_name(), etc."},
+      {"answer": "df['date'].get_month()", "correct": false, "feedback": "Incorrect. There is no get_month() method; use the .dt accessor instead."},
+      {"answer": "pd.month(df['date'])", "correct": false, "feedback": "Incorrect. There is no pd.month() function; use the .dt accessor on the datetime column."}
+    ]
+  },
+  {
+    "question": "What is the main advantage of method chaining in Pandas?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It makes code run faster", "correct": false, "feedback": "Incorrect. Method chaining doesn't improve performance; it improves code readability and maintainability."},
+      {"answer": "It reduces memory usage", "correct": false, "feedback": "Incorrect. Method chaining doesn't necessarily reduce memory; intermediate results may still be created."},
+      {"answer": "It creates more readable code with fewer intermediate variables", "correct": true, "feedback": "Correct! Method chaining allows you to express a series of transformations in a single, readable pipeline without creating numerous intermediate DataFrame variables."},
+      {"answer": "It automatically handles missing values", "correct": false, "feedback": "Incorrect. Method chaining doesn't handle missing values; you still need to use methods like fillna() or dropna()."}
+    ]
+  }
+]
