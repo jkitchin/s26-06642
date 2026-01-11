@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Which of the following is NOT a typical source of data in chemical engineering?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Sensor readings from process control systems", "correct": false, "feedback": "Incorrect. Sensor readings are a common source of process data in chemical engineering."},
+      {"answer": "Results from catalyst testing experiments", "correct": false, "feedback": "Incorrect. Experimental data from catalyst testing is very common in ChemE."},
+      {"answer": "Social media sentiment analysis", "correct": true, "feedback": "Correct! Chemical engineers work with process data (sensors), experimental data (lab results), simulation data (CFD, MD), and literature data. Social media analysis is not a typical ChemE data source."},
+      {"answer": "Molecular dynamics simulation outputs", "correct": false, "feedback": "Incorrect. Simulation data including MD is commonly used in chemical engineering."}
+    ]
+  },
+  {
+    "question": "What is the correct order of steps in the machine learning workflow?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Train model → Collect data → Evaluate → Deploy", "correct": false, "feedback": "Incorrect. You need data before you can train a model."},
+      {"answer": "Define problem → Collect data → Prepare data → Train model → Evaluate", "correct": true, "feedback": "Correct! The ML workflow follows a logical sequence: first define the problem, then collect and explore data, prepare it, choose and train models, evaluate, interpret, and finally deploy if applicable."},
+      {"answer": "Evaluate → Train model → Collect data → Deploy", "correct": false, "feedback": "Incorrect. You can't evaluate a model before training it."},
+      {"answer": "Deploy → Train model → Evaluate → Collect data", "correct": false, "feedback": "Incorrect. Deployment comes at the end, after evaluation."}
+    ]
+  },
+  {
+    "question": "In Python, what is the more 'Pythonic' way to convert a list of temperatures from Kelvin to Celsius?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Using a for loop with .append()", "correct": false, "feedback": "Incorrect. While this works, it's not considered Pythonic."},
+      {"answer": "Using a list comprehension", "correct": true, "feedback": "Correct! List comprehensions like [T - 273.15 for T in temperatures] are more concise and Pythonic than explicit for loops with append. They're also often faster."},
+      {"answer": "Using a while loop", "correct": false, "feedback": "Incorrect. While loops are rarely the best choice for this type of transformation."},
+      {"answer": "Using recursion", "correct": false, "feedback": "Incorrect. Recursion is overkill for simple list transformations."}
+    ]
+  },
+  {
+    "question": "What does an R² (R-squared) value of 0.92 mean for a regression model?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The model is 92% accurate", "correct": false, "feedback": "Incorrect. R² doesn't directly measure accuracy in this way."},
+      {"answer": "92% of the variance in the target is explained by the model", "correct": true, "feedback": "Correct! R² (coefficient of determination) represents the proportion of variance in the dependent variable that is explained by the model. An R² of 0.92 means 92% of the variance is explained, with 8% remaining as unexplained (noise or missing variables)."},
+      {"answer": "The model makes errors 92% of the time", "correct": false, "feedback": "Incorrect. A high R² indicates good fit, not high error rate."},
+      {"answer": "92% of the data points are correctly classified", "correct": false, "feedback": "Incorrect. R² is for regression, not classification. Classification uses accuracy."}
+    ]
+  },
+  {
+    "question": "Why do we split data into training and test sets?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To make the computer run faster", "correct": false, "feedback": "Incorrect. Splitting data doesn't improve computational speed."},
+      {"answer": "To reduce the amount of data we need to process", "correct": false, "feedback": "Incorrect. We still process all the data, just in different stages."},
+      {"answer": "To evaluate how well the model generalizes to unseen data", "correct": true, "feedback": "Correct! The train/test split allows us to evaluate model performance on data it hasn't seen during training. This helps detect overfitting and gives a realistic estimate of how the model will perform on new, unseen data."},
+      {"answer": "To create backup copies of the data", "correct": false, "feedback": "Incorrect. Train/test split is about evaluation, not data backup."}
+    ]
+  },
+  {
+    "question": "What does RMSE measure in a regression model?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The percentage of correct predictions", "correct": false, "feedback": "Incorrect. RMSE measures error magnitude, not correct predictions."},
+      {"answer": "The average prediction error in the same units as the target variable", "correct": true, "feedback": "Correct! RMSE (Root Mean Squared Error) measures the average magnitude of prediction errors. It's in the same units as the target variable, making it interpretable."},
+      {"answer": "The number of features used in the model", "correct": false, "feedback": "Incorrect. RMSE is an error metric, not a count of features."},
+      {"answer": "The time it takes to train the model", "correct": false, "feedback": "Incorrect. RMSE measures prediction error, not training time."}
+    ]
+  },
+  {
+    "question": "In the predicted vs actual plot, where should points fall for a perfect model?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "In a horizontal line", "correct": false, "feedback": "Incorrect. A horizontal line would mean all predictions are the same regardless of actual values."},
+      {"answer": "In a vertical line", "correct": false, "feedback": "Incorrect. A vertical line would mean different predictions for the same actual value."},
+      {"answer": "Along the diagonal (y=x) line", "correct": true, "feedback": "Correct! For a perfect model, predicted values exactly equal actual values, so all points fall on the diagonal line where predicted = actual."},
+      {"answer": "Scattered randomly across the plot", "correct": false, "feedback": "Incorrect. Random scatter would indicate the model has no predictive power."}
+    ]
+  },
+  {
+    "question": "What Python data structure would you use to store experiment parameters with named fields like 'temperature', 'pressure', and 'catalyst'?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A list", "correct": false, "feedback": "Incorrect. Lists use numeric indices, not named fields."},
+      {"answer": "A tuple", "correct": false, "feedback": "Incorrect. Tuples also use numeric indices, not named fields."},
+      {"answer": "A dictionary", "correct": true, "feedback": "Correct! Dictionaries store key-value pairs, making them ideal for named parameters. You can access values by name like experiment['temperature']."},
+      {"answer": "A set", "correct": false, "feedback": "Incorrect. Sets store unique values without keys or indices."}
+    ]
+  }
+]
