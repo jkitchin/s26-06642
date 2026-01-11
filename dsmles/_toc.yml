@@ -50,3 +50,4 @@ parts:
     chapters:
       - file: summary
       - file: execution-statistics
+      - file: genindex

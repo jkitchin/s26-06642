@@ -42,6 +42,7 @@ sphinx:
   extra_extensions:
     - sphinx.ext.intersphinx
   config:
+    html_use_index: true
     intersphinx_mapping:
       python:
         - "https://docs.python.org/3/"
