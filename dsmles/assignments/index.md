@@ -6,8 +6,7 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 
 - Submit as Jupyter notebooks (.ipynb)
 - Include all code, outputs, and written answers
-- Due one week after the corresponding lecture
-- Late submissions: -10% per day
+
 
 ## Assignment List
 
@@ -31,3 +30,4 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 - You may discuss approaches with classmates
 - All code and writing must be your own
 - Cite any external resources used
+- You are allowed to use GenAI, but should be transparent about it

@@ -32,10 +32,18 @@ parts:
 
   - caption: Assignments
     chapters:
-      - file: assignments/index
-
-  - caption: Project
-    chapters:
+      - file: assignments/hw01-numpy-pandas
+      - file: assignments/hw03-intermediate-pandas
+      - file: assignments/hw04-feature-engineering
+      - file: assignments/hw05-dimensionality-reduction
+      - file: assignments/hw06-linear-regression
+      - file: assignments/hw07-classification
+      - file: assignments/hw08-regularization
+      - file: assignments/hw09-nonlinear-methods
+      - file: assignments/hw10-ensemble-methods
+      - file: assignments/hw11-clustering
+      - file: assignments/hw12-uncertainty-quantification
+      - file: assignments/hw13-model-interpretability
       - file: assignments/project
 
   - caption: Reference

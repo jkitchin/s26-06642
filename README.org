@@ -12,6 +12,7 @@ Read the book at https://jkitchin.github.io/s26-06642/
 This half-semester course covers practical applications of data science and machine learning techniques to problems in chemical engineering and related sciences.
 
 ** Topics Covered
+
 - NumPy and Pandas for data manipulation
 - Dimensionality reduction (PCA, t-SNE, UMAP)
 - Linear and nonlinear regression
@@ -25,6 +26,7 @@ This half-semester course covers practical applications of data science and mach
 This course encourages the use of Claude (and other AI assistants) as learning tools. Here's how to use them effectively:
 
 ** Recommended Uses
+
 - *Explaining concepts*: Ask Claude to explain confusing topics in different ways
 - *Debugging help*: Share error messages and ask for explanations
 - *Code review*: Have Claude review your code and suggest improvements
@@ -32,6 +34,7 @@ This course encourages the use of Claude (and other AI assistants) as learning t
 - *Understanding documentation*: Get help interpreting scikit-learn or pandas docs
 
 ** Best Practices
+
 1. *Try first*: Attempt problems yourself before asking for help
 2. *Ask "why"*: Don't just copy code—ask Claude to explain the reasoning
 3. *Verify*: Always test AI-generated code; it can have bugs
@@ -39,8 +42,8 @@ This course encourages the use of Claude (and other AI assistants) as learning t
 5. *Learn*: Use AI to accelerate learning, not replace it
 
 ** What to Avoid
+
 - Submitting AI-generated work without understanding it
-- Using AI during closed-book assessments
 - Letting AI do all the thinking—you're here to learn!
 
 * Interactive Learning
@@ -49,13 +52,13 @@ This course encourages the use of Claude (and other AI assistants) as learning t
 
 Earn badges and ranks as you demonstrate mastery:
 
-| Badge | Focus |
-|-------|-------|
-| Data Wrangler | Data manipulation & exploration |
-| Pattern Seeker | Dimensionality reduction & visualization |
-| Model Builder | Regression & model selection |
-| Ensemble Master | Ensemble methods & clustering |
-| Uncertainty Expert | UQ & interpretability |
+| Badge              | Focus                                    |
+|--------------------+------------------------------------------|
+| Data Wrangler      | Data manipulation & exploration          |
+| Pattern Seeker     | Dimensionality reduction & visualization |
+| Model Builder      | Regression & model selection             |
+| Ensemble Master    | Ensemble methods & clustering            |
+| Uncertainty Expert | UQ & interpretability                    |
 
 Progress through ranks: Data Apprentice → Data Analyst → Data Scientist → Senior Data Scientist
 
