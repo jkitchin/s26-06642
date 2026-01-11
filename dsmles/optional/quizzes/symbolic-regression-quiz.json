@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What does symbolic regression produce as its output?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "A black-box neural network model", "correct": false, "feedback": "Incorrect. Neural networks are black-box models where the internal function is unknown. Symbolic regression specifically aims to avoid this."},
+      {"answer": "Interpretable mathematical equations", "correct": true, "feedback": "Correct! Symbolic regression discovers explicit mathematical equations like y = 2x² + sin(x), which are human-readable and interpretable."},
+      {"answer": "Cluster assignments for data points", "correct": false, "feedback": "Incorrect. Cluster assignments are outputs of clustering algorithms, not symbolic regression."},
+      {"answer": "Feature importance rankings", "correct": false, "feedback": "Incorrect. While symbolic regression can reveal which variables matter, its primary output is explicit mathematical equations."}
+    ]
+  },
+  {
+    "question": "What computational method underlies most symbolic regression algorithms?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Gradient descent optimization", "correct": false, "feedback": "Incorrect. Gradient descent optimizes continuous parameters but cannot search the discrete space of equation structures."},
+      {"answer": "Genetic programming", "correct": true, "feedback": "Correct! Genetic programming evolves populations of equations, using mutation and crossover to search the space of possible mathematical expressions."},
+      {"answer": "Backpropagation", "correct": false, "feedback": "Incorrect. Backpropagation is used to train neural networks, not to discover symbolic equations."},
+      {"answer": "Monte Carlo sampling", "correct": false, "feedback": "Incorrect. While Monte Carlo methods can be used in optimization, genetic programming is the standard approach for symbolic regression."}
+    ]
+  },
+  {
+    "question": "Which is a key advantage of symbolic regression over neural networks?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Much faster training time", "correct": false, "feedback": "Incorrect. Symbolic regression is actually slower to train than neural networks because it searches a vast space of possible equations."},
+      {"answer": "Better extrapolation and physical interpretability", "correct": true, "feedback": "Correct! Discovered equations can extrapolate beyond training data and provide physical insight, unlike black-box neural networks."},
+      {"answer": "Higher accuracy on all problems", "correct": false, "feedback": "Incorrect. Neural networks can achieve higher accuracy on complex problems, though symbolic regression can match them for problems with underlying mathematical structure."},
+      {"answer": "Requires less data", "correct": false, "feedback": "Incorrect. Data requirements depend on the problem complexity, not the method used."}
+    ]
+  },
+  {
+    "question": "What is the Pareto front in the context of symbolic regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The set of training data points with highest prediction errors", "correct": false, "feedback": "Incorrect. The Pareto front refers to discovered equations, not data points."},
+      {"answer": "The trade-off curve between equation accuracy and complexity", "correct": true, "feedback": "Correct! The Pareto front shows equations that are optimal trade-offs - you cannot improve accuracy without increasing complexity, and vice versa."},
+      {"answer": "The boundary between overfitting and underfitting", "correct": false, "feedback": "Incorrect. While related to model selection, the Pareto front specifically balances accuracy vs. equation complexity."},
+      {"answer": "The maximum number of terms allowed in an equation", "correct": false, "feedback": "Incorrect. This would be a constraint (maxsize), not the Pareto front which is a set of optimal solutions."}
+    ]
+  },
+  {
+    "question": "Which chemical engineering application is well-suited for symbolic regression?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Image classification of reactor components", "correct": false, "feedback": "Incorrect. Image classification requires pattern recognition best handled by neural networks, not equation discovery."},
+      {"answer": "Discovering rate laws for reaction kinetics", "correct": true, "feedback": "Correct! Reaction kinetics often follow mathematical rate laws (like Arrhenius equations), making symbolic regression ideal for discovering interpretable kinetic models."},
+      {"answer": "Natural language processing of lab reports", "correct": false, "feedback": "Incorrect. NLP tasks require language models, not symbolic regression."},
+      {"answer": "Anomaly detection in sensor readings", "correct": false, "feedback": "Incorrect. While possible, anomaly detection is better handled by specialized methods. Symbolic regression excels at finding physical correlations."}
+    ]
+  },
+  {
+    "question": "What is the main disadvantage of symbolic regression compared to neural networks?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Cannot handle multiple input variables", "correct": false, "feedback": "Incorrect. Symbolic regression can handle multiple input variables, as shown with x1 and x2 in the lecture examples."},
+      {"answer": "Slower training time due to searching equation space", "correct": true, "feedback": "Correct! Genetic programming must search a vast combinatorial space of possible equations, making training much slower than gradient-based neural network optimization."},
+      {"answer": "Only works with linear relationships", "correct": false, "feedback": "Incorrect. Symbolic regression can discover nonlinear functions including powers, trigonometric functions, and exponentials."},
+      {"answer": "Cannot be used for regression problems", "correct": false, "feedback": "Incorrect. Symbolic regression is specifically designed for regression problems - predicting continuous outputs from inputs."}
+    ]
+  }
+]

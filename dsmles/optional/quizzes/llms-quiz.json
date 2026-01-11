@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Which of the following tasks are LLMs generally MOST reliable for?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Complex numerical calculations", "correct": false, "feedback": "Incorrect. LLMs are notoriously unreliable at numerical calculations and can make math errors. Always verify calculations independently."},
+      {"answer": "Text summarization and writing assistance", "correct": true, "feedback": "Correct! LLMs excel at natural language tasks like summarization, editing, and writing assistance where they can leverage their training on large text corpora."},
+      {"answer": "Citing recent scientific papers from 2025", "correct": false, "feedback": "Incorrect. LLMs have a knowledge cutoff date and may not know about recent work. They can also hallucinate citations."},
+      {"answer": "Providing guaranteed factual information", "correct": false, "feedback": "Incorrect. LLMs can hallucinate facts and make up information that sounds plausible but is wrong. Always verify factual claims."}
+    ]
+  },
+  {
+    "question": "What is 'hallucination' in the context of LLMs?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When the LLM runs out of memory", "correct": false, "feedback": "Incorrect. Memory limitations are a separate issue from hallucinations."},
+      {"answer": "When the LLM makes up facts, citations, or information that sounds plausible but is false", "correct": true, "feedback": "Correct! Hallucinations occur when LLMs generate convincing-sounding content that is factually incorrect, including fake citations and made-up facts."},
+      {"answer": "When the LLM takes too long to respond", "correct": false, "feedback": "Incorrect. Response latency is unrelated to hallucinations."},
+      {"answer": "When the LLM produces code with syntax errors", "correct": false, "feedback": "Incorrect. While LLMs can produce buggy code, this is different from hallucination, which specifically refers to generating false information presented as fact."}
+    ]
+  },
+  {
+    "question": "Why should you NOT trust LLMs for numerical calculations in scientific work?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "LLMs are designed to predict likely text sequences, not perform accurate arithmetic", "correct": true, "feedback": "Correct! LLMs predict tokens based on patterns in training data rather than executing mathematical operations. They often make arithmetic errors that look plausible but are wrong."},
+      {"answer": "LLMs always give the same wrong answer", "correct": false, "feedback": "Incorrect. LLMs can give different answers to the same calculation across runs, but the core issue is that they predict text rather than compute."},
+      {"answer": "LLMs can only work with integers", "correct": false, "feedback": "Incorrect. LLMs can work with any numbers, but they may still make errors because they predict text rather than perform actual calculations."},
+      {"answer": "Numerical calculations are too slow for LLMs", "correct": false, "feedback": "Incorrect. Speed is not the issue. The problem is that LLMs generate text predictions rather than executing mathematical operations."}
+    ]
+  },
+  {
+    "question": "What is a best practice when using LLMs for code generation?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Trust the generated code without testing since LLMs are trained on millions of examples", "correct": false, "feedback": "Incorrect. LLM-generated code can contain bugs, security issues, or logic errors. Always test and verify generated code."},
+      {"answer": "Use vague prompts to give the LLM creative freedom", "correct": false, "feedback": "Incorrect. Being specific in prompts leads to better, more relevant code generation."},
+      {"answer": "Be specific, provide examples of the desired format, and verify the output", "correct": true, "feedback": "Correct! Clear, specific prompts with examples yield better results. Always test and verify LLM-generated code before using it."},
+      {"answer": "Never use LLMs for code because they always make mistakes", "correct": false, "feedback": "Incorrect. LLMs can be helpful for code generation and debugging when used appropriately with verification."}
+    ]
+  },
+  {
+    "question": "How should LLM outputs be treated regarding citations in scientific writing?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "LLM outputs can be cited as a primary source", "correct": false, "feedback": "Incorrect. LLM outputs are not primary sources and should not be cited as such."},
+      {"answer": "Any citation an LLM provides is guaranteed to be accurate", "correct": false, "feedback": "Incorrect. LLMs can hallucinate citations, making up authors, titles, and journals that don't exist."},
+      {"answer": "Verify all citations independently and cite original sources, not the LLM output", "correct": true, "feedback": "Correct! LLMs can hallucinate citations. Always verify that cited papers exist and say what you claim, then cite the original sources."},
+      {"answer": "Citations are unnecessary when using LLM-generated content", "correct": false, "feedback": "Incorrect. Proper citation of original sources is always required in scientific writing."}
+    ]
+  },
+  {
+    "question": "What is the recommended approach to using LLMs in scientific research?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Use LLMs as a complete replacement for domain expertise", "correct": false, "feedback": "Incorrect. LLMs should augment, not replace, domain expertise. You need expertise to evaluate LLM outputs."},
+      {"answer": "Avoid LLMs entirely because they can make mistakes", "correct": false, "feedback": "Incorrect. LLMs are valuable tools when used appropriately. The key is verification and responsible use."},
+      {"answer": "Use LLMs as a tool while maintaining domain expertise to verify outputs and follow institutional policies", "correct": true, "feedback": "Correct! LLMs are powerful tools for tasks like summarization and code generation, but require expert evaluation of outputs and adherence to responsible use guidelines."},
+      {"answer": "Only use LLMs for tasks they are 100% accurate at", "correct": false, "feedback": "Incorrect. No tool is 100% accurate. The key is understanding limitations and verifying outputs appropriately."}
+    ]
+  }
+]

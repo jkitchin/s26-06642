@@ -1,0 +1,62 @@
+[
+  {
+    "question": "When should you prefer a database over simple files for storing data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "For small datasets with fewer than 100 rows", "correct": false, "feedback": "Small datasets are typically fine with simple files like CSV. Databases shine with larger datasets."},
+      {"answer": "When multiple users need to access and modify data simultaneously", "correct": true, "feedback": "Correct! Databases excel at handling concurrent access, maintaining data integrity, and supporting complex queries across large datasets."},
+      {"answer": "For one-time data analysis that won't be repeated", "correct": false, "feedback": "One-time analyses are often easier with files. Databases are better for ongoing data management."},
+      {"answer": "When you only need to read data once and discard it", "correct": false, "feedback": "For single-use data, files are usually simpler. Databases are valuable for persistent, queryable data storage."}
+    ]
+  },
+  {
+    "question": "What is SQLite best suited for?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Large enterprise applications with thousands of concurrent users", "correct": false, "feedback": "For high-concurrency enterprise applications, PostgreSQL or MySQL would be more appropriate."},
+      {"answer": "Lightweight, local database storage without a separate server", "correct": true, "feedback": "Correct! SQLite is a lightweight database that stores everything in a single file and doesn't require a separate server process."},
+      {"answer": "Distributed databases across multiple data centers", "correct": false, "feedback": "SQLite is designed for local use, not distributed systems."},
+      {"answer": "Real-time streaming data with millisecond latency requirements", "correct": false, "feedback": "SQLite is not optimized for real-time streaming. Specialized databases exist for such use cases."}
+    ]
+  },
+  {
+    "question": "Which pandas function is used to load data from a SQL database into a DataFrame?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "pd.read_csv()", "correct": false, "feedback": "read_csv() is for reading CSV files, not SQL databases."},
+      {"answer": "pd.load_sql()", "correct": false, "feedback": "This function doesn't exist in pandas."},
+      {"answer": "pd.read_sql_query()", "correct": true, "feedback": "Correct! pd.read_sql_query() executes a SQL query and returns the results as a pandas DataFrame."},
+      {"answer": "pd.from_database()", "correct": false, "feedback": "This function doesn't exist in pandas."}
+    ]
+  },
+  {
+    "question": "How do you save a pandas DataFrame to a SQL database table?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "df.save_sql('table_name', conn)", "correct": false, "feedback": "This method doesn't exist. The correct method is to_sql()."},
+      {"answer": "df.to_sql('table_name', conn)", "correct": true, "feedback": "Correct! The to_sql() method saves a DataFrame to a SQL database. You can use if_exists='append' to add to existing data."},
+      {"answer": "df.export_database('table_name', conn)", "correct": false, "feedback": "This method doesn't exist in pandas."},
+      {"answer": "pd.write_sql(df, 'table_name', conn)", "correct": false, "feedback": "This function doesn't exist. to_sql() is a DataFrame method, not a pandas function."}
+    ]
+  },
+  {
+    "question": "Which SQL clause is used to filter rows based on a condition?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "GROUP BY", "correct": false, "feedback": "GROUP BY is used to aggregate rows with the same values, not to filter individual rows."},
+      {"answer": "ORDER BY", "correct": false, "feedback": "ORDER BY is used to sort results, not to filter them."},
+      {"answer": "WHERE", "correct": true, "feedback": "Correct! WHERE is used to filter rows based on specified conditions, such as WHERE conversion > 0.8."},
+      {"answer": "SELECT", "correct": false, "feedback": "SELECT specifies which columns to retrieve, not which rows to filter."}
+    ]
+  },
+  {
+    "question": "What does the GROUP BY clause do in SQL?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Sorts the results in ascending order", "correct": false, "feedback": "Sorting is done with ORDER BY, not GROUP BY."},
+      {"answer": "Limits the number of rows returned", "correct": false, "feedback": "Limiting rows is done with LIMIT, not GROUP BY."},
+      {"answer": "Groups rows with the same values to perform aggregate calculations like COUNT, AVG, MAX", "correct": true, "feedback": "Correct! GROUP BY groups rows with identical values in specified columns, enabling aggregate functions like COUNT(*), AVG(conversion), and MAX(conversion)."},
+      {"answer": "Joins two tables together", "correct": false, "feedback": "Joining tables is done with JOIN clauses, not GROUP BY."}
+    ]
+  }
+]

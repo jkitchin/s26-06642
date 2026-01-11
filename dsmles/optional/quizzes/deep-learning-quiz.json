@@ -1,0 +1,62 @@
+[
+  {
+    "question": "In a neural network, what does each layer compute?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Just the weighted sum of inputs", "correct": false, "feedback": "Close, but incomplete. Each layer computes a weighted sum plus a bias, AND applies an activation function to introduce non-linearity."},
+      {"answer": "activation(W · input + b), where W is the weight matrix and b is the bias", "correct": true, "feedback": "Correct! Each layer applies a linear transformation (W · input + b) followed by a non-linear activation function."},
+      {"answer": "Only the activation function on the raw inputs", "correct": false, "feedback": "Incorrect. The activation function is applied after the linear transformation (weights and biases), not directly to the inputs."},
+      {"answer": "The derivative of the loss function", "correct": false, "feedback": "Incorrect. Derivatives of the loss function are computed during backpropagation for training, not during the forward pass through layers."}
+    ]
+  },
+  {
+    "question": "When is deep learning typically preferred over traditional machine learning methods?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "When working with small tabular datasets (<1000 samples)", "correct": false, "feedback": "Incorrect. Deep learning typically requires large datasets (>10K samples) to train effectively. Small tabular datasets are better suited for traditional ML methods."},
+      {"answer": "When interpretability is the primary goal", "correct": false, "feedback": "Incorrect. Neural networks are often called 'black boxes' because they are difficult to interpret. Traditional methods like decision trees or linear regression are better for interpretability."},
+      {"answer": "When working with large datasets of images, text, or sequences", "correct": true, "feedback": "Correct! Deep learning excels with large datasets (>10K samples) and unstructured data like images, text, and sequences where it can learn complex hierarchical patterns."},
+      {"answer": "When you have limited computational resources", "correct": false, "feedback": "Incorrect. Deep learning is computationally expensive and often requires GPUs. Traditional ML methods are more efficient with limited resources."}
+    ]
+  },
+  {
+    "question": "What is the purpose of an optimizer like Adam in neural network training?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "To define the network architecture", "correct": false, "feedback": "Incorrect. The network architecture is defined by the layers and their connections. The optimizer handles parameter updates during training."},
+      {"answer": "To measure how wrong the predictions are", "correct": false, "feedback": "Incorrect. That's the role of the loss function (like MSELoss). The optimizer uses the gradients from the loss to update weights."},
+      {"answer": "To update the weights and biases based on gradients to minimize the loss", "correct": true, "feedback": "Correct! The optimizer uses the computed gradients to update the network's weights and biases, moving them in a direction that reduces the loss function."},
+      {"answer": "To split data into training and validation sets", "correct": false, "feedback": "Incorrect. Data splitting is typically done before training using tools like train_test_split. The optimizer is used during the training loop."}
+    ]
+  },
+  {
+    "question": "What does the ReLU activation function do?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Returns the input if positive, otherwise returns zero", "correct": true, "feedback": "Correct! ReLU (Rectified Linear Unit) is defined as f(x) = max(0, x). It introduces non-linearity while being computationally efficient."},
+      {"answer": "Squashes all values between 0 and 1", "correct": false, "feedback": "Incorrect. That describes the sigmoid activation function. ReLU returns the input unchanged if positive, and zero otherwise."},
+      {"answer": "Returns the negative of the input", "correct": false, "feedback": "Incorrect. ReLU returns zero for negative inputs and the unchanged input for positive values."},
+      {"answer": "Normalizes the output to have zero mean", "correct": false, "feedback": "Incorrect. Normalization is handled by techniques like batch normalization. ReLU is an element-wise activation that clips negative values to zero."}
+    ]
+  },
+  {
+    "question": "Why do tree-based methods (like XGBoost or Random Forest) often outperform neural networks on tabular data?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Trees are always faster to train", "correct": false, "feedback": "While trees can be faster, this isn't why they perform better. The key advantage is their ability to handle tabular data characteristics effectively."},
+      {"answer": "Trees naturally handle feature interactions, mixed data types, and don't require as much data", "correct": true, "feedback": "Correct! Tree-based methods excel at finding feature splits, handling mixed continuous/categorical data, and performing well with smaller datasets typical in chemical engineering."},
+      {"answer": "Neural networks can't learn non-linear relationships", "correct": false, "feedback": "Incorrect. Neural networks with activation functions can learn highly non-linear relationships. The issue is they need more data and tuning for tabular problems."},
+      {"answer": "Trees have more parameters to optimize", "correct": false, "feedback": "Incorrect. Neural networks typically have far more parameters. Trees work well on tabular data due to their structure, not parameter count."}
+    ]
+  },
+  {
+    "question": "Which of the following is a common sign of overfitting in neural networks?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Training loss and validation loss both decrease together", "correct": false, "feedback": "Incorrect. When both losses decrease together, the model is learning generalizable patterns. This is the desired behavior."},
+      {"answer": "Training loss decreases but validation loss starts increasing", "correct": true, "feedback": "Correct! This divergence indicates the model is memorizing training data rather than learning generalizable patterns. Techniques like dropout, early stopping, or regularization can help."},
+      {"answer": "Both training and validation loss remain constant", "correct": false, "feedback": "Incorrect. This might indicate the model isn't learning at all (underfitting) or has converged, but it's not a sign of overfitting."},
+      {"answer": "The model trains too slowly", "correct": false, "feedback": "Incorrect. Training speed relates to computational efficiency and learning rate, not overfitting. Overfitting is about generalization performance."}
+    ]
+  }
+]
