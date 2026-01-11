@@ -34,3 +34,8 @@ After this course, you might explore:
 - [Pandas documentation](https://pandas.pydata.org/docs/)
 - [pycse book](https://kitchingroup.cheme.cmu.edu/pycse/)
 - [SHAP documentation](https://shap.readthedocs.io/)
+
+## Build Statistics
+
+```{nb-exec-table}
+```
