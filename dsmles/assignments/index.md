@@ -13,17 +13,20 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 | Assignment | Topic | Points |
 |------------|-------|--------|
 | [HW1](hw01-numpy-pandas.ipynb) | NumPy and Pandas Basics | 10 |
-| [HW2](hw02-data-wrangling.ipynb) | Data Wrangling and Visualization | 10 |
-| [HW3](hw03-dimensionality-reduction.ipynb) | Dimensionality Reduction | 10 |
-| [HW4](hw04-linear-regression.ipynb) | Linear Regression | 10 |
-| [HW5](hw05-regularization.ipynb) | Regularization and CV | 10 |
-| [HW6](hw06-nonlinear-methods.ipynb) | Nonlinear Methods | 10 |
-| [HW7](hw07-ensemble-methods.ipynb) | Ensemble Methods | 10 |
-| [HW8](hw08-clustering.ipynb) | Clustering | 10 |
-| [HW9](hw09-uncertainty.ipynb) | Uncertainty Quantification | 10 |
-| [HW10](hw10-interpretability.ipynb) | Model Interpretability | 10 |
+| [HW3](hw03-intermediate-pandas.ipynb) | Intermediate Pandas | 10 |
+| [HW4](hw04-feature-engineering.ipynb) | Feature Engineering | 10 |
+| [HW5](hw05-dimensionality-reduction.ipynb) | Dimensionality Reduction | 10 |
+| [HW6](hw06-linear-regression.ipynb) | Linear Regression | 10 |
+| [HW7](hw07-classification.ipynb) | Classification | 10 |
+| [HW8](hw08-regularization.ipynb) | Regularization and CV | 10 |
+| [HW9](hw09-nonlinear-methods.ipynb) | Nonlinear Methods | 10 |
+| [HW10](hw10-ensemble-methods.ipynb) | Ensemble Methods | 10 |
+| [HW11](hw11-clustering.ipynb) | Clustering | 10 |
+| [HW12](hw12-uncertainty-quantification.ipynb) | Uncertainty Quantification | 10 |
+| [HW13](hw13-model-interpretability.ipynb) | Model Interpretability | 10 |
+| [Project](project.ipynb) | Final Project | 20 |
 
-**Total: 100 points (30% of final grade)**
+**Total: 140 points**
 
 ## Collaboration Policy
 

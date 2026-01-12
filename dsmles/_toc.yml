@@ -66,5 +66,7 @@ parts:
 
   - caption: Reference
     chapters:
+      - file: characters
+      - file: reference-sheet
       - file: execution-statistics
       - file: genindex
