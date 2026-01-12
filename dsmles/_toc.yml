@@ -32,7 +32,8 @@ parts:
 
   - caption: Assignments
     chapters:
-      - file: assignments/hw01-numpy-pandas
+      - file: assignments/hw01-numpy
+      - file: assignments/hw02-pandas-intro
       - file: assignments/hw03-intermediate-pandas
       - file: assignments/hw04-feature-engineering
       - file: assignments/hw05-dimensionality-reduction

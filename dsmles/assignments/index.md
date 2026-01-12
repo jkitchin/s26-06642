@@ -12,7 +12,8 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 
 | Assignment | Topic | Points |
 |------------|-------|--------|
-| [HW1](hw01-numpy-pandas.ipynb) | NumPy and Pandas Basics | 10 |
+| [HW1](hw01-numpy.ipynb) | NumPy Fundamentals | 10 |
+| [HW2](hw02-pandas-intro.ipynb) | Pandas Introduction | 10 |
 | [HW3](hw03-intermediate-pandas.ipynb) | Intermediate Pandas | 10 |
 | [HW4](hw04-feature-engineering.ipynb) | Feature Engineering | 10 |
 | [HW5](hw05-dimensionality-reduction.ipynb) | Dimensionality Reduction | 10 |
@@ -26,7 +27,7 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 | [HW13](hw13-model-interpretability.ipynb) | Model Interpretability | 10 |
 | [Project](project.ipynb) | Final Project | 20 |
 
-**Total: 140 points**
+**Total: 150 points**
 
 ## Collaboration Policy
 
