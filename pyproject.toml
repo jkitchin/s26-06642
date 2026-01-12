@@ -23,6 +23,8 @@ dependencies = [
     # Development tools
     "jupyterlab",
     "jupyter_black",
+    # Quizzes
+    "jupyterquiz",
     # Deployment
     "ghp-import",
 ]
@@ -51,4 +53,5 @@ constraint-dependencies = [
     "llvmlite>=0.43",
     "numba>=0.60",
     "pynndescent>=0.5.13",
+    "numpy<2.4",
 ]

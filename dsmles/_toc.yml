@@ -46,6 +46,24 @@ parts:
       - file: assignments/hw13-model-interpretability
       - file: assignments/project
 
+  - caption: Participation
+    chapters:
+      - file: participation/index
+      - file: participation/participation-00-introduction
+      - file: participation/participation-01-numpy
+      - file: participation/participation-02-pandas-intro
+      - file: participation/participation-03-intermediate-pandas
+      - file: participation/participation-04-feature-engineering
+      - file: participation/participation-05-dimensionality-reduction
+      - file: participation/participation-06-linear-regression
+      - file: participation/participation-07-classification
+      - file: participation/participation-08-regularization
+      - file: participation/participation-09-nonlinear-methods
+      - file: participation/participation-10-ensemble-methods
+      - file: participation/participation-11-clustering
+      - file: participation/participation-12-uncertainty-quantification
+      - file: participation/participation-13-model-interpretability
+
   - caption: Reference
     chapters:
       - file: summary

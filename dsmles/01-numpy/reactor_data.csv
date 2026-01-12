@@ -1,5 +1,4 @@
-# Reactor experiment data
-# Temperature (K), Pressure (atm), Flow Rate (L/min), Conversion (%)
+temperature,pressure,flow_rate,conversion
 350,1.0,2.5,45.2
 375,1.2,2.8,52.1
 400,1.5,3.0,61.8

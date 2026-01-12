@@ -13,6 +13,7 @@ resolution-markers = [
 constraints = [
     { name = "llvmlite", specifier = ">=0.43" },
     { name = "numba", specifier = ">=0.60" },
+    { name = "numpy", specifier = "<2.4" },
     { name = "pynndescent", specifier = ">=0.5.13" },
 ]
 
@@ -1794,6 +1795,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d6/2c/90153f189e421e93c4bb4f9e3f59802a1f01abd2ac5cf40b152d7f735232/jupyterlab_server-2.28.0.tar.gz", hash = "sha256:35baa81898b15f93573e2deca50d11ac0ae407ebb688299d3a5213265033712c", size = 76996, upload-time = "2025-10-22T13:59:18.37Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e0/07/a000fe835f76b7e1143242ab1122e6362ef1c03f23f83a045c38859c2ae0/jupyterlab_server-2.28.0-py3-none-any.whl", hash = "sha256:e4355b148fdcf34d312bbbc80f22467d6d20460e8b8736bf235577dd18506968", size = 59830, upload-time = "2025-10-22T13:59:16.767Z" },
+]
+
+[[package]]
+name = "jupyterquiz"
+version = "2.9.6.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/aa/be/3b7dd52a6642a3412f2e9fc8bd6793626e6c05b78e5bc1e7a8e7f9c74d74/jupyterquiz-2.9.6.2.tar.gz", hash = "sha256:c91b00a4a697dcce0b73e144c62068539ebddb565380e06cdcdfc94920941a31", size = 1262386, upload-time = "2025-05-12T20:48:16.318Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f7/5a/488f492b49b712ca38326e12c78d0d48ab6be682a2989ce533f0f2c4dfd2/jupyterquiz-2.9.6.2-py2.py3-none-any.whl", hash = "sha256:f60f358c809d06a38c423c804740c1113c8840e130227aef50694a9201474bef", size = 25782, upload-time = "2025-05-12T20:48:14.176Z" },
 ]
 
 [[package]]
@@ -3940,6 +3950,7 @@ dependencies = [
     { name = "jupyter-black" },
     { name = "jupyter-book" },
     { name = "jupyterlab" },
+    { name = "jupyterquiz" },
     { name = "matplotlib" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "numpy", version = "2.3.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
@@ -3971,6 +3982,7 @@ requires-dist = [
     { name = "jupyter-black" },
     { name = "jupyter-book", specifier = ">=0.15.0,<2" },
     { name = "jupyterlab" },
+    { name = "jupyterquiz" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "openai", marker = "extra == 'llm'" },
