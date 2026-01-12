@@ -42,11 +42,11 @@ symbolic = [
 ]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
 
-[tool.hatch.build.targets.wheel]
-only-include = []
+[tool.setuptools]
+packages = []
 
 [tool.uv]
 constraint-dependencies = [
