@@ -1,10 +1,12 @@
-# Makefile for running lecture notebooks and building the Jupyter Book
+# Makefile for running notebooks and building the Jupyter Book
 #
 # Usage:
 #   make help          - Show available commands
 #   make all           - Run all lecture notebooks
 #   make run-lectures  - Run all lecture notebooks (same as all)
-#   make run-00        - Run a specific notebook (00-13)
+#   make run-homework  - Run all homework notebooks
+#   make run-00        - Run a specific lecture notebook (00-13)
+#   make hw-01         - Run a specific homework notebook (01-13, project)
 #   make build-book    - Build the Jupyter Book
 #   make clean         - Clean up build artifacts
 
@@ -41,19 +43,45 @@ NOTEBOOK_11 = $(NOTEBOOK_DIR)/11-clustering/clustering.ipynb
 NOTEBOOK_12 = $(NOTEBOOK_DIR)/12-uncertainty-quantification/uncertainty-quantification.ipynb
 NOTEBOOK_13 = $(NOTEBOOK_DIR)/13-model-interpretability/model-interpretability.ipynb
 
-# All notebooks in order
+# All lecture notebooks in order
 ALL_NOTEBOOKS = $(NOTEBOOK_00) $(NOTEBOOK_01) $(NOTEBOOK_02) $(NOTEBOOK_03) \
                 $(NOTEBOOK_04) $(NOTEBOOK_05) $(NOTEBOOK_06) $(NOTEBOOK_07) \
                 $(NOTEBOOK_08) $(NOTEBOOK_09) $(NOTEBOOK_10) $(NOTEBOOK_11) \
                 $(NOTEBOOK_12) $(NOTEBOOK_13)
 
 # =============================================================================
+# Homework notebook paths
+# =============================================================================
+
+HW_DIR = $(NOTEBOOK_DIR)/assignments
+
+HW_01 = $(HW_DIR)/hw01-numpy.ipynb
+HW_02 = $(HW_DIR)/hw02-pandas-intro.ipynb
+HW_03 = $(HW_DIR)/hw03-intermediate-pandas.ipynb
+HW_04 = $(HW_DIR)/hw04-feature-engineering.ipynb
+HW_05 = $(HW_DIR)/hw05-dimensionality-reduction.ipynb
+HW_06 = $(HW_DIR)/hw06-linear-regression.ipynb
+HW_07 = $(HW_DIR)/hw07-classification.ipynb
+HW_08 = $(HW_DIR)/hw08-regularization.ipynb
+HW_09 = $(HW_DIR)/hw09-nonlinear-methods.ipynb
+HW_10 = $(HW_DIR)/hw10-ensemble-methods.ipynb
+HW_11 = $(HW_DIR)/hw11-clustering.ipynb
+HW_12 = $(HW_DIR)/hw12-uncertainty-quantification.ipynb
+HW_13 = $(HW_DIR)/hw13-model-interpretability.ipynb
+HW_PROJECT = $(HW_DIR)/project.ipynb
+
+ALL_HOMEWORK = $(HW_01) $(HW_02) $(HW_03) $(HW_04) $(HW_05) $(HW_06) $(HW_07) \
+               $(HW_08) $(HW_09) $(HW_10) $(HW_11) $(HW_12) $(HW_13) $(HW_PROJECT)
+
+# =============================================================================
 # Phony targets (targets that don't represent files)
 # =============================================================================
 
-.PHONY: all run-lectures help clean build-book sync \
+.PHONY: all run-lectures run-homework help clean build-book sync \
         run-00 run-01 run-02 run-03 run-04 run-05 run-06 run-07 \
-        run-08 run-09 run-10 run-11 run-12 run-13
+        run-08 run-09 run-10 run-11 run-12 run-13 \
+        hw-01 hw-02 hw-03 hw-04 hw-05 hw-06 hw-07 \
+        hw-08 hw-09 hw-10 hw-11 hw-12 hw-13 hw-project
 
 # =============================================================================
 # Main targets
@@ -128,6 +156,71 @@ run-13:
 	$(JUPYTER_EXEC) $(NOTEBOOK_13)
 
 # =============================================================================
+# Homework notebook targets
+# =============================================================================
+
+# Run all homework notebooks
+run-homework: hw-01 hw-02 hw-03 hw-04 hw-05 hw-06 hw-07 \
+              hw-08 hw-09 hw-10 hw-11 hw-12 hw-13 hw-project
+	@echo "All homework notebooks executed successfully!"
+
+hw-01:
+	@echo "Running: $(HW_01)"
+	$(JUPYTER_EXEC) $(HW_01)
+
+hw-02:
+	@echo "Running: $(HW_02)"
+	$(JUPYTER_EXEC) $(HW_02)
+
+hw-03:
+	@echo "Running: $(HW_03)"
+	$(JUPYTER_EXEC) $(HW_03)
+
+hw-04:
+	@echo "Running: $(HW_04)"
+	$(JUPYTER_EXEC) $(HW_04)
+
+hw-05:
+	@echo "Running: $(HW_05)"
+	$(JUPYTER_EXEC) $(HW_05)
+
+hw-06:
+	@echo "Running: $(HW_06)"
+	$(JUPYTER_EXEC) $(HW_06)
+
+hw-07:
+	@echo "Running: $(HW_07)"
+	$(JUPYTER_EXEC) $(HW_07)
+
+hw-08:
+	@echo "Running: $(HW_08)"
+	$(JUPYTER_EXEC) $(HW_08)
+
+hw-09:
+	@echo "Running: $(HW_09)"
+	$(JUPYTER_EXEC) $(HW_09)
+
+hw-10:
+	@echo "Running: $(HW_10)"
+	$(JUPYTER_EXEC) $(HW_10)
+
+hw-11:
+	@echo "Running: $(HW_11)"
+	$(JUPYTER_EXEC) $(HW_11)
+
+hw-12:
+	@echo "Running: $(HW_12)"
+	$(JUPYTER_EXEC) $(HW_12)
+
+hw-13:
+	@echo "Running: $(HW_13)"
+	$(JUPYTER_EXEC) $(HW_13)
+
+hw-project:
+	@echo "Running: $(HW_PROJECT)"
+	$(JUPYTER_EXEC) $(HW_PROJECT)
+
+# =============================================================================
 # Setup targets
 # =============================================================================
 
@@ -176,11 +269,12 @@ help:
 	@echo "Main targets:"
 	@echo "  all           Run all lecture notebooks (default)"
 	@echo "  run-lectures  Run all lecture notebooks"
+	@echo "  run-homework  Run all homework notebooks"
 	@echo "  build-book    Build the Jupyter Book"
 	@echo "  clean         Clean up build artifacts"
 	@echo "  help          Show this help message"
 	@echo ""
-	@echo "Individual notebook targets:"
+	@echo "Lecture notebook targets:"
 	@echo "  run-00        Run 00-introduction/introduction.ipynb"
 	@echo "  run-01        Run 01-numpy/numpy.ipynb"
 	@echo "  run-02        Run 02-pandas-intro/pandas-intro.ipynb"
@@ -195,3 +289,19 @@ help:
 	@echo "  run-11        Run 11-clustering/clustering.ipynb"
 	@echo "  run-12        Run 12-uncertainty-quantification/uncertainty-quantification.ipynb"
 	@echo "  run-13        Run 13-model-interpretability/model-interpretability.ipynb"
+	@echo ""
+	@echo "Homework notebook targets:"
+	@echo "  hw-01         Run hw01-numpy.ipynb"
+	@echo "  hw-02         Run hw02-pandas-intro.ipynb"
+	@echo "  hw-03         Run hw03-intermediate-pandas.ipynb"
+	@echo "  hw-04         Run hw04-feature-engineering.ipynb"
+	@echo "  hw-05         Run hw05-dimensionality-reduction.ipynb"
+	@echo "  hw-06         Run hw06-linear-regression.ipynb"
+	@echo "  hw-07         Run hw07-classification.ipynb"
+	@echo "  hw-08         Run hw08-regularization.ipynb"
+	@echo "  hw-09         Run hw09-nonlinear-methods.ipynb"
+	@echo "  hw-10         Run hw10-ensemble-methods.ipynb"
+	@echo "  hw-11         Run hw11-clustering.ipynb"
+	@echo "  hw-12         Run hw12-uncertainty-quantification.ipynb"
+	@echo "  hw-13         Run hw13-model-interpretability.ipynb"
+	@echo "  hw-project    Run project.ipynb"
