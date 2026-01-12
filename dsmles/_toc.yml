@@ -66,6 +66,5 @@ parts:
 
   - caption: Reference
     chapters:
-      - file: summary
       - file: execution-statistics
       - file: genindex
