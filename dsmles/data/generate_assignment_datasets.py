@@ -24,6 +24,11 @@ print("\n=== hw03-intermediate-pandas ===")
 
 np.random.seed(42)
 n = 200
+yield_vals = np.random.uniform(0.5, 0.9, n)
+# Impurity inversely related to yield (side reactions reduce yield and create impurities)
+impurity_vals = 0.20 - 0.15 * yield_vals + np.random.normal(0, 0.02, n)
+impurity_vals = np.clip(impurity_vals, 0.01, 0.15)  # Keep in reasonable range (1-15%)
+
 batch_data = pd.DataFrame({
     'batch_id': [f'B{i:04d}' for i in range(1, n+1)],
     'reactor': np.random.choice(['R1', 'R2', 'R3'], n),
@@ -32,7 +37,8 @@ batch_data = pd.DataFrame({
     'pressure': np.round(np.random.uniform(1, 5, n), 2),
     'feed_rate': np.round(np.random.uniform(50, 150, n), 1),
     'conversion': np.round(np.random.uniform(0.6, 0.95, n), 3),
-    'yield': np.round(np.random.uniform(0.5, 0.9, n), 3)
+    'yield': np.round(yield_vals, 3),
+    'impurity': np.round(impurity_vals, 3)
 })
 save_csv(batch_data, 'hw03_batch_data.csv')
 
@@ -40,7 +46,7 @@ reactor_specs = pd.DataFrame({
     'reactor': ['R1', 'R2', 'R3'],
     'volume_L': [1000, 1500, 800],
     'max_temp': [500, 480, 520],
-    'commissioned': ['2018-03-15', '2019-07-22', '2020-01-10']
+    'age_years': [8, 7, 6]  # Approximate age as of 2026
 })
 save_csv(reactor_specs, 'hw03_reactor_specs.csv')
 

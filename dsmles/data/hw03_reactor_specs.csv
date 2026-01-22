@@ -1,4 +1,4 @@
-reactor,volume_L,max_temp,commissioned
-R1,1000,500,2018-03-15
-R2,1500,480,2019-07-22
-R3,800,520,2020-01-10
+reactor,volume_L,max_temp,age_years
+R1,1000,500,8
+R2,1500,480,7
+R3,800,520,6
