@@ -49,3 +49,7 @@ PhotoRoster-S26-06642-A3.pdf
 # Generated data files from notebook execution
 *.npy
 *.npz
+
+# Homework solutions (instructor only)
+dsmles/assignments/solutions/
+dsmles/assignments/solutions.zip
