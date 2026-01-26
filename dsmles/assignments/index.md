@@ -10,24 +10,22 @@ Assignments are designed to reinforce lecture material and provide hands-on prac
 
 ## Assignment List
 
-| Assignment | Topic | Points |
-|------------|-------|--------|
-| [HW1](hw01-numpy.ipynb) | NumPy Fundamentals | 10 |
-| [HW2](hw02-pandas-intro.ipynb) | Pandas Introduction | 10 |
-| [HW3](hw03-intermediate-pandas.ipynb) | Intermediate Pandas | 10 |
-| [HW4](hw04-feature-engineering.ipynb) | Feature Engineering | 10 |
-| [HW5](hw05-dimensionality-reduction.ipynb) | Dimensionality Reduction | 10 |
-| [HW6](hw06-linear-regression.ipynb) | Linear Regression | 10 |
-| [HW7](hw07-classification.ipynb) | Classification | 10 |
-| [HW8](hw08-regularization.ipynb) | Regularization and CV | 10 |
-| [HW9](hw09-nonlinear-methods.ipynb) | Nonlinear Methods | 10 |
-| [HW10](hw10-ensemble-methods.ipynb) | Ensemble Methods | 10 |
-| [HW11](hw11-clustering.ipynb) | Clustering | 10 |
-| [HW12](hw12-uncertainty-quantification.ipynb) | Uncertainty Quantification | 10 |
-| [HW13](hw13-model-interpretability.ipynb) | Model Interpretability | 10 |
-| [Project](project.ipynb) | Final Project | 20 |
-
-**Total: 150 points**
+| Assignment | Topic |
+|------------|-------|
+| [HW1](hw01-numpy.ipynb) | NumPy Fundamentals |
+| [HW2](hw02-pandas-intro.ipynb) | Pandas Introduction |
+| [HW3](hw03-intermediate-pandas.ipynb) | Intermediate Pandas |
+| [HW4](hw04-feature-engineering.ipynb) | Feature Engineering |
+| [HW5](hw05-dimensionality-reduction.ipynb) | Dimensionality Reduction |
+| [HW6](hw06-linear-regression.ipynb) | Linear Regression |
+| [HW7](hw07-classification.ipynb) | Classification |
+| [HW8](hw08-regularization.ipynb) | Regularization and CV |
+| [HW9](hw09-nonlinear-methods.ipynb) | Nonlinear Methods |
+| [HW10](hw10-ensemble-methods.ipynb) | Ensemble Methods |
+| [HW11](hw11-clustering.ipynb) | Clustering |
+| [HW12](hw12-uncertainty-quantification.ipynb) | Uncertainty Quantification |
+| [HW13](hw13-model-interpretability.ipynb) | Model Interpretability |
+| [Project](project.ipynb) | Final Project |
 
 ## Collaboration Policy
 
