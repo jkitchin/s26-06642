@@ -46,6 +46,11 @@ parts:
       - file: assignments/hw12-uncertainty-quantification
       - file: assignments/hw13-model-interpretability
       - file: assignments/project
+        sections:
+          - file: assignments/project-proposal
+          - file: assignments/project-checkin
+          - file: assignments/project-report
+          - file: assignments/project-presentation
 
   - caption: Participation
     chapters:
