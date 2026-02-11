@@ -1,0 +1,72 @@
+[
+  {
+    "question": "You train an MLPRegressor with hidden_layer_sizes=(5,) on a complex chemical engineering dataset and get poor R-squared. What should you try first?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Increase the network size (e.g., hidden_layer_sizes=(100, 50))", "correct": true, "feedback": "Correct! A single layer of 5 neurons is likely too small to capture complex nonlinear relationships. Increasing the network capacity is a reasonable first step."},
+      {"answer": "Switch to a linear regression model", "correct": false, "feedback": "If you're using a neural network, it's likely because you suspect nonlinearity. Going back to linear regression wouldn't help."},
+      {"answer": "Remove feature scaling from the pipeline", "correct": false, "feedback": "Removing scaling would likely make performance worse, not better. Neural networks are sensitive to feature scales."},
+      {"answer": "Set max_iter=10 to prevent overfitting", "correct": false, "feedback": "Reducing max_iter drastically would prevent the network from converging, not help it learn better."}
+    ]
+  },
+  {
+    "question": "Why is feature scaling (e.g., StandardScaler) essential when using MLPRegressor?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It makes the model more interpretable", "correct": false, "feedback": "Neural networks are not very interpretable regardless of scaling. Scaling is about optimization, not interpretability."},
+      {"answer": "Neural networks use gradient-based optimization, which is sensitive to feature magnitudes", "correct": true, "feedback": "Correct! Gradient descent converges much faster and more reliably when features are on similar scales. Without scaling, features with large values dominate the gradients and training becomes unstable."},
+      {"answer": "It reduces the number of features", "correct": false, "feedback": "StandardScaler transforms features but doesn't reduce their number. Dimensionality reduction is a different technique."},
+      {"answer": "Scikit-learn requires it and will raise an error otherwise", "correct": false, "feedback": "Scikit-learn won't raise an error, but it will issue a ConvergenceWarning if the model fails to converge, which is common without scaling."}
+    ]
+  },
+  {
+    "question": "What is the main advantage of RandomizedSearchCV over GridSearchCV?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It always finds the optimal hyperparameters", "correct": false, "feedback": "RandomizedSearchCV samples randomly and may miss the true optimum. The advantage is efficiency, not guaranteed optimality."},
+      {"answer": "It can explore a larger hyperparameter space in the same computational budget", "correct": true, "feedback": "Correct! By sampling randomly instead of exhaustively, RandomizedSearchCV can cover more of the hyperparameter space. With many parameters, grid search suffers from the curse of dimensionality while random search maintains good coverage."},
+      {"answer": "It doesn't require cross-validation", "correct": false, "feedback": "RandomizedSearchCV still uses cross-validation internally to evaluate each parameter combination."},
+      {"answer": "It only works with neural networks", "correct": false, "feedback": "RandomizedSearchCV works with any scikit-learn estimator, not just neural networks."}
+    ]
+  },
+  {
+    "question": "What is the purpose of using RepeatedKFold instead of regular KFold cross-validation?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It trains the model multiple times to improve its accuracy", "correct": false, "feedback": "RepeatedKFold doesn't improve the model itself. It provides a more reliable estimate of model performance by repeating the CV process with different random splits."},
+      {"answer": "It reduces the variance of the cross-validation score estimate by repeating with different splits", "correct": true, "feedback": "Correct! A single K-fold split can give different scores depending on how the data was partitioned. Repeating with different random splits and averaging gives a more stable and reliable performance estimate."},
+      {"answer": "It prevents overfitting by using more training data", "correct": false, "feedback": "The amount of training data per fold doesn't change. RepeatedKFold provides better score estimates, not better models."},
+      {"answer": "It is required when the dataset has fewer than 100 samples", "correct": false, "feedback": "While RepeatedKFold is especially useful for small datasets (where fold composition matters more), it's not strictly required for any dataset size."}
+    ]
+  },
+  {
+    "question": "Which nonlinear method does NOT require feature scaling as a preprocessing step?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "MLPRegressor (neural network)", "correct": false, "feedback": "Neural networks use gradient-based optimization and are very sensitive to feature scales. Always scale features for MLPRegressor."},
+      {"answer": "SVR with RBF kernel", "correct": false, "feedback": "SVR kernels compute distances between points, so features with larger scales would dominate. Scaling is essential for SVR."},
+      {"answer": "Random Forest", "correct": true, "feedback": "Correct! Random Forests make splits based on thresholds for individual features, so the absolute scale doesn't matter. A split at temperature > 350 works the same regardless of whether temperature is in Kelvin or Celsius."},
+      {"answer": "Polynomial features + Ridge regression", "correct": false, "feedback": "When using polynomial features with regularization, scaling is important because the regularization penalty is sensitive to coefficient magnitudes."}
+    ]
+  },
+  {
+    "question": "When using RandomizedSearchCV with scipy.stats.loguniform(1e-4, 1e-1) for the alpha parameter, what does this distribution accomplish?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "It samples alpha values uniformly between 0.0001 and 0.1", "correct": false, "feedback": "A uniform distribution would oversample large values. Most samples would be between 0.05 and 0.1, missing the important small values."},
+      {"answer": "It samples alpha values so that each order of magnitude gets equal probability", "correct": true, "feedback": "Correct! Log-uniform sampling gives equal probability to each decade: 0.0001-0.001, 0.001-0.01, and 0.01-0.1 each get roughly 1/3 of the samples. This is ideal for hyperparameters that vary over orders of magnitude."},
+      {"answer": "It always selects the smallest alpha value", "correct": false, "feedback": "loguniform is a probability distribution that samples across the range, not a function that selects a specific value."},
+      {"answer": "It converts the alpha parameter to log scale before fitting", "correct": false, "feedback": "loguniform defines a sampling distribution for RandomizedSearchCV. It doesn't transform the parameter during model fitting."}
+    ]
+  },
+  {
+    "question": "You compare five models on a chemical engineering dataset. The neural network achieves the highest test R-squared but takes 10x longer to train than Random Forest, which is a close second. What is the most practical recommendation?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Always use the neural network since it has the best score", "correct": false, "feedback": "The 'best' model depends on the context. A small accuracy gain may not justify a large increase in training time, especially if you need to retune frequently."},
+      {"answer": "Always use the fastest model regardless of accuracy", "correct": false, "feedback": "Speed matters, but accuracy matters too. The decision depends on the specific tradeoffs and application requirements."},
+      {"answer": "Consider the accuracy-complexity tradeoff: if the difference is small, the simpler/faster model may be preferred", "correct": true, "feedback": "Correct! In practice, a model that's almost as accurate but much faster to train, tune, and deploy is often the better choice. The small accuracy difference may also be within the noise of the CV estimate."},
+      {"answer": "Combine both models into an ensemble", "correct": false, "feedback": "While ensembling is sometimes useful, it adds complexity. The question is about choosing between models, and the practical answer is to weigh accuracy against complexity."}
+    ]
+  }
+]

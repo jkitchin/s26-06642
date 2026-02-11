@@ -18,6 +18,8 @@ parts:
       - file: 07-classification/classification
       - file: 08-regularization-model-selection/regularization-model-selection
       - file: 09-nonlinear-methods/nonlinear-methods
+        sections:
+          - file: 09-nonlinear-methods/neural-networks-hyperparameter-tuning
       - file: 10-ensemble-methods/ensemble-methods
       - file: 11-clustering/clustering
       - file: 12-uncertainty-quantification/uncertainty-quantification
