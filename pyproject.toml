@@ -29,6 +29,7 @@ dependencies = [
     "jupyterquiz",
     # Deployment
     "ghp-import",
+    "uncertainties>=3.2.3",
 ]
 
 [project.optional-dependencies]
