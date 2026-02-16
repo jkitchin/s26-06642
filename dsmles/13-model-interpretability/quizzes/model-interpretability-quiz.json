@@ -78,5 +78,15 @@
       {"answer": "Local explanations are computed locally on your machine, global explanations require cloud computing", "correct": false, "feedback": "Local and global refer to the scope of explanation (individual vs overall), not where computation happens."},
       {"answer": "Global explanations work for all model types, local explanations only work for tree-based models", "correct": false, "feedback": "Both local and global explanations can be computed for many model types using SHAP. The distinction is about scope: explaining overall patterns vs individual predictions."}
     ]
+  },
+  {
+    "question": "What is the key advantage of symbolic regression over post-hoc explanation methods like SHAP?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "Symbolic regression always achieves higher accuracy than tree-based models", "correct": false, "feedback": "Symbolic regression often trades some accuracy for interpretability. Its advantage is transparency, not necessarily higher accuracy."},
+      {"answer": "It produces an inherently interpretable algebraic model — no separate explanation method is needed", "correct": true, "feedback": "Correct! Symbolic regression discovers a human-readable equation that IS the model. You can read it, analyze it with calculus, and embed it in simple systems — no SHAP or other post-hoc explanation required."},
+      {"answer": "It runs faster than Random Forest or XGBoost on large datasets", "correct": false, "feedback": "Speed is not the key advantage. Symbolic regression can actually be slower to fit. The advantage is that the resulting model is a transparent algebraic expression."},
+      {"answer": "It automatically selects the best hyperparameters for tree-based models", "correct": false, "feedback": "Symbolic regression is a different modeling approach entirely — it discovers algebraic equations, not tree-based models."}
+    ]
   }
 ]

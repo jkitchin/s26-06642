@@ -14,6 +14,8 @@ dependencies = [
     "pycse",
     # Model interpretability
     "shap",
+    # Symbolic regression
+    "jaxsr",
     # Gradient boosting
     "xgboost",
     # Dimensionality reduction
