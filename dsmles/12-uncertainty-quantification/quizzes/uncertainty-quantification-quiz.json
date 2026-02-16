@@ -78,5 +78,35 @@
       {"answer": "A prediction without uncertainty or confidence limits", "correct": true, "feedback": "Correct! The lecture emphasizes that 'a prediction without uncertainty is incomplete.' When you report 'conversion = 75%' without uncertainty, you're implicitly claiming infinite precision. Better: 'conversion = 75 plus or minus 5%'."},
       {"answer": "A prediction that only covers part of the input space", "correct": false, "feedback": "While coverage matters, the key point is about reporting uncertainty with any prediction."}
     ]
+  },
+  {
+    "question": "What does it mean for an uncertainty model to be 'well-calibrated'?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "The model has been trained on a large dataset", "correct": false, "feedback": "Dataset size doesn't determine calibration. A model can be well-calibrated with small data or poorly calibrated with large data."},
+      {"answer": "The predicted confidence intervals contain the expected fraction of true values (e.g., a 95% CI contains ~95% of observations)", "correct": true, "feedback": "Correct! Calibration means the predicted uncertainty matches reality. If a model says '95% confidence,' about 95% of true values should fall within that interval. If only 70% do, the model is overconfident."},
+      {"answer": "The model's predictions have zero bias", "correct": false, "feedback": "Zero bias is about accuracy, not calibration. A model can have biased predictions but well-calibrated uncertainty (or vice versa)."},
+      {"answer": "The model uses the correct kernel function", "correct": false, "feedback": "Kernel selection matters for GPs specifically, but calibration is a general concept about whether uncertainty estimates match reality."}
+    ]
+  },
+  {
+    "question": "What is the trade-off between calibration and sharpness in uncertainty quantification?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "You can achieve perfect calibration with infinitely wide intervals, but that's useless—the goal is to be sharp AND well-calibrated", "correct": true, "feedback": "Correct! Making intervals wider always improves coverage (calibration), but overly wide intervals provide no useful information. The ideal UQ model has intervals that are as narrow as possible while still matching the expected coverage."},
+      {"answer": "Sharper predictions are always better regardless of calibration", "correct": false, "feedback": "Sharp but poorly calibrated predictions are overconfident and dangerous for engineering decisions."},
+      {"answer": "Calibration and sharpness are independent and don't affect each other", "correct": false, "feedback": "They are closely related—widening intervals improves calibration but hurts sharpness."},
+      {"answer": "You must choose either calibration or sharpness; you can't have both", "correct": false, "feedback": "A well-designed UQ model can achieve both. The goal is to be sharp and well-calibrated simultaneously."}
+    ]
+  },
+  {
+    "question": "Why might you use LinearRegressionUQ instead of pycse.regress directly?",
+    "type": "multiple_choice",
+    "answers": [
+      {"answer": "LinearRegressionUQ is more accurate than regress", "correct": false, "feedback": "They produce identical results—LinearRegressionUQ wraps regress internally."},
+      {"answer": "LinearRegressionUQ follows the sklearn API, enabling use in pipelines, cross-validation, and other sklearn tools", "correct": true, "feedback": "Correct! LinearRegressionUQ gives you the same uncertainty quantification as regress, but in an sklearn-compatible interface with fit/predict methods. This lets you use it with cross_val_score, GridSearchCV, Pipeline, and other sklearn tools."},
+      {"answer": "LinearRegressionUQ handles nonlinear models", "correct": false, "feedback": "LinearRegressionUQ is for linear models only, just like regress."},
+      {"answer": "LinearRegressionUQ doesn't require numpy arrays", "correct": false, "feedback": "Both functions work with numpy arrays."}
+    ]
   }
 ]
